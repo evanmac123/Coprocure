@@ -2,14 +2,18 @@ import 'whatwg-fetch'
 
 document.getElementById('submit-search').addEventListener('click',function(e) {
   e.preventDefault();
-  getResults();
+  getResults(false);
 })
 
-function getResults() {
+function getResults(limit) {
+  let query = '';
+  if(limit) {
+    query = 'kcrpc%20and%20';
+  }
   //let fields = 'title,expiration,effective,suppliers,authoring_agency_type,membership_required,contract_files,buyer_name_individual,buyer_email_individual,buyer_phone_individual,payment_instructions,termination_conditions,conflicts_of_interes_language,vendor_info,pricing,vendor_insurance_requirements'
   //console.log(fields)
-  let searchUrl = 'https://cz73hfbh8e.execute-api.us-east-1.amazonaws.com/stage?q=kcrpc%20and%20'+document.querySelector('input[name="query"]').value; //+'&return='+fields;
-  
+  //let searchUrl = 'https://cz73hfbh8e.execute-api.us-east-1.amazonaws.com/stage?q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
+  let searchUrl = 'https://9957n2ojug.execute-api.us-west-1.amazonaws.com/stage?q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
   fetch(searchUrl)
   .then(
     function(response) {
@@ -66,8 +70,20 @@ function displayResults(data) {
         ${new Date(result.fields.expiration).toLocaleDateString()}
       </span>
       <span class="contract-agency">${result.fields.authoring_agency}</span>
-      <span class="contract-vendor">${result.fields.suppliers.toString()}</span>
-      <span class="contract-state">${result.fields.states[0]}</span>
+      <span class="contract-vendor">${(function() {
+        if(result.fields.suppliers) { 
+          return `${result.fields.suppliers.toString()}`;
+        } else {
+          return '';
+        }
+      })()}</span>
+      <span class="contract-state">${(function() {
+        if(result.fields.states) { 
+          return `${result.fields.states[0]}`;
+        } else {
+          return '';
+        }
+      })()}</span>
       <span class="contract-expand">
         <svg data-hit-id="${result.id}" class="expand-arrow" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <g id="icon/arrow-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -170,4 +186,4 @@ document.querySelector('.search-results').addEventListener('click', function(eve
 });
 
 
-getResults();
+getResults(true);
