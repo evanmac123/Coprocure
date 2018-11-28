@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>icon/arrow-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="icon/arrow-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M20,6.39 L18.594,5 L9.987,13.261 L9.069,12.38 L9.074,12.385 L1.427,5.045 L0,6.414 C2.113,8.443 8.014,14.107 9.987,16 C11.453,14.594 10.024,15.965 20,6.39" id="arrow_down-[#339]" fill="#101010"></path>
+    </g>
+</svg>
