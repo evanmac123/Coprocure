@@ -2,18 +2,18 @@ import 'whatwg-fetch'
 
 document.getElementById('submit-search').addEventListener('click',function(e) {
   e.preventDefault();
-  getResults(false);
+  getResults(false,0);
 })
 
-function getResults(limit) {
+window.getResults = function(limit,start) {
   let query = '';
-  if(limit) {
+  if(limit || document.querySelector('input[name="query"]').value == '') {
     query = 'kcrpc%20and%20';
   }
   //let fields = 'title,expiration,effective,suppliers,authoring_agency_type,membership_required,contract_files,buyer_name_individual,buyer_email_individual,buyer_phone_individual,payment_instructions,termination_conditions,conflicts_of_interes_language,vendor_info,pricing,vendor_insurance_requirements'
   //console.log(fields)
   //let searchUrl = 'https://cz73hfbh8e.execute-api.us-east-1.amazonaws.com/stage?q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
-  let searchUrl = 'https://9957n2ojug.execute-api.us-west-1.amazonaws.com/stage?q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
+  let searchUrl = 'https://9957n2ojug.execute-api.us-west-1.amazonaws.com/stage?start='+start+'&q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
   fetch(searchUrl)
   .then(
     function(response) {
@@ -47,7 +47,10 @@ function displayResults(data) {
       <span class="contract-expand"></span>
     </li>
   ${data.hits.hit.map(function(result) {
-    let contracts = JSON.parse(result.fields.contract_files);
+    let contracts = [];
+    if(result.fields.contract_files) {
+      contracts = JSON.parse(result.fields.contract_files);
+    }
     let amendments = null;
     let pricing = null;
     let bid_tabulation = null;
@@ -64,7 +67,13 @@ function displayResults(data) {
     <li>
       <span class="contract-name">
         <div>${result.fields.title}</div>
-        <div class="summary">${result.fields.summary}</div>
+        <div class="summary">${(function() {
+          if(result.fields.summary) { 
+            return `${result.fields.summary}`;
+          } else {
+            return '';
+          }
+        })()}</div>
       </span>
       <span class="contract-expiration">
         ${new Date(result.fields.expiration).toLocaleDateString()}
@@ -74,7 +83,11 @@ function displayResults(data) {
         if(result.fields.suppliers) { 
           return `${result.fields.suppliers.toString()}`;
         } else {
-          return '';
+          if(result.fields.vendor_info) { 
+            return `${result.fields.vendor_info}`;
+          } else {
+            return '';
+          }
         }
       })()}</span>
       <span class="contract-state">${(function() {
@@ -96,10 +109,16 @@ function displayResults(data) {
       <div class="files">
         <h3>Contract</h3>
         ${contracts.map(function(file) {
-          return `<div class="fileset">
-              <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+          if(file.thumbnails) {
+            return `<div class="fileset">
+            <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+            <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+          </div>`;
+          } else {
+            return `<div class="fileset">
               <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
             </div>`;
+          }
         }).join('\n      ')}
         </div>
       </div>
@@ -124,10 +143,16 @@ function displayResults(data) {
           return `<div class="files">
         <h3>Pricing</h3>
         ${pricing.map(function(file) {
-          return `<div class="fileset">
+          if(file.thumbnails) {
+            return `<div class="fileset">
               <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
               <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
             </div>`;
+          } else {
+            return `<div class="fileset">
+            <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+          </div>`;
+          }
         }).join('\n      ')}
         </div>
       </div>`;
@@ -156,13 +181,28 @@ function displayResults(data) {
     </li>`;
   }).join('\n      ')}
   ${(function() {
+    let startPoint = data.hits.start + 1;
+    let endPoint = 10;
+    if(data.hits.found < 10) {
+      endPoint = data.hits.found;
+    }
     let hitDescription = 'result';
     if(data.hits.found > 1) {
       hitDescription = 'results';
     }
-    return `<li class="result-counter">Showing ${data.hits.found} of ${data.hits.found} ${hitDescription}</li>
+    let moreLink = '';
+    let lessLink = '';
+    if(data.hits.found > startPoint + 10) {
+      moreLink = `<a href="javascript:getResults(false,${data.hits.start + 10});">>></a>`
+    }
+    if(data.hits.start > 0) {
+      lessLink = `<a href="javascript:getResults(false,${data.hits.start - 10});"><<</a>`
+    }
+    return `<li class="result-counter"><span style="margin: 0 20px 0 0;">${lessLink}</span>  Showing ${startPoint} - ${endPoint} of ${data.hits.found} ${hitDescription}  <span style="margin: 0 0 0 20px;">${moreLink}</span></li>
   </ul>`
   }())}`
+
+  // 
   document.querySelector('.search-results').innerHTML = html;
 }
 
@@ -186,4 +226,4 @@ document.querySelector('.search-results').addEventListener('click', function(eve
 });
 
 
-getResults(true);
+getResults(true,0);
