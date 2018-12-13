@@ -5,6 +5,10 @@ document.getElementById('submit-search').addEventListener('click',function(e) {
   getResults(false,0);
 })
 
+var isDate = function(date) {
+  return (new Date(date) !== "Invalid Date") && !isNaN(new Date(date));
+}
+
 window.getResults = function(limit,start) {
   let query = '';
   if(limit) {
@@ -67,10 +71,22 @@ function displayResults(data) {
     <li>
       <span class="contract-name">
         <div>${result.fields.title}</div>
-        <div class="summary">${result.fields.summary}</div>
+        <div class="summary">${(function() {
+          if(result.fields.summary && result.fields.summary != 'undefined') { 
+            return `${result.fields.summary}`;
+          } else {
+            return '';
+          }
+        })()}</div>
       </span>
       <span class="contract-expiration">
-        ${new Date(result.fields.expiration).toLocaleDateString()}
+        ${(function() {
+          if(isDate(result.fields.expiration)) {
+            return new Date(result.fields.expiration).toLocaleDateString();
+          } else {
+            return '';
+          }
+        })()}
       </span>
       <span class="contract-agency">${result.fields.authoring_agency}</span>
       <span class="contract-vendor">${(function() {
@@ -117,11 +133,17 @@ function displayResults(data) {
           return `<div class="files">
         <h3>Amendments</h3>
         ${amendments.map(function(file) {
-          return `<div class="fileset">
-              <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+          if(file.thumbnails) {
+            return `<div class="fileset">
+                <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+                <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+              </div>`;
+            } else {
+              return `<div class="fileset">
               <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
             </div>`;
-        }).join('\n      ')}
+            }
+          }).join('\n      ')}
         </div>
       </div>`;
         } else {
@@ -155,10 +177,16 @@ function displayResults(data) {
           return `<div class="files">
         <h3>Bid Tabulation</h3>
         ${bid_tabulation.map(function(file) {
-          return `<div class="fileset">
-              <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+          if(file.thumbnails) {
+            return `<div class="fileset">
+                <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+                <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+              </div>`;
+          } else {
+            return `<div class="fileset">
               <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
             </div>`;
+          }
         }).join('\n      ')}
         </div>
       </div>`;
@@ -172,7 +200,7 @@ function displayResults(data) {
   }).join('\n      ')}
   ${(function() {
     let startPoint = data.hits.start + 1;
-    let endPoint = 10;
+    let endPoint = startPoint + 9;
     if(data.hits.found < 10) {
       endPoint = data.hits.found;
     }
