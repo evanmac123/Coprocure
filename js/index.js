@@ -1,7 +1,10 @@
-import 'whatwg-fetch'
+import 'whatwg-fetch';
+import 'nodelist-foreach-polyfill';
 
 document.getElementById('submit-search').addEventListener('click',function(e) {
   e.preventDefault();
+  window.highlightItem = '';
+  window.reverseSort = '';
   getResults(false,0);
 })
 
@@ -9,15 +12,16 @@ var isDate = function(date) {
   return (new Date(date) !== "Invalid Date") && !isNaN(new Date(date));
 }
 
+window.currentSort = '';
+let limit = false;
+
 window.getResults = function(limit,start) {
   let query = '';
   if(limit || document.querySelector('input[name="query"]').value == '') {
     query = 'kcrpc%20and%20';
   }
-  //let fields = 'title,expiration,effective,suppliers,authoring_agency_type,membership_required,contract_files,buyer_name_individual,buyer_email_individual,buyer_phone_individual,payment_instructions,termination_conditions,conflicts_of_interes_language,vendor_info,pricing,vendor_insurance_requirements'
-  //console.log(fields)
   //let searchUrl = 'https://cz73hfbh8e.execute-api.us-east-1.amazonaws.com/stage?q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
-  let searchUrl = 'https://9957n2ojug.execute-api.us-west-1.amazonaws.com/stage?start='+start+'&q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
+  let searchUrl = 'https://nhhu21hyj1.execute-api.us-west-1.amazonaws.com/prod?start='+start+'&q='+query+document.querySelector('input[name="query"]').value + window.currentSort; //+'&return='+fields;
   fetch(searchUrl)
   .then(
     function(response) {
@@ -29,7 +33,6 @@ window.getResults = function(limit,start) {
 
       // Examine the text in the response
       response.json().then(function(data) {
-        console.log(data);
         displayResults(data);
       });
     }
@@ -43,9 +46,17 @@ function displayResults(data) {
   let html = `
   <ul class="results-list">
     <li class="header">
-      <span class="contract-name">Contract name</span>
-      <span class="contract-expiration">Expiration</span>
-      <span class="contract-agency">Lead agency</span>
+      <span class="contract-name js-sortable">
+        Contract name 
+        <svg class="icon icon-caret icon-caret--down" id="icon--dropdown-carrot" viewBox="0 0 9.7667 6.7638" ><title>Dropdown Caret</title><path d="M5.5819,6.4285,9.5683,1.4552A.8953.8953,0,0,0,8.87,0H.8969A.8953.8953,0,0,0,.1984,1.4552L4.1848,6.4285A.8953.8953,0,0,0,5.5819,6.4285Z"></path></svg>
+      </span>
+      <span class="contract-expiration js-sortable">
+        Expiration 
+        <svg class="icon icon-caret icon-caret--down" id="icon--dropdown-carrot" viewBox="0 0 9.7667 6.7638" ><title>Dropdown Caret</title><path d="M5.5819,6.4285,9.5683,1.4552A.8953.8953,0,0,0,8.87,0H.8969A.8953.8953,0,0,0,.1984,1.4552L4.1848,6.4285A.8953.8953,0,0,0,5.5819,6.4285Z"></path></svg>
+      </span>
+      <span class="contract-agency js-sortable">
+        Lead agency
+      </span>
       <span class="contract-vendor">Vendor</span>
       <span class="contract-state">State</span>
       <span class="contract-expand"></span>
@@ -88,13 +99,20 @@ function displayResults(data) {
           }
         })()}
       </span>
-      <span class="contract-agency">${result.fields.authoring_agency}</span>
+      <span class="contract-agency">${(function() {
+        if(result.fields.buyer) { 
+          return `${result.fields.buyer}`;
+        } else {
+          return '';
+        }
+      })()}
+      </span>
       <span class="contract-vendor">${(function() {
-        if(result.fields.suppliers) { 
-          return `${result.fields.suppliers.toString()}`;
+        if(result.fields.vendor) { 
+          return `${result.fields.vendor.toString()}`;
         } else {
           if(result.fields.vendor_info) { 
-            return `${result.fields.vendor_info}`;
+            return `${result.fields.vendor_info.replace('undefined','')}`;
           } else {
             return '';
           }
@@ -102,7 +120,7 @@ function displayResults(data) {
       })()}</span>
       <span class="contract-state">${(function() {
         if(result.fields.states) { 
-          return `${result.fields.states[0]}`;
+          return `${result.fields.states}`;
         } else {
           return '';
         }
@@ -224,17 +242,92 @@ function displayResults(data) {
   </ul>`
   }())}`
 
-  // 
   document.querySelector('.search-results').innerHTML = html;
+  if(window.highlightItem) {
+    document.querySelector(window.highlightItem).classList.add('highlit');
+    if(window.reverseSort) {
+      document.querySelector('.'+window.reverseSort).classList.add('reverse');
+    }
+  }
+}
+
+function checkParents(event, targetClass) {
+  let targetNode = event.target;
+  if(event.target.classList && event.target.classList.contains(targetClass)) {
+    return targetNode;
+  }
+  while(targetNode.parentNode) {
+    targetNode = targetNode.parentNode;
+    if(targetNode.classList) {
+      if(targetNode.classList.contains(targetClass)) {
+        return targetNode;
+      }
+    }
+  }
+  return false;
+}
+
+function sortHighlights() {
+  document.querySelectorAll('.js-sortable').forEach(function(item) {
+    item.classList.remove('highlit');
+  })
 }
 
 document.querySelector('.search-results').addEventListener('click', function(event) {
   let item = '';
-  if(event.target.classList.contains('expand-arrow')) {
+  if(event.target.classList && event.target.classList.contains('expand-arrow')) {
     item = event.target;
   }
-  if(event.target.parentNode.parentNode.classList.contains('expand-arrow')) {
+  if(event.target.parentNode.parentNode.classList && event.target.parentNode.parentNode.classList.contains('expand-arrow')) {
     item = event.target.parentNode.parentNode;
+  }
+  let sortableNode = checkParents(event,'js-sortable');
+  if(sortableNode) {
+    if(document.querySelector('input[name="query"]').value != '') {
+      limit = false;
+    }
+    if(sortableNode.classList.contains('contract-name')) {
+      window.currentSort = '&sort=title%20asc';
+      if(window.highlightItem == '.contract-name') {
+        if(sortableNode.classList.contains('reverse')) {
+          window.reverseSort = '';
+          window.currentSort = '&sort=title%20asc';
+        } else {
+          window.currentSort = '&sort=title%20desc';
+          window.reverseSort = 'contract-name';
+        }
+      }
+      window.highlightItem = '.contract-name';
+    }
+    if(sortableNode.classList.contains('contract-expiration')) {
+      window.currentSort = '&sort=expiration%20asc';
+      if(window.highlightItem == '.contract-expiration') {
+        if(sortableNode.classList.contains('reverse')) {
+          window.reverseSort = '';
+          window.currentSort = '&sort=expiration%20asc';
+        } else {
+          window.currentSort = '&sort=expiration%20desc';
+          window.reverseSort = 'contract-expiration';
+        }
+      }
+      window.highlightItem = '.contract-expiration';
+    }
+    if(sortableNode.classList.contains('contract-agency')) {
+      window.currentSort = '&sort=buyer%20asc';
+      if(window.highlightItem == '.contract-agency') {
+        if(sortableNode.classList.contains('reverse')) {
+          window.reverseSort = '';
+          window.currentSort = '&sort=buyer%20asc';
+        } else {
+          window.currentSort = '&sort=buyer%20desc';
+          window.reverseSort = 'contract-agency';
+        }
+      }
+      window.highlightItem = '.contract-agency';
+    }
+    sortHighlights();
+    sortableNode.classList.add('highlit');
+    getResults(limit,0);
   }
   if(item) {
     item.classList.toggle('flipped')
@@ -247,5 +340,7 @@ document.querySelector('.search-results').addEventListener('click', function(eve
   }
 });
 
-
-getResults(true,0);
+if(window.location.pathname.indexOf('kcrpc') > -1) {
+  limit = true;
+  getResults(true,0);
+}

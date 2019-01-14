@@ -11,11 +11,6 @@
   body, form, input, button, div, span {
     box-sizing: border-box;
   }
-  .logo {
-    margin: 180px auto 0;
-    width: 300px;
-    display: block;
-  }
   .search-form {
     width: 700px;
     margin: 20px auto;
@@ -125,6 +120,36 @@
   .expand-arrow.flipped {
     transform: rotateX(180deg);
   }
+
+  /* cobrand unique styles */
+  .logo {
+    margin: 80px auto 0;
+    width: 209px;
+    display: block;
+    height: 113px;
+    overflow: hidden;
+  }
+  .cobrand_logo {
+    width: 144px;
+    margin: 13px 0 13px 24px;
+  }
+  header {
+    border-bottom: solid 1px #ccc;
+    height: 60px;
+  }
+  .icon-caret {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    display: inline-block;
+    fill: #ccc;
+  }
+  .highlit .icon-caret {
+    fill: #2456B4;
+  }
+  .highlit.reverse .icon-caret {
+    transform: rotate(180deg);
+  }
   </style>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
@@ -147,7 +172,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
-    <script type="text/javascript" src="../dist/index-universal.js"></script>
+    <script type="text/javascript" src="../dist/index.js"></script>
 
 
 </body>

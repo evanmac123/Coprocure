@@ -27,6 +27,7 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "nodelist-foreach-polyfill": "^1.2.0",
     "whatwg-fetch": "^3.0.0"
   }
 }

@@ -17,7 +17,7 @@ window.getResults = function(limit,start) {
   //let fields = 'title,expiration,effective,suppliers,authoring_agency_type,membership_required,contract_files,buyer_name_individual,buyer_email_individual,buyer_phone_individual,payment_instructions,termination_conditions,conflicts_of_interes_language,vendor_info,pricing,vendor_insurance_requirements'
   //console.log(fields)
   //let searchUrl = 'https://cz73hfbh8e.execute-api.us-east-1.amazonaws.com/stage?q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
-  let searchUrl = 'https://9957n2ojug.execute-api.us-west-1.amazonaws.com/stage?start='+start+'&q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
+  let searchUrl = 'https://nhhu21hyj1.execute-api.us-west-1.amazonaws.com/prod?start='+start+'&q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
   fetch(searchUrl)
   .then(
     function(response) {
