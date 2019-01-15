@@ -69,6 +69,8 @@ function displayResults(data) {
     let amendments = null;
     let pricing = null;
     let bid_tabulation = null;
+    let bid_solicitation = null;
+    let other_docs = null;
     if(result.fields.amendments_files) {
       amendments = JSON.parse(result.fields.amendments_files);
     }
@@ -77,6 +79,12 @@ function displayResults(data) {
     }
     if(result.fields.bid_tabulation_files) {
       bid_tabulation = JSON.parse(result.fields.bid_tabulation_files);
+    }
+    if(result.fields.bid_solicitation_files) {
+      bid_solicitation = JSON.parse(result.fields.bid_solicitation_files);
+    }
+    if(result.fields.other_docs_files) {
+      other_docs = JSON.parse(result.fields.other_docs_files);
     }
     return `
     <li>
@@ -148,15 +156,35 @@ function displayResults(data) {
             </div>`;
           }
         }).join('\n      ')}
-        </div>
       </div>
       ${(function() {
         if(amendments) {
           return `<div class="files">
-        <h3>Amendments</h3>
-        ${amendments.map(function(file) {
-          if(file.thumbnails) {
-            return `<div class="fileset">
+          <h3>Amendments</h3>
+          ${amendments.map(function(file) {
+            if(file.thumbnails) {
+              return `<div class="fileset">
+                  <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+                  <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+                </div>`;
+              } else {
+                return `<div class="fileset">
+                <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+              </div>`;
+              }
+            }).join('\n      ')}
+          </div>`;
+        } else {
+          return '';
+        }
+      })()}
+      ${(function() {
+        if(pricing) {
+          return `<div class="files">
+          <h3>Pricing</h3>
+          ${pricing.map(function(file) {
+            if(file.thumbnails) {
+              return `<div class="fileset">
                 <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
                 <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
               </div>`;
@@ -165,31 +193,8 @@ function displayResults(data) {
               <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
             </div>`;
             }
-        }).join('\n      ')}
-        </div>
-      </div>`;
-        } else {
-          return '';
-        }
-      })()}
-      ${(function() {
-        if(pricing) {
-          return `<div class="files">
-        <h3>Pricing</h3>
-        ${pricing.map(function(file) {
-          if(file.thumbnails) {
-            return `<div class="fileset">
-              <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
-              <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
-            </div>`;
-          } else {
-            return `<div class="fileset">
-            <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+          }).join('\n      ')}
           </div>`;
-          }
-        }).join('\n      ')}
-        </div>
-      </div>`;
         } else {
           return '';
         }
@@ -197,21 +202,62 @@ function displayResults(data) {
       ${(function() {
         if(bid_tabulation) {
           return `<div class="files">
-        <h3>Bid Tabulation</h3>
-        ${bid_tabulation.map(function(file) {
-          if(file.thumbnails) {
-            return `<div class="fileset">
-                <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+          <h3>Bid Tabulation</h3>
+          ${bid_tabulation.map(function(file) {
+            if(file.thumbnails) {
+              return `<div class="fileset">
+                  <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+                  <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+                </div>`;
+            } else {
+              return `<div class="fileset">
                 <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
               </div>`;
-          } else {
-            return `<div class="fileset">
-              <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
-            </div>`;
-          }
-        }).join('\n      ')}
-        </div>
-      </div>`;
+            }
+          }).join('\n      ')}
+          </div>`;
+        } else {
+          return '';
+        }
+      })()}
+      ${(function() {
+        if(bid_solicitation) {
+          return `<div class="files">
+          <h3>Bid Solicitation</h3>
+          ${bid_solicitation.map(function(file) {
+            if(file.thumbnails) {
+              return `<div class="fileset">
+                  <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+                  <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+                </div>`;
+            } else {
+              return `<div class="fileset">
+                <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+              </div>`;
+            }
+          }).join('\n      ')}
+          </div>`;
+        } else {
+          return '';
+        }
+      })()}
+      ${(function() {
+        if(other_docs) {
+          return `<div class="files">
+          <h3>Other Documents</h3>
+          ${other_docs.map(function(file) {
+            if(file.thumbnails) {
+              return `<div class="fileset">
+                  <a href="${file.url}" target="_new"><img src="${file.thumbnails.large.url}" /></a>
+                  <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+                </div>`;
+            } else {
+              return `<div class="fileset">
+                <a href="${file.url}" target="_new" class="file-name-link">${file.filename}</a>
+              </div>`;
+            }
+          }).join('\n      ')}
+          </div>`;
         } else {
           return '';
         }

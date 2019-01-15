@@ -240,6 +240,24 @@ footer a svg {
   font-size: 15px;
   color: #2960AE;
 }
+.waitlist {
+  max-width: 300px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+.waitlist label {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+.waitlist label input {
+  margin-left: 10px;
+  font-size: 15px;
+}
+.waitlist .demo-please {
+  margin: 20px auto;
+}
 @media (max-width: 950px) { 
   .backgrounder {
     top: -60px;
