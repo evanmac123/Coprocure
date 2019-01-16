@@ -139,9 +139,6 @@ li.iconic {
   display: flex;
   align-items: center;
 }
-.details h2 {
-  color: #2960AE
-}
 
 .interior {
   margin: 0 auto;
@@ -314,10 +311,16 @@ footer a svg {
     left: auto;
     margin: 10px 0;
   }
+  .details .split-sections span.details-profile {
+    width: 90%;
+  }
   footer {
     flex-direction: column;
   }
   .built-by {
     margin: 0 0 20px 0;
+  }
+  .waitlist {
+    flex-direction: column;
   }
 }
