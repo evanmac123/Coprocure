@@ -2,6 +2,7 @@ body {
   font-family: 'Palanquin', sans-serif;
   font-size: 18px;
   background-color: #2960AE;
+  color: #434343;
 }
 .mt-20 {
   margin-top: 20px;
@@ -149,6 +150,9 @@ li.iconic {
   min-width: 600px;
   max-width: 900px;
 }
+.demo {
+  color: #fff;
+}
 
 .bullet-number {
   font-size: 20px;
@@ -181,10 +185,15 @@ li.iconic {
 h2.get-in-touch {
   margin: 40px 10% 0 10%;
 }
-.demo .split-sections span {
+.details .split-sections h3 {
+  color: #000;
+  text-align: center;
+  font-size: 1.2em;
+}
+.details .split-sections span {
   position: relative;
 }
-.demo .split-sections span.details-profile {
+.details .split-sections span.details-profile {
   width: 48%;
 }
 .split-sections {
@@ -200,7 +209,7 @@ h2.get-in-touch {
   height: 100px;
   margin: 30px auto;
   display: block;
-  fill: #fff;
+  fill: #434343;
 }
 .demo {
   background-color: #2960AE;
@@ -244,19 +253,22 @@ footer a svg {
   max-width: 300px;
   margin: 20px auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
 }
-.waitlist label {
-  display: flex;
-  justify-content: flex-end;
-  margin: 10px 0;
-}
-.waitlist label input {
-  margin-left: 10px;
-  font-size: 15px;
+.waitlist input {
+  box-sizing: border-box;
+  height: 53px;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-right: 10px;
+  text-indent: 10px;
 }
 .waitlist .demo-please {
   margin: 20px auto;
+}
+.internal.demo-please {
+  margin: 45px auto;
 }
 @media (max-width: 950px) { 
   .backgrounder {
