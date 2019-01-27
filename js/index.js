@@ -20,6 +20,14 @@ window.getResults = function(limit,start) {
   if(limit || document.querySelector('input[name="query"]').value == '') {
     query = 'kcrpc%20and%20';
   }
+  if(document.querySelector('input[name="query"]').value != '') {
+    ga('gtag_UA_121612479_1.send', {
+      hitType: 'event',
+      eventCategory: 'search',
+      eventAction: 'query',
+      eventLabel: document.querySelector('input[name="query"]').value
+    });
+  }
   //let searchUrl = 'https://cz73hfbh8e.execute-api.us-east-1.amazonaws.com/stage?q='+query+document.querySelector('input[name="query"]').value; //+'&return='+fields;
   let searchUrl = 'https://nhhu21hyj1.execute-api.us-west-1.amazonaws.com/prod?start='+start+'&q='+query+document.querySelector('input[name="query"]').value + window.currentSort; //+'&return='+fields;
   fetch(searchUrl)
