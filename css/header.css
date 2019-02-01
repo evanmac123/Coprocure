@@ -1,0 +1,17 @@
+header {
+  background-color: #2960AE;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+header .links {
+  font-size: 16px;
+}
