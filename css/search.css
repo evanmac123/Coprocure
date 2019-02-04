@@ -78,12 +78,24 @@ body, form, input, button, div, span {
 .results-list .contracts {
   display: flex;
   justify-content: space-around;
-  flex-flow: row wrap;
+  flex-flow: row;
   align-items: flex-start;
   background-color: #fafafa;
 }
-.results-list .buttons {
-
+.results-list .all-files {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+.contact-vendor {
+  height: 48px;
+  border: none;
+  background: #2456B4;
+  color: #fff;
+  font-size: 16px;
+  margin: 20px;
+  width: 250px;
 }
 .contracts .fileset {
   display: flex;
@@ -95,6 +107,7 @@ body, form, input, button, div, span {
 }
 .files {
   max-width: 30%;
+  min-width: 20%;
 }
 .file-name-link {
   display: inline-block;
@@ -109,9 +122,10 @@ body, form, input, button, div, span {
 .expandable-contract:hover, .expandable-contract.flipped {
   background-color: #f4f9fe;
 }
-header {
-  border-bottom: solid 1px #ccc;
-  height: 60px;
+.what-is-this {
+  position: absolute;
+  right: 40px;
+  top: 30px;
 }
 .icon-caret {
   width: 15px;
@@ -128,13 +142,14 @@ header {
 }
 .footer-links {
   position: fixed;
-  bottom: 5px;
+  bottom: 0;
   width: 100%;
   font-size: 12px;
   text-align: center;
   margin: 0 auto;
-  height: 20px;
-  background: rgba(255,255,255,0.8);
+  height: 26px;
+  background: rgba(255,255,255,0.9);
+  padding: 5px;
 }
 .footer-links  a {
   margin: 0 20px;
@@ -186,7 +201,7 @@ header {
   display: block;
   margin: 20px 0;
 }
-.modal-dialog form .field-description {
+.field-description {
   font-size: .85em;
   display: block;
   margin: 10px 0;
@@ -196,7 +211,7 @@ header {
   margin: 0;
   height: 48px;
   font-size: 16px;
-  text-indent: 50px;
+  padding: 10px;
 }
 .modal-dialog form button {
   height: 48px;
@@ -211,9 +226,61 @@ header {
   padding: 0 6px 0 0;
 }
 
+.submit-request {
+  border: solid #ccc 1px;
+  padding: 40px;
+  margin: 20px auto 50px;
+  width: 1088px;
+}
+.submit-request h3 {
+  font-size: 1.5em;
+  display: block;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+.submit-request p {
+  text-align: center;
+  max-width: 640px;
+  margin: 25px auto;
+  line-height: 20px;
+}
+.submit-request strong {
+  font-weight: bold;
+}
+.submit-request label {
+  width: 640px;
+  margin: 0 auto;
+  display: block;
+}
+.submit-request input[type="email"] {
+  width: 300px;
+  height: 48px;
+  font-size: 16px;
+  padding: 10px;
+}
+.submit-request textarea {
+  width: 640px;
+  padding: 10px;
+  margin: 0 auto;
+  height: 94px;
+  display: block;
+  border: solid #ccc 1px;
+}
+.submit-request button {
+  display: block;
+  height: 48px;
+  border: none;
+  background: #2456B4;
+  color: #fff;
+  font-size: 16px;
+  margin: 20px auto 0;
+  width: 200px;
+  border-radius: 0;
+}
+
 /* cobrand unique styles */
 .logo {
-  margin: 80px auto 0;
+  margin: 180px auto 0;
   display: block;
   overflow: hidden;
 }

@@ -22,6 +22,10 @@ window.getResults = function(limit,start) {
   }
   if(document.querySelector('input[name="query"]').value != '') {
     trackEvent('search','query',document.querySelector('input[name="query"]').value);
+    // can also handle:
+    // filters
+    // next, prev
+    // 
   }
   let searchUrl = 'https://nhhu21hyj1.execute-api.us-west-1.amazonaws.com/prod?start='+start+'&q='+query+document.querySelector('input[name="query"]').value + window.currentSort; //+'&return='+fields;
   fetch(searchUrl)
@@ -50,7 +54,7 @@ function sortHighlights() {
 
 document.querySelector('.search-results').addEventListener('click', function(event) {
   handleExpansion(event);
-  handleSort(event)
+  handleSort(event);
 });
 
 if(window.location.pathname.indexOf('kcrpc') > -1) {

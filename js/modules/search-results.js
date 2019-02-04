@@ -1,4 +1,5 @@
 import { isDate } from './is-date';
+import { getUser } from './user';
 
 export function displayResults(data) {
   let html = `
@@ -92,85 +93,87 @@ export function displayResults(data) {
       })()}</span>
     </li>
     <li class="contracts" data-hit-id="${result.id}" style="display: none;">
-      <div class="files">
-        <p>Contract</p>
-        ${contracts.map(function(file) {
-          return `<div class="fileset">
-            <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
-          </div>`;
-        }).join('\n      ')}
-      </div>
-      ${(function() {
-        if(amendments) {
-          return `<div class="files">
-            <p>Amendments</p>
-            ${amendments.map(function(file) {
+      <div class="all-files">
+        <div class="files">
+          <p>Contract</p>
+          ${contracts.map(function(file) {
+            return `<div class="fileset">
+              <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+            </div>`;
+          }).join('\n      ')}
+        </div>
+        ${(function() {
+          if(amendments) {
+            return `<div class="files">
+              <p>Amendments</p>
+              ${amendments.map(function(file) {
+                return `<div class="fileset">
+                  <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+                </div>`;
+              }).join('\n      ')}
+            </div>`;
+          } else {
+            return '';
+          }
+        })()}
+        ${(function() {
+          if(pricing) {
+            return `<div class="files">
+            <p>Pricing</p>
+            ${pricing.map(function(file) {
               return `<div class="fileset">
                 <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
               </div>`;
             }).join('\n      ')}
-          </div>`;
-        } else {
-          return '';
-        }
-      })()}
-      ${(function() {
-        if(pricing) {
-          return `<div class="files">
-          <p>Pricing</p>
-          ${pricing.map(function(file) {
-            return `<div class="fileset">
-              <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
             </div>`;
-          }).join('\n      ')}
-          </div>`;
-        } else {
-          return '';
-        }
-      })()}
-      ${(function() {
-        if(bid_tabulation) {
-          return `<div class="files">
-          <p>Bid Tabulation</p>
-          ${bid_tabulation.map(function(file) {
-            return `<div class="fileset">
-              <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+          } else {
+            return '';
+          }
+        })()}
+        ${(function() {
+          if(bid_tabulation) {
+            return `<div class="files">
+            <p>Bid Tabulation</p>
+            ${bid_tabulation.map(function(file) {
+              return `<div class="fileset">
+                <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+              </div>`;
+            }).join('\n      ')}
             </div>`;
-          }).join('\n      ')}
-          </div>`;
-        } else {
-          return '';
-        }
-      })()}
-      ${(function() {
-        if(bid_solicitation) {
-          return `<div class="files">
-          <p>Bid Solicitation</p>
-          ${bid_solicitation.map(function(file) {
-            return `<div class="fileset">
-              <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+          } else {
+            return '';
+          }
+        })()}
+        ${(function() {
+          if(bid_solicitation) {
+            return `<div class="files">
+            <p>Bid Solicitation</p>
+            ${bid_solicitation.map(function(file) {
+              return `<div class="fileset">
+                <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+              </div>`;
+            }).join('\n      ')}
             </div>`;
-          }).join('\n      ')}
-          </div>`;
-        } else {
-          return '';
-        }
-      })()}
-      ${(function() {
-        if(other_docs) {
-          return `<div class="files">
-          <p>Other Documents</p>
-          ${other_docs.map(function(file) {
-            return `<div class="fileset">
-              <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+          } else {
+            return '';
+          }
+        })()}
+        ${(function() {
+          if(other_docs) {
+            return `<div class="files">
+            <p>Other Documents</p>
+            ${other_docs.map(function(file) {
+              return `<div class="fileset">
+                <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+              </div>`;
+            }).join('\n      ')}
             </div>`;
-          }).join('\n      ')}
-          </div>`;
-        } else {
-          return '';
-        }
-      })()}
-
+          } else {
+            return '';
+          }
+        })()}
+      </div>
+      <button class="contact-vendor">Contact Vendor</button>
     </li>`;
   }).join('\n      ')}
   ${(function() {
@@ -186,10 +189,10 @@ export function displayResults(data) {
     let moreLink = '';
     let lessLink = '';
     if(data.hits.found > startPoint + 10) {
-      moreLink = `<a href="javascript:getResults(false,${data.hits.start + 10});">>></a>`
+      moreLink = `<a href="javascript:trackEvent('search','next',${document.querySelector('input[name="query"]').value});getResults(false,${data.hits.start + 10});">>></a>`
     }
     if(data.hits.start > 0) {
-      lessLink = `<a href="javascript:getResults(false,${data.hits.start - 10});"><<</a>`
+      lessLink = `<a href="javascript:trackEvent('search','previous',${document.querySelector('input[name="query"]').value});getResults(false,${data.hits.start - 10});"><<</a>`
     }
     return `<li class="result-counter"><span style="margin: 0 20px 0 0;">${lessLink}</span>  Showing ${startPoint} - ${endPoint} of ${data.hits.found} ${hitDescription}  <span style="margin: 0 0 0 20px;">${moreLink}</span></li>
   </ul>`
@@ -202,5 +205,33 @@ export function displayResults(data) {
       document.querySelector('.'+window.reverseSort).classList.add('reverse');
     }
   }
+  
+  document.querySelector('.submit-request').style.display = 'block';
+  let email = getUser();
+  let emailField = document.querySelector('.submit-request input[name="email"]');
+  if(email) {
+    emailField.value = email;
+    emailField.parentNode.style.display = 'none';
+  }
+  document.querySelector('.submit-request button').addEventListener('click',function(event) {
+    event.preventDefault();
+    let url = 'http://localhost:3333/govpurchase';
+    let email = emailField.value;
+
+    fetch(url, {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ "email": email, "description": document.querySelector('.submit-request textarea').value })
+    }).then(function(response) {
+      return response.text();
+    }).then(function(data) {
+      console.log(data);
+    });
+    document.querySelector('.submit-request').innerHTML = `<h3>Thank you for your request!</h3>`
+    return false;
+
+  })
 }
 

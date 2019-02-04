@@ -1,5 +1,3 @@
-// import { showModal } from './modals';
-
 export function getUser() {
   let user = localStorage.getItem('coProcureUser');
   if(!user) {
@@ -30,13 +28,31 @@ function showModal(modalInfo) {
   document.body.insertAdjacentHTML('beforeend',modalHTML);
   setTimeout(function() {
     document.querySelector('.js-identityModal .modal-dialog').classList.add('show');
-  },50)
+  },50);
 
   document.querySelector('button.add-email').addEventListener('click',function(event) {
     event.preventDefault();
-    // submit form
-    // set user
-    // dismiss modal
+    let url = 'http://localhost:3333/signup';
+    let email = document.querySelector('.modal-dialog form input[name="email"').value;
+
+    fetch(url, {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json",
+      },    
+      body: JSON.stringify({ "email": email })
+    }).then(function(response) {
+      return response.text();
+    }).then(function(data) {
+      console.log(data);
+    });
+    setUser(email);
+    trackEvent('user', 'login', item.dataset.hitId);
+
+    // clear their pasta ctivity and post it
+    
+    document.querySelector('.modal-backdrop').remove();
+    document.querySelector('.js-identityModal').remove();
   })
 
   // you can dismiss this modal but it will close all the expanded contract rows
@@ -45,7 +61,7 @@ function showModal(modalInfo) {
 export function showIdentityModal(contractId) {
   let modalInfo = {
     title: 'Unlock access to thousands of contracts',
-    body: `<p>Enter your government email address to immediately get full access - including contract downloads.</p>
+    body: `<p>Enter your government email address to immediately get full free access - including contract downloads.</p>
       <form method="post" action="">
         <label>
           <span class="field-description">Your email address</span>

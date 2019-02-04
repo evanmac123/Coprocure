@@ -12,13 +12,16 @@ export function handleExpansion(event) {
     } else {
       document.querySelector('.contracts[data-hit-id="'+item.dataset.hitId+'"]').style.display = 'none';
     }
+    trackEvent('contract', 'expand', item.dataset.hitId);
     if(getUser()) {
-      trackEvent('contract', 'expand', item.dataset.hitId);
     } else {
       // if not display modal
-      console.log('need to show modal')
       trackEvent('contract', 'show-login-modal', item.dataset.hitId);
       showIdentityModal(item.dataset.hitId)
     }
+  }
+
+  if(event.target.classList.contains('file-name-link')) {
+    trackEvent('contract', 'download', item.dataset.hitId + ' - ' + event.target.innerText);
   }
 }

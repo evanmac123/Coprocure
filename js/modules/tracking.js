@@ -11,7 +11,10 @@ export function trackEvent(category, action, label) {
     // post to dynamodb
 
     /* types of events
-    search, expand, download, filter, next, previous, login
+    tracked:
+      search, expand, login, next, previous, filter, download, 
+    todo:
+      contact vendor
     */
   }
 }

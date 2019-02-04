@@ -47,6 +47,7 @@ export function handleSort(event) {
     }
     sortHighlights();
     sortableNode.classList.add('highlit');
+    trackEvent('search','sort',window.currentSort);
     getResults(limit,0);
   }
 }

@@ -15,3 +15,27 @@ header {
 header .links {
   font-size: 16px;
 }
+header .logo-white {
+  height: 60px;
+  width: auto;
+}
+header .links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+header .links a {
+  margin-right: 20px;
+}
+button {
+  border: none;
+  background-color: blue;
+  background-color: #008afcff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+header a {
+  color: #fff;
+  text-decoration: none;
+}
