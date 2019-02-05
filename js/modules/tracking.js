@@ -1,4 +1,4 @@
-import { getUser } from './user';
+import { getUser, getLocalActivity, setLocalActivity, postActivity } from './user';
 
 export function trackEvent(category, action, label) {
   ga('gtag_UA_121612479_1.send', {
@@ -9,12 +9,19 @@ export function trackEvent(category, action, label) {
   });
   if(getUser) {
     // post to dynamodb
-
-    /* types of events
-    tracked:
-      search, expand, login, next, previous, filter, download, 
-    todo:
-      contact vendor
-    */
+    postActivity(category, action, label);
+  } else {
+    // put it in localStorage stringified
+    let item = {};
+    item.category = category;
+    item.action = action;
+    item.label = label;
+    if(getLocalActivity()) {
+      data = JSON.parse(getLocalActivity());
+    } else {
+      data = [];
+    }
+    data.push(item)
+    setLocalActivity(JSON.stringify(data));
   }
 }

@@ -6,8 +6,20 @@ export function getUser() {
   return user;
 }
 
+export function getLocalActivity() {
+  let activity = localStorage.getItem('coProcureActivity');
+  if(!activity) {
+    return false;
+  }
+  return activity;
+}
+
 export function setUser(id) {
   localStorage.setItem('coProcureUser',id);
+}
+
+export function setLocalActivity(data) {
+  localStorage.setItem('coProcureActivity',data);
 }
 
 function showModal(modalInfo) {
@@ -30,31 +42,63 @@ function showModal(modalInfo) {
     document.querySelector('.js-identityModal .modal-dialog').classList.add('show');
   },50);
 
-  document.querySelector('button.add-email').addEventListener('click',function(event) {
-    event.preventDefault();
-    let url = 'http://localhost:3333/signup';
-    let email = document.querySelector('.modal-dialog form input[name="email"').value;
+  if(document.querySelector('.js-identityModal button.add-email')) {
+    document.querySelector('.js-identityModal button.add-email').addEventListener('click',function(event) {
+      event.preventDefault();
+      let url = 'http://localhost:3333/signup';
+      let email = document.querySelector('.modal-dialog form input[name="email"').value;
+  
+      fetch(url, {
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json",
+        },    
+        body: JSON.stringify({ email })
+      }).then(function(response) {
+        return response.text();
+      }).then(function(data) {
+        console.log(data);
+      });
+      setUser(email);
+      trackEvent('user', 'login', modalInfo.contractId);
+  
+      // clear their pasta ctivity and post it
+      let activityData = [];
+      if(getLocalActivity()) {
+        activityData = JSON.parse(getLocalActivity());
+      }
+      activityData.forEach(function(item) {
+        postActivity(item.category, item.action, item.label);
+      })
+      localStorage.removeItem('coProcureActivity');
+    })
+  }
 
-    fetch(url, {
-      method: 'post',
-      headers: {
-        "Content-Type": "application/json",
-      },    
-      body: JSON.stringify({ "email": email })
-    }).then(function(response) {
-      return response.text();
-    }).then(function(data) {
-      console.log(data);
-    });
-    setUser(email);
-    trackEvent('user', 'login', item.dataset.hitId);
+  if(document.querySelector('.js-identityModal button.contact-vendor')) {
+    document.querySelector('.js-identityModal button.contact-vendor').addEventListener('click',function(event) {
+      event.preventDefault();
+      let url = 'http://localhost:3333/govpurchase';
+      let email = getUser();
+  
+      fetch(url, {
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json",
+        },    
+        body: JSON.stringify({ email })
+      }).then(function(response) {
+        return response.text();
+      }).then(function(data) {
+        console.log(data);
+      });
+      setUser(email);
+      trackEvent('user', 'login', modalInfo.contractId);
+    })
+  }
 
-    // clear their pasta ctivity and post it
-    
-    document.querySelector('.modal-backdrop').remove();
-    document.querySelector('.js-identityModal').remove();
-  })
-
+  document.querySelector('.modal-backdrop').remove();
+  document.querySelector('.js-identityModal').remove();
+  
   // you can dismiss this modal but it will close all the expanded contract rows
 }
 
@@ -69,7 +113,39 @@ export function showIdentityModal(contractId) {
         </label>
         <button type="submit" class="add-email">Submit</button>
       </form>`,
+    close: false,
+    contractId: contractId
+  }
+  showModal(modalInfo);
+}
+
+export function showContactVendorModal(contractId) {
+  let modalInfo = {
+    title: 'Contact Vendor',
+    body: `<form method="post" action="">
+        <label>
+          <span class="field-description">What information do you need from this vendor?</span>
+          <textarea name="purchase-info"></textarea>
+        </label>
+        <button type="submit" class="contact-vendor">Submit</button>
+      </form>`,
     close: false
   }
   showModal(modalInfo);
+}
+
+export function postActivity(category, action ,label) {
+  // post to dynamodb
+  let url = 'http://localhost:3333/activity';
+  fetch(url, {
+    method: 'post',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ category, action, label })
+  }).then(function(response) {
+    return response.text();
+  }).then(function(data) {
+    console.log(data);
+  });
 }

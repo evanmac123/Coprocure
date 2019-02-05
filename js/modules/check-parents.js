@@ -3,8 +3,9 @@ export function checkParents(event, targetClass) {
   if(event.target.classList && event.target.classList.contains(targetClass)) {
     return targetNode;
   }
-  while(targetNode.parentNode) {
+  while(targetNode.parentNode && targetNode.parentNode.nodeName != 'BODY') {
     targetNode = targetNode.parentNode;
+    console.log(targetNode)
     if(targetNode.classList) {
       if(targetNode.classList.contains(targetClass)) {
         return targetNode;
