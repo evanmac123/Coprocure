@@ -150,7 +150,7 @@ h2.get-in-touch {
 .details .split-sections span {
   position: relative;
 }
-.details .split-sections span.details-profile {
+.details .split-sections .details-profile {
   width: 48%;
 }
 .split-sections {
@@ -227,6 +227,64 @@ footer a svg {
 .internal.demo-please {
   margin: 45px auto;
 }
+
+.bluey, .bluey a {
+  color: #2960AE;
+}
+.bluey h1 {
+  font-size: 42px;
+}
+.details .split-sections h3 {
+  text-transform: uppercase;
+  color: #2960AE;
+}
+.details.bluey .split-sections .details-profile {
+  width: 42%;
+  border: solid #2960AE 1px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.details.bluey .split-sections .details-profile:hover {
+  border: solid #2960AE 3px;
+}
+.bluey .split-sections .customer-type-icon {
+  fill: #2960AE;
+}
+.form-radio
+{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  color: #000;
+  top: 10px;
+  height: 30px;
+  width: 30px;
+  border: solid;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-right: 7px;
+  outline: none;
+  min-width: 30px;
+}
+.form-radio:checked::before
+{
+  position: absolute;
+  font: 25px/1 'Open Sans', sans-serif;
+  left: 5px;
+  top: -4px;
+  content: '\02143';
+  transform: rotate(40deg);
+}
+.form-radio:hover
+{
+  background-color: #f7f7f7;
+}
+
+
 @media (max-width: 950px) { 
   .backgrounder {
     top: -60px;
@@ -271,7 +329,7 @@ footer a svg {
     left: auto;
     margin: 10px 0;
   }
-  .details .split-sections span.details-profile {
+  .details .split-sections .details-profile {
     width: 90%;
   }
   footer {
