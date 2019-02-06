@@ -84,9 +84,10 @@ body, form, input, button, div, span {
 }
 .results-list .all-files {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-flow: row wrap;
   align-items: flex-start;
+  padding: 10px;
 }
 .contact-vendor {
   height: 48px;
@@ -200,6 +201,11 @@ body, form, input, button, div, span {
 .modal-dialog form {
   display: block;
   margin: 20px 0;
+}
+.modal-dialog textarea {
+  width: 420px;
+  height: 120px;
+  margin: 0 0 10px 0;
 }
 .field-description {
   font-size: .85em;

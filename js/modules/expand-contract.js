@@ -22,7 +22,7 @@ export function handleExpansion(event) {
   }
 
   if(checkParents(event, 'contact-vendor')) {
-    showContactVendorModal(checkParents('contracts').dataset.hitId);
+    showContactVendorModal(checkParents(event, 'contracts').dataset.hitId);
   }
 
   if(event.target.classList.contains('file-name-link')) {

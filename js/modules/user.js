@@ -28,7 +28,7 @@ function showModal(modalInfo) {
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="material-icons">lock</i> ${modalInfo.title}</h5>
+          <h5 class="modal-title">${modalInfo.title}</h5>
         </div>
         <div class="modal-body">
           ${modalInfo.body}
@@ -70,6 +70,8 @@ function showModal(modalInfo) {
       activityData.forEach(function(item) {
         postActivity(item.category, item.action, item.label);
       })
+      document.querySelector('.modal-backdrop').remove();
+      document.querySelector('.js-identityModal').remove();
       localStorage.removeItem('coProcureActivity');
     })
   }
@@ -90,21 +92,19 @@ function showModal(modalInfo) {
         return response.text();
       }).then(function(data) {
         console.log(data);
+        document.querySelector('.modal-backdrop').remove();
+        document.querySelector('.js-identityModal').remove();
       });
-      setUser(email);
-      trackEvent('user', 'login', modalInfo.contractId);
+      trackEvent('user', 'contact-vendor', modalInfo.contractId);
     })
   }
-
-  document.querySelector('.modal-backdrop').remove();
-  document.querySelector('.js-identityModal').remove();
   
   // you can dismiss this modal but it will close all the expanded contract rows
 }
 
 export function showIdentityModal(contractId) {
   let modalInfo = {
-    title: 'Unlock access to thousands of contracts',
+    title: '<i class="material-icons">lock</i> Unlock access to thousands of contracts',
     body: `<p>Enter your government email address to immediately get full free access - including contract downloads.</p>
       <form method="post" action="">
         <label>
@@ -129,7 +129,8 @@ export function showContactVendorModal(contractId) {
         </label>
         <button type="submit" class="contact-vendor">Submit</button>
       </form>`,
-    close: false
+    close: false,
+    contractId: contractId
   }
   showModal(modalInfo);
 }

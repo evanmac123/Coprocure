@@ -1,16 +1,18 @@
 export function checkParents(event, targetClass) {
   let targetNode = event.target;
-  if(event.target.classList && event.target.classList.contains(targetClass)) {
+/*
+  if(targetNode && targetNode.classList && targetNode.classList.contains(targetClass)) {
     return targetNode;
   }
-  while(targetNode.parentNode && targetNode.parentNode.nodeName != 'BODY') {
-    targetNode = targetNode.parentNode;
-    console.log(targetNode)
-    if(targetNode.classList) {
-      if(targetNode.classList.contains(targetClass)) {
+*/
+  while(targetNode) {
+    if(targetNode.classList && targetNode.classList.length > 0) {
+      let classes = targetNode.classList;
+      if(classes.contains(targetClass)) {
         return targetNode;
       }
     }
+    targetNode = targetNode.parentNode;
   }
   return false;
 }
