@@ -25,3 +25,19 @@ footer a svg {
   font-size: 15px;
   color: #2960AE;
 }
+
+
+
+
+
+@media (max-width: 600px) { 
+  footer {
+    flex-direction: column;
+  }
+  .built-by {
+    margin: 0 0 20px 0;
+  }
+  .waitlist {
+    flex-direction: column;
+  }
+}

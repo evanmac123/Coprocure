@@ -1,4 +1,5 @@
 import { checkParents } from './check-parents';
+import { trackEvent } from './tracking';
 
 export function handleSort(event) {
   let sortableNode = checkParents(event,'js-sortable');
@@ -50,4 +51,10 @@ export function handleSort(event) {
     trackEvent('search','sort',window.currentSort);
     getResults(limit,0);
   }
+}
+
+function sortHighlights() {
+  document.querySelectorAll('.js-sortable').forEach(function(item) {
+    item.classList.remove('highlit');
+  })
 }

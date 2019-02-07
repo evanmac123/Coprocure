@@ -1,15 +1,16 @@
 <!doctype html>
 <head>
   <title>CoProcure contract search</title>
+  <meta property="og:title" content="CoProcure"/>
+  <meta property="og:url" content="https://www.coprocure.us"/>
   <link href="https://fonts.googleapis.com/css?family=Palanquin:400,500" rel="stylesheet" />
-  
   <link rel="stylesheet" href="css/reset.css" type="text/css" />
-
   <link rel="stylesheet" href="css/search.css" type="text/css" />
   <link rel="stylesheet" href="css/button-effects.css" type="text/css" />
   <link rel="stylesheet" href="css/footer.css" type="text/css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
   rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <html>
   <body>
@@ -60,14 +61,18 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-121612479-1');
+
+    window.onload = function() {
+      document.querySelector('.search-results').style['min-height'] = parseInt(window.innerHeight - 450) + 'px';
+    };
   </script>
 
 
   <footer>
     <span class="built-by">
-        <a href="https://www.coprocure.us/files/CoProcure-privacy-policy.pdf" target="_new">Privacy Policy</a> 
-        <a href="https://www.coprocure.us/files/CoProcure-terms-of-use.pdf" target="_new">Terms of Use</a> 
-        Built with &#9829; by CoProcure. Icons by Icon8.</span>
+      <a href="https://www.coprocure.us/files/CoProcure-privacy-policy.pdf" target="_new">Privacy Policy</a> 
+      <a href="https://www.coprocure.us/files/CoProcure-terms-of-use.pdf" target="_new">Terms of Use</a> 
+    </span>
     <span>
       <a href="mailto:hello@coprocure.us" target="_new">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"

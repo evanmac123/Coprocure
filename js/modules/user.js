@@ -48,7 +48,7 @@ function showModal(modalInfo) {
   if(document.querySelector('.js-identityModal button.add-email')) {
     document.querySelector('.js-identityModal button.add-email').addEventListener('click',function(event) {
       event.preventDefault();
-      let url = 'http://localhost:3333/signup';
+      let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/signup';
       let email = document.querySelector('.modal-dialog form input[name="email"').value;
   
       fetch(url, {
@@ -82,7 +82,7 @@ function showModal(modalInfo) {
   if(document.querySelector('.js-identityModal button.contact-vendor')) {
     document.querySelector('.js-identityModal button.contact-vendor').addEventListener('click',function(event) {
       event.preventDefault();
-      let url = 'http://localhost:3333/vendor-contact';
+      let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/vendor-contact';
       let email = getUser();
       let description = document.querySelector('textarea[name="purchase-info"]').value;
       let contract = document.querySelector('input.contractId').value;
@@ -105,6 +105,15 @@ function showModal(modalInfo) {
   }
   
   // you can dismiss this modal but it will close all the expanded contract rows
+  document.querySelector('.modal-backdrop').addEventListener('click',function(event) {
+    event.preventDefault();
+
+    // close the modal
+    // make sure this doesn't trigger when you submit form
+
+    // close all open rows
+
+  })
 }
 
 export function showIdentityModal(contractId) {
@@ -142,7 +151,7 @@ export function showContactVendorModal(contractId) {
 
 export function postActivity(category, action ,label) {
   // post to dynamodb
-  let url = 'http://localhost:3333/activity';
+  let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/activity';
   fetch(url, {
     method: 'post',
     headers: {

@@ -17,6 +17,7 @@ body, form, input, button, div, span {
   height: 48px;
   font-size: 16px;
   text-indent: 50px;
+  border: solid #2456B4 1px;
 }
 .search-icon {
   position: absolute;
@@ -293,4 +294,24 @@ body, form, input, button, div, span {
 .cobrand_logo {
   width: 144px;
   margin: 13px 0 13px 24px;
+}
+
+
+
+
+@media (max-width: 720px) { 
+  .search-form, .results-list, .search-results, .submit-request, .submit-request textarea, .submit-request label {
+    width: 100%;
+  }
+  .contract-expiration, .contract-agency, .contract-state {
+    display: none;
+  }
+  .results-list .contracts {
+    flex-flow: column-reverse;
+  }
+  .files {
+    max-width: none;
+    min-width: auto;
+    margin: 10px 0;
+  }
 }

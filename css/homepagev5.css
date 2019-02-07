@@ -213,6 +213,7 @@ h2.get-in-touch {
 }
 .bluey h1 {
   font-size: 42px;
+  line-height: 47px;
 }
 .details .split-sections h3 {
   text-transform: uppercase;
@@ -312,13 +313,7 @@ h2.get-in-touch {
   .details .split-sections .details-profile {
     width: 90%;
   }
-  footer {
-    flex-direction: column;
-  }
-  .built-by {
-    margin: 0 0 20px 0;
-  }
-  .waitlist {
-    flex-direction: column;
+  .details.bluey .split-sections .details-profile {
+    width: 95%;
   }
 }

@@ -5,7 +5,6 @@ import { handleExpansion } from './modules/expand-contract'
 import { handleSort } from './modules/sort';
 import { trackEvent } from './modules/tracking';
 
-
 document.getElementById('submit-search').addEventListener('click',function(e) {
   e.preventDefault();
   window.highlightItem = '';
@@ -19,15 +18,11 @@ window.limit = false;
 window.getResults = function(limit,start) {
   // document.querySelector('#submit-search').classList.add('clicked');
   let query = '';
-  if(limit || document.querySelector('input[name="query"]').value == '') {
+  if(limit && document.querySelector('input[name="query"]').value == '') {
     query = 'kcrpc%20and%20';
   }
   if(document.querySelector('input[name="query"]').value != '') {
     trackEvent('search','query',document.querySelector('input[name="query"]').value);
-    // can also handle:
-    // filters
-    // next, prev
-    // 
   }
   let searchUrl = 'https://nhhu21hyj1.execute-api.us-west-1.amazonaws.com/prod?start='+start+'&q='+query+document.querySelector('input[name="query"]').value + window.currentSort; //+'&return='+fields;
   fetch(searchUrl)
@@ -46,12 +41,6 @@ window.getResults = function(limit,start) {
   .catch(function(err) {
     console.log('Fetch Error :-S', err);
   });
-}
-
-function sortHighlights() {
-  document.querySelectorAll('.js-sortable').forEach(function(item) {
-    item.classList.remove('highlit');
-  })
 }
 
 document.querySelector('.search-results').addEventListener('click', function(event) {

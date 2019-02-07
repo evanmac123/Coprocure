@@ -1,7 +1,11 @@
 import { isDate } from './is-date';
 import { getUser } from './user';
+import { trackEvent } from './tracking';
 
 export function displayResults(data) {
+  if(!window.trackEvent) {
+    window.trackEvent = trackEvent;
+  }
   let html = `
   <ul class="results-list">
     <li class="header">
@@ -189,10 +193,10 @@ export function displayResults(data) {
     let moreLink = '';
     let lessLink = '';
     if(data.hits.found > startPoint + 10) {
-      moreLink = `<a href="javascript:trackEvent('search','next',${document.querySelector('input[name="query"]').value});getResults(false,${data.hits.start + 10});">>></a>`
+      moreLink = `<a href="javascript:trackEvent('search','next','${document.querySelector('input[name="query"]').value}');getResults(false,${data.hits.start + 10});">>></a>`
     }
     if(data.hits.start > 0) {
-      lessLink = `<a href="javascript:trackEvent('search','previous',${document.querySelector('input[name="query"]').value});getResults(false,${data.hits.start - 10});"><<</a>`
+      lessLink = `<a href="javascript:trackEvent('search','previous','${document.querySelector('input[name="query"]').value}');getResults(false,${data.hits.start - 10});"><<</a>`
     }
     return `<li class="result-counter"><span style="margin: 0 20px 0 0;">${lessLink}</span>  Showing ${startPoint} - ${endPoint} of ${data.hits.found} ${hitDescription}  <span style="margin: 0 0 0 20px;">${moreLink}</span></li>
   </ul>`
@@ -215,7 +219,7 @@ export function displayResults(data) {
   }
   document.querySelector('.submit-request button').addEventListener('click',function(event) {
     event.preventDefault();
-    let url = 'http://localhost:3333/govpurchase';
+    let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/govpurchase';
     let email = emailField.value;
 
     fetch(url, {
