@@ -1,3 +1,5 @@
+import { trackEvent } from './tracking';
+
 export function getUser() {
   let user = localStorage.getItem('coProcureUser');
   if(!user) {
@@ -32,6 +34,7 @@ function showModal(modalInfo) {
         </div>
         <div class="modal-body">
           ${modalInfo.body}
+          <input type="hidden" class="contractId" name="contractId" value="${modalInfo.contractId}">
         </div>
       </div>
     </div>
@@ -79,15 +82,17 @@ function showModal(modalInfo) {
   if(document.querySelector('.js-identityModal button.contact-vendor')) {
     document.querySelector('.js-identityModal button.contact-vendor').addEventListener('click',function(event) {
       event.preventDefault();
-      let url = 'http://localhost:3333/govpurchase';
+      let url = 'http://localhost:3333/vendor-contact';
       let email = getUser();
+      let description = document.querySelector('textarea[name="purchase-info"]').value;
+      let contract = document.querySelector('input.contractId').value;
   
       fetch(url, {
         method: 'post',
         headers: {
           "Content-Type": "application/json",
         },    
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email, description, contract })
       }).then(function(response) {
         return response.text();
       }).then(function(data) {

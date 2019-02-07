@@ -5,6 +5,7 @@ import { handleExpansion } from './modules/expand-contract'
 import { handleSort } from './modules/sort';
 import { trackEvent } from './modules/tracking';
 
+
 document.getElementById('submit-search').addEventListener('click',function(e) {
   e.preventDefault();
   window.highlightItem = '';
@@ -16,6 +17,7 @@ window.currentSort = '';
 window.limit = false;
 
 window.getResults = function(limit,start) {
+  // document.querySelector('#submit-search').classList.add('clicked');
   let query = '';
   if(limit || document.querySelector('input[name="query"]').value == '') {
     query = 'kcrpc%20and%20';

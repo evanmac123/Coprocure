@@ -30,7 +30,7 @@ module.exports = {
           compact: "false",
           comments: "false"
         }
-      }
+      },
     ]
-  }
+  },
 };
