@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "build-css": "node-sass --include-path scss scss/button-effects.scss   css/button-effects.css",
-    "deploy": "aws s3 sync . s3://dev.coprocure.us --exclude 'node_modules/*' --exclude '.git*' --exclude '.DS_Store' --exclude 'package.json' --exclude 'package-lock.json' --exclude 'webpack.config.js'"
+    "deploy": "aws s3 sync . s3://dev.coprocure.us --exclude 'node_modules/*' --exclude '.git*' --exclude '.DS_Store' --exclude 'package.json' --exclude 'package-lock.json' --exclude 'webpack.config.js'",
+    "deploy:production": "aws s3 sync . s3://www.coprocure.us --exclude 'node_modules/*' --exclude '.git*' --exclude '.DS_Store' --exclude 'package.json' --exclude 'package-lock.json' --exclude 'webpack.config.js'"
   },
   "keywords": [],
   "author": "",
