@@ -7,19 +7,18 @@ export function trackEvent(category, action, label) {
     eventAction: action,
     eventLabel: label
   });
-  if(getUser) {
+  if(getUser()) {
     // post to dynamodb
-    postActivity(category, action, label);
+    postActivity(getUser(), category, action, label);
   } else {
     // put it in localStorage stringified
     let item = {};
     item.category = category;
     item.action = action;
     item.label = label;
+    let data = [];
     if(getLocalActivity()) {
       data = JSON.parse(getLocalActivity());
-    } else {
-      data = [];
     }
     data.push(item)
     setLocalActivity(JSON.stringify(data));

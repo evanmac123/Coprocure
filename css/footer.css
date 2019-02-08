@@ -20,6 +20,7 @@ footer a svg {
   fill: #2960AE;
   height: 30px;
   width: auto;
+  max-width:80px;
 }
 .built-by {
   font-size: 15px;

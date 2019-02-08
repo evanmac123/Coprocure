@@ -1,4 +1,5 @@
 import { trackEvent } from './tracking';
+import { checkParents } from './check-parents';
 
 export function getUser() {
   let user = localStorage.getItem('coProcureUser');
@@ -48,40 +49,46 @@ function showModal(modalInfo) {
   if(document.querySelector('.js-identityModal button.add-email')) {
     document.querySelector('.js-identityModal button.add-email').addEventListener('click',function(event) {
       event.preventDefault();
+      event.stopPropagation();
       let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/signup';
       let email = document.querySelector('.modal-dialog form input[name="email"').value;
   
-      fetch(url, {
-        method: 'post',
-        headers: {
-          "Content-Type": "application/json",
-        },    
-        body: JSON.stringify({ email })
-      }).then(function(response) {
-        return response.text();
-      }).then(function(data) {
-        console.log(data);
-      });
-      setUser(email);
-      trackEvent('user', 'login', modalInfo.contractId);
-  
-      // clear their pasta ctivity and post it
-      let activityData = [];
-      if(getLocalActivity()) {
-        activityData = JSON.parse(getLocalActivity());
+      if(email.indexOf('@')>-1) {
+        fetch(url, {
+          method: 'post',
+          headers: {
+            "Content-Type": "application/json",
+          },    
+          body: JSON.stringify({ email })
+        }).then(function(response) {
+          return response.text();
+        }).then(function(data) {
+          console.log(data);
+        });
+        setUser(email);
+        trackEvent('user', 'login', modalInfo.contractId);
+    
+        // clear their pasta ctivity and post it
+        let activityData = [];
+        if(getLocalActivity()) {
+          activityData = JSON.parse(getLocalActivity());
+        }
+        activityData.forEach(function(item) {
+          postActivity(item.category, item.action, item.label);
+        })
+        document.querySelector('.modal-backdrop').remove();
+        document.querySelector('.js-identityModal').remove();
+        localStorage.removeItem('coProcureActivity');
+      } else {
+        document.querySelector('.modal-dialog form input[name="email"').style.border = "solid 2px red";
       }
-      activityData.forEach(function(item) {
-        postActivity(item.category, item.action, item.label);
-      })
-      document.querySelector('.modal-backdrop').remove();
-      document.querySelector('.js-identityModal').remove();
-      localStorage.removeItem('coProcureActivity');
     })
   }
 
   if(document.querySelector('.js-identityModal button.contact-vendor')) {
     document.querySelector('.js-identityModal button.contact-vendor').addEventListener('click',function(event) {
       event.preventDefault();
+      event.stopPropagation();
       let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/vendor-contact';
       let email = getUser();
       let description = document.querySelector('textarea[name="purchase-info"]').value;
@@ -105,13 +112,21 @@ function showModal(modalInfo) {
   }
   
   // you can dismiss this modal but it will close all the expanded contract rows
-  document.querySelector('.modal-backdrop').addEventListener('click',function(event) {
+  document.querySelector('.modal').addEventListener('click',function(event) {
     event.preventDefault();
 
-    // close the modal
-    // make sure this doesn't trigger when you submit form
-
-    // close all open rows
+    // if they clicked outside modal window, on background
+    if(!checkParents(event, 'modal-dialog')) {
+      // close the modal
+      document.querySelector('.modal-backdrop').remove();
+      document.querySelector('.js-identityModal').remove();
+      // close all open rows
+      let flippedRow = document.querySelector('.expandable-contract.flipped')
+      let contractId = flippedRow.dataset.hitId;
+      let expandedRow = document.querySelector('.contracts[data-hit-id="'+contractId+'"]');
+      flippedRow.classList.remove('flipped');
+      expandedRow.style.display = 'none';
+    }
 
   })
 }
@@ -149,7 +164,11 @@ export function showContactVendorModal(contractId) {
   showModal(modalInfo);
 }
 
-export function postActivity(category, action ,label) {
+export function postActivity(email, category, action ,label) {
+  let userAgent = navigator.userAgent;
+  let screenSize = `${window.innerWidth} ${window.innerHeight}`;
+  let postBody = { email, category, action, label, userAgent, screenSize }
+  console.log(postBody)
   // post to dynamodb
   let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/activity';
   fetch(url, {
@@ -157,7 +176,7 @@ export function postActivity(category, action ,label) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ category, action, label })
+    body: JSON.stringify(postBody)
   }).then(function(response) {
     return response.text();
   }).then(function(data) {
