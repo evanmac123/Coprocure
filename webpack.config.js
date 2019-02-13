@@ -1,15 +1,12 @@
-const webpack = require('webpack');
 const path = require('path');
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'production',
-  entry: {
-    'index': './js/index.js',
-    'add': './js/add.js'
-  },
+  entry: { main: './src/index.js' },
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -31,7 +28,18 @@ module.exports = {
           compact: "false",
           comments: "false"
         }
-      },
+      }
     ]
   },
+  plugins: [ 
+    new MiniCssExtractPlugin({
+     filename: "style.[contenthash].css"
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/index.html',
+      filename: '../index.html'
+    })
+  ]
 };

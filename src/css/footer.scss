@@ -1,0 +1,44 @@
+.search-results {
+  min-height: 800px;
+}
+
+
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #fff;
+  box-sizing: border-box;
+}
+footer a {
+  text-decoration: none;
+  margin-right: 15px;
+}
+footer a svg {
+  fill: #2960AE;
+  height: 30px;
+  width: auto;
+  max-width:80px;
+}
+.built-by {
+  font-size: 15px;
+  color: #2960AE;
+}
+
+
+
+
+
+@media (max-width: 600px) { 
+  footer {
+    flex-direction: column;
+  }
+  .built-by {
+    margin: 0 0 20px 0;
+  }
+  .waitlist {
+    flex-direction: column;
+  }
+}
