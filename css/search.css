@@ -85,10 +85,11 @@ body, form, input, button, div, span {
 }
 .results-list .all-files {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-flow: row wrap;
   align-items: flex-start;
   padding: 10px;
+  width: 100%;
 }
 .contact-vendor {
   height: 48px;

@@ -2,6 +2,10 @@ import { isDate } from './is-date';
 import { getUser } from './user';
 import { trackEvent } from './tracking';
 
+function formatFilename(name) {
+  return decodeURIComponent(name.replace('.php',''));
+}
+
 export function displayResults(data) {
   if(!window.trackEvent) {
     window.trackEvent = trackEvent;
@@ -102,7 +106,7 @@ export function displayResults(data) {
           <p>Contract</p>
           ${contracts.map(function(file) {
             return `<div class="fileset">
-              <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+              <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
             </div>`;
           }).join('\n      ')}
         </div>
@@ -112,7 +116,7 @@ export function displayResults(data) {
               <p>Amendments</p>
               ${amendments.map(function(file) {
                 return `<div class="fileset">
-                  <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+                  <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
                 </div>`;
               }).join('\n      ')}
             </div>`;
@@ -126,7 +130,7 @@ export function displayResults(data) {
             <p>Pricing</p>
             ${pricing.map(function(file) {
               return `<div class="fileset">
-                <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
               </div>`;
             }).join('\n      ')}
             </div>`;
@@ -140,7 +144,7 @@ export function displayResults(data) {
             <p>Bid Tabulation</p>
             ${bid_tabulation.map(function(file) {
               return `<div class="fileset">
-                <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
               </div>`;
             }).join('\n      ')}
             </div>`;
@@ -154,7 +158,7 @@ export function displayResults(data) {
             <p>Bid Solicitation</p>
             ${bid_solicitation.map(function(file) {
               return `<div class="fileset">
-                <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
               </div>`;
             }).join('\n      ')}
             </div>`;
@@ -168,7 +172,7 @@ export function displayResults(data) {
             <p>Other Documents</p>
             ${other_docs.map(function(file) {
               return `<div class="fileset">
-                <a href="${file.url}" target="_new" class="file-name-link">${decodeURIComponent(file.filename)}</a>
+                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
               </div>`;
             }).join('\n      ')}
             </div>`;
