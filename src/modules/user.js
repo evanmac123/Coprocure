@@ -93,13 +93,14 @@ function showModal(modalInfo) {
       let email = getUser();
       let description = document.querySelector('textarea[name="purchase-info"]').value;
       let contract = document.querySelector('input.contractId').value;
+      let requestType = 'Vendor contact request';
   
       fetch(url, {
         method: 'post',
         headers: {
           "Content-Type": "application/json",
         },    
-        body: JSON.stringify({ email, description, contract })
+        body: JSON.stringify({ email, requestType, description, contract })
       }).then(function(response) {
         return response.text();
       }).then(function(data) {
@@ -108,6 +109,33 @@ function showModal(modalInfo) {
         document.querySelector('.js-identityModal').remove();
       });
       trackEvent('user', 'contact-vendor', modalInfo.contractId);
+    })
+  }
+
+  if(document.querySelector('.js-identityModal button.additional-documents')) {
+    document.querySelector('.js-identityModal button.additional-documents').addEventListener('click',function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/vendor-contact';
+      let email = getUser();
+      let description = document.querySelector('textarea[name="additional-documents"]').value;
+      let contract = document.querySelector('input.contractId').value;
+      let requestType = 'Request for additional documents';
+  
+      fetch(url, {
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json",
+        },    
+        body: JSON.stringify({ email, requestType, description, contract })
+      }).then(function(response) {
+        return response.text();
+      }).then(function(data) {
+        console.log(data);
+        document.querySelector('.modal-backdrop').remove();
+        document.querySelector('.js-identityModal').remove();
+      });
+      trackEvent('user', 'additional-documents', modalInfo.contractId);
     })
   }
   
@@ -157,6 +185,22 @@ export function showContactVendorModal(contractId) {
           <textarea name="purchase-info"></textarea>
         </label>
         <button type="submit" class="contact-vendor">Submit</button>
+      </form>`,
+    close: false,
+    contractId: contractId
+  }
+  showModal(modalInfo);
+}
+
+export function showAdditionalDocsModal(contractId) {
+  let modalInfo = {
+    title: 'Additional Documents',
+    body: `<form method="post" action="">
+        <label>
+          <span class="field-description">Thanks for letting us know that you'd like some additional documentation for this record. What documents would you like to request? Contract, bid tabulation, bid solicitation, amendments, other (please explain)</span>
+          <textarea name="additional-documents"></textarea>
+        </label>
+        <button type="submit" class="additional-documents">Submit</button>
       </form>`,
     close: false,
     contractId: contractId

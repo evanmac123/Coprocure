@@ -181,7 +181,10 @@ export function displayResults(data) {
           }
         })()}
       </div>
-      <button class="contact-vendor">Contact Vendor</button>
+      <div class="buttons">
+        <button class="contact-vendor">Contact Vendor</button>
+        <button class="additional-documents">Request additional documents</button>
+      </div>
     </li>`;
   }).join('\n      ')}
   ${(function() {

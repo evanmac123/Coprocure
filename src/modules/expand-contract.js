@@ -1,5 +1,5 @@
 import { checkParents } from './check-parents';
-import { getUser, showIdentityModal, showContactVendorModal } from './user';
+import { getUser, showIdentityModal, showContactVendorModal, showAdditionalDocsModal } from './user';
 import { trackEvent } from './tracking';
 
 export function handleExpansion(event) {
@@ -23,6 +23,10 @@ export function handleExpansion(event) {
 
   if(checkParents(event, 'contact-vendor')) {
     showContactVendorModal(checkParents(event, 'contracts').dataset.hitId);
+  }
+
+  if(checkParents(event, 'additional-documents')) {
+    showAdditionalDocsModal(checkParents(event, 'contracts').dataset.hitId);
   }
 
   if(event.target.classList.contains('file-name-link')) {

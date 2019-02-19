@@ -1,6 +1,7 @@
 import 'whatwg-fetch';
 import 'nodelist-foreach-polyfill';
 import 'promise-polyfill/src/polyfill';
+import './modules/remove-polyfill';
 import { displayResults } from './modules/search-results';
 import { handleExpansion } from './modules/expand-contract'
 import { handleSort } from './modules/sort';

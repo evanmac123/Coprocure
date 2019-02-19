@@ -100,6 +100,15 @@ body, form, input, button, div, span {
   margin: 20px;
   width: 250px;
 }
+.additional-documents {
+  height: 48px;
+  background: none;
+  border: solid 1px #2456B4;
+  color: #245684;
+  font-size: 16px;
+  margin: 20px;
+  width: 250px;
+}
 .contracts .fileset {
   display: flex;
   padding: 10px 10px 10px 0;
@@ -314,5 +323,8 @@ body, form, input, button, div, span {
     max-width: none;
     min-width: auto;
     margin: 10px 0;
+  }
+  .modal textarea {
+    max-width: 90%;
   }
 }
