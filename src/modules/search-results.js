@@ -189,8 +189,8 @@ export function displayResults(data) {
   }).join('\n      ')}
   ${(function() {
     let startPoint = data.hits.start + 1;
-    let endPoint = startPoint + 9;
-    if(data.hits.found < 10) {
+    let endPoint = startPoint + 99;
+    if(data.hits.found < 100) {
       endPoint = data.hits.found;
     }
     let hitDescription = 'result';
@@ -199,11 +199,11 @@ export function displayResults(data) {
     }
     let moreLink = '';
     let lessLink = '';
-    if(data.hits.found > startPoint + 10) {
-      moreLink = `<a href="javascript:trackEvent('search','next','${document.querySelector('input[name="query"]').value}');getResults(false,${data.hits.start + 10});">>></a>`
+    if(data.hits.found > startPoint + 100) {
+      moreLink = `<a href="javascript:trackEvent('search','next','${document.querySelector('input[name="query"]').value}');getResults(false,${data.hits.start + 100});">>></a>`
     }
     if(data.hits.start > 0) {
-      lessLink = `<a href="javascript:trackEvent('search','previous','${document.querySelector('input[name="query"]').value}');getResults(false,${data.hits.start - 10});"><<</a>`
+      lessLink = `<a href="javascript:trackEvent('search','previous','${document.querySelector('input[name="query"]').value}');getResults(false,${data.hits.start - 100});"><<</a>`
     }
     return `<li class="result-counter"><span style="margin: 0 20px 0 0;">${lessLink}</span>  Showing ${startPoint} - ${endPoint} of ${data.hits.found} ${hitDescription}  <span style="margin: 0 0 0 20px;">${moreLink}</span></li>
   </ul>`

@@ -12,6 +12,7 @@ document.getElementById('submit-search').addEventListener('click',function(e) {
   window.highlightItem = '';
   window.reverseSort = '';
   getResults(false,0);
+  this.classList.add('spinner');
 })
 
 window.currentSort = '';
@@ -26,7 +27,7 @@ window.getResults = function(limit,start) {
   if(document.querySelector('input[name="query"]').value != '') {
     trackEvent('search','query',document.querySelector('input[name="query"]').value);
   }
-  let searchUrl = 'https://nhhu21hyj1.execute-api.us-west-1.amazonaws.com/prod?start='+start+'&q='+query+document.querySelector('input[name="query"]').value + window.currentSort; //+'&return='+fields;
+  let searchUrl = 'https://nhhu21hyj1.execute-api.us-west-1.amazonaws.com/prod?size=100&start='+start+'&q='+query+document.querySelector('input[name="query"]').value + window.currentSort; //+'&return='+fields;
   fetch(searchUrl)
   .then(
     function(response) {
@@ -37,6 +38,7 @@ window.getResults = function(limit,start) {
       }
       response.json().then(function(data) {
         displayResults(data);
+        document.getElementById('submit-search').classList.remove('spinner')
       });
     }
   )
