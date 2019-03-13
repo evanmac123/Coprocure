@@ -20,7 +20,8 @@ window.currentSort = '';
 window.limit = false;
 
 window.getResults = function(limit,start) {
-  // document.querySelector('#submit-search').classList.add('clicked');
+  let devSearchUrl = 'https://9957n2ojug.execute-api.us-west-1.amazonaws.com/stage/';
+  let prodSearchUrl = 'https://nhhu21hyj1.execute-api.us-west-1.amazonaws.com/prod'
   let query = '';
   if(limit && document.querySelector('input[name="query"]').value == '') {
     query = 'kcrpc%20and%20';
@@ -28,7 +29,7 @@ window.getResults = function(limit,start) {
   if(document.querySelector('input[name="query"]').value != '') {
     trackEvent('search','query',document.querySelector('input[name="query"]').value);
   }
-  let searchUrl = 'https://nhhu21hyj1.execute-api.us-west-1.amazonaws.com/prod?size=100&start='+start+'&q='+query+document.querySelector('input[name="query"]').value + window.currentSort; //+'&return='+fields;
+  let searchUrl = devSearchUrl+'?size=100&start='+start+'&q='+query+document.querySelector('input[name="query"]').value + window.currentSort; //+'&return='+fields;
   fetch(searchUrl)
   .then(
     function(response) {

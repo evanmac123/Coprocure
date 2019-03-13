@@ -23,14 +23,21 @@ export function displayResults(data) {
       </span>
       <span class="contract-agency js-sortable">
         Lead agency
+        <svg class="icon icon-caret icon-caret--down" id="icon--dropdown-carrot" viewBox="0 0 9.7667 6.7638" ><title>Dropdown Caret</title><path d="M5.5819,6.4285,9.5683,1.4552A.8953.8953,0,0,0,8.87,0H.8969A.8953.8953,0,0,0,.1984,1.4552L4.1848,6.4285A.8953.8953,0,0,0,5.5819,6.4285Z"></path></svg>
       </span>
-      <span class="contract-vendor">Vendor</span>
-      <span class="contract-state">State</span>
+      <span class="contract-vendor js-sortable">
+        Vendor
+        <svg class="icon icon-caret icon-caret--down" id="icon--dropdown-carrot" viewBox="0 0 9.7667 6.7638" ><title>Dropdown Caret</title><path d="M5.5819,6.4285,9.5683,1.4552A.8953.8953,0,0,0,8.87,0H.8969A.8953.8953,0,0,0,.1984,1.4552L4.1848,6.4285A.8953.8953,0,0,0,5.5819,6.4285Z"></path></svg>
+      </span>
+      <span class="contract-state js-sortable">
+        State
+        <svg class="icon icon-caret icon-caret--down" id="icon--dropdown-carrot" viewBox="0 0 9.7667 6.7638" ><title>Dropdown Caret</title><path d="M5.5819,6.4285,9.5683,1.4552A.8953.8953,0,0,0,8.87,0H.8969A.8953.8953,0,0,0,.1984,1.4552L4.1848,6.4285A.8953.8953,0,0,0,5.5819,6.4285Z"></path></svg>
+      </span>
     </li>
   ${data.hits.hit.map(function(result) {
     let contracts = [];
     if(result.fields.contract_files) {
-      contracts = JSON.parse(result.fields.contract_files);
+      contracts = result.fields.contract_files;
     }
     let amendments = null;
     let pricing = null;
@@ -38,19 +45,19 @@ export function displayResults(data) {
     let bid_solicitation = null;
     let other_docs = null;
     if(result.fields.amendments_files) {
-      amendments = JSON.parse(result.fields.amendments_files);
+      amendments = result.fields.amendments_files;
     }
     if(result.fields.pricing_files) {
-      pricing = JSON.parse(result.fields.pricing_files);
+      pricing = result.fields.pricing_files;
     }
     if(result.fields.bid_tabulation_files) {
-      bid_tabulation = JSON.parse(result.fields.bid_tabulation_files);
+      bid_tabulation = result.fields.bid_tabulation_files;
     }
     if(result.fields.bid_solicitation_files) {
-      bid_solicitation = JSON.parse(result.fields.bid_solicitation_files);
+      bid_solicitation = result.fields.bid_solicitation_files;
     }
     if(result.fields.other_docs_files) {
-      other_docs = JSON.parse(result.fields.other_docs_files);
+      other_docs = result.fields.other_docs_files;
     }
     return `
     <li class="expandable-contract" data-hit-id="${result.id}">
@@ -74,16 +81,16 @@ export function displayResults(data) {
         })()}
       </span>
       <span class="contract-agency">${(function() {
-        if(result.fields.buyer) { 
-          return `${result.fields.buyer}`;
+        if(result.fields.buyer_lead_agency) { 
+          return `${result.fields.buyer_lead_agency}`;
         } else {
           return '';
         }
       })()}
       </span>
       <span class="contract-vendor">${(function() {
-        if(result.fields.vendor) { 
-          return `${result.fields.vendor.toString()}`;
+        if(result.fields.suppliers) { 
+          return `${result.fields.suppliers.toString()}`;
         } else {
           if(result.fields.vendor_info) { 
             return `${result.fields.vendor_info.replace('undefined','')}`;
@@ -104,9 +111,10 @@ export function displayResults(data) {
       <div class="all-files">
         <div class="files">
           <p>Contract</p>
-          ${contracts.map(function(file) {
+          ${contracts.map(function(doc) {
+            let file = JSON.parse(doc);
             return `<div class="fileset">
-              <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
+              <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.name)}</a>
             </div>`;
           }).join('\n      ')}
         </div>
@@ -114,9 +122,10 @@ export function displayResults(data) {
           if(amendments) {
             return `<div class="files">
               <p>Amendments</p>
-              ${amendments.map(function(file) {
+              ${amendments.map(function(doc) {
+                let file = JSON.parse(doc);
                 return `<div class="fileset">
-                  <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
+                  <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.name)}</a>
                 </div>`;
               }).join('\n      ')}
             </div>`;
@@ -128,9 +137,10 @@ export function displayResults(data) {
           if(pricing) {
             return `<div class="files">
             <p>Pricing</p>
-            ${pricing.map(function(file) {
+            ${pricing.map(function(doc) {
+              let file = JSON.parse(doc);
               return `<div class="fileset">
-                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
+                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.name)}</a>
               </div>`;
             }).join('\n      ')}
             </div>`;
@@ -142,9 +152,10 @@ export function displayResults(data) {
           if(bid_tabulation) {
             return `<div class="files">
             <p>Bid Tabulation</p>
-            ${bid_tabulation.map(function(file) {
+            ${bid_tabulation.map(function(doc) {
+              let file = JSON.parse(doc);
               return `<div class="fileset">
-                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
+                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.name)}</a>
               </div>`;
             }).join('\n      ')}
             </div>`;
@@ -156,9 +167,10 @@ export function displayResults(data) {
           if(bid_solicitation) {
             return `<div class="files">
             <p>Bid Solicitation</p>
-            ${bid_solicitation.map(function(file) {
+            ${bid_solicitation.map(function(doc) {
+              let file = JSON.parse(doc);
               return `<div class="fileset">
-                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
+                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.name)}</a>
               </div>`;
             }).join('\n      ')}
             </div>`;
@@ -170,9 +182,10 @@ export function displayResults(data) {
           if(other_docs) {
             return `<div class="files">
             <p>Other Documents</p>
-            ${other_docs.map(function(file) {
+            ${other_docs.map(function(doc) {
+              let file = JSON.parse(doc);
               return `<div class="fileset">
-                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.filename)}</a>
+                <a href="${file.url}" target="_new" class="file-name-link">${formatFilename(file.name)}</a>
               </div>`;
             }).join('\n      ')}
             </div>`;
