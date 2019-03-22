@@ -35,6 +35,13 @@ export function displayResults(data) {
       </span>
     </li>
   ${data.hits.hit.map(function(result) {
+    if(isDate(result.fields.expiration)) {
+      if(result.fields.expiration < new Date().toISOString()) {
+        console.log('aint gonna happen')
+        console.log(result.fields.expiration)
+        return '';
+      }
+    }
     let contracts = [];
     if(result.fields.contract_files) {
       contracts = result.fields.contract_files;
