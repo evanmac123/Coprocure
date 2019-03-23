@@ -3,7 +3,10 @@ import { getUser } from './user';
 import { trackEvent } from './tracking';
 
 function formatFilename(name) {
-  return decodeURIComponent(name.replace('.php',''));
+  if(name) {
+    return decodeURIComponent(name.replace('.php',''));
+  }
+  return 'Contract document';
 }
 
 export function displayResults(data) {
