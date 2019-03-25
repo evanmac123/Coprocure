@@ -2,7 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: { 
     main: './src/index.js'
   },
