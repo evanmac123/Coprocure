@@ -10,7 +10,7 @@ function formatFilename(name) {
 }
 
 function offset() {
-  let timezone_offset_min = new Date().getTimezoneOffset(),
+  let timezone_offset_min = new Date().getTimezoneOffset() + 60,
   offset_hrs = parseInt(Math.abs(timezone_offset_min/60)),
   offset_min = Math.abs(timezone_offset_min%60),
   timezone_standard;
@@ -111,6 +111,9 @@ export function displayResults(data) {
           if(isDate(result.fields.expiration)) {
             let contractExpDate = result.fields.expiration;
             if(result.fields.expiration.indexOf('Z') > -1) {
+              console.log('hello expiration is being processed')
+              console.log(result.fields.expiration);
+              console.log(contractExpDate = result.fields.expiration.replace('Z',currentOffset))
               contractExpDate = result.fields.expiration.replace('Z',currentOffset);
             }
             return new Date(contractExpDate).toLocaleDateString();
