@@ -4,8 +4,9 @@
   "description": "",
   "main": "js/index.js",
   "scripts": {
-    "build": "webpack",
-    "build-css": "node-sass --include-path scss scss/button-effects.scss   css/button-effects.css",
+    "build:modern": "webpack --config webpack.config.js",
+    "build:ancient": "webpack --config webpack.config-es5.js",
+    "build": "npm run build:modern && npm run build:ancient",
     "deploy": "aws s3 sync . s3://dev.coprocure.us --exclude 'node_modules/*' --exclude '.git*' --exclude '.DS_Store' --exclude 'package.json' --exclude 'package-lock.json' --exclude 'webpack.config.js'",
     "deploy:production": "aws s3 sync . s3://www.coprocure.us --exclude 'node_modules/*' --exclude '.git*' --exclude '.DS_Store' --exclude 'package.json' --exclude 'package-lock.json' --exclude 'webpack.config.js'"
   },
@@ -36,6 +37,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@coprocure/search-widget": "^2.0.5",
     "document-register-element": "^1.13.1",
     "nodelist-foreach-polyfill": "^1.2.0",
     "promise-polyfill": "^8.1.0",
