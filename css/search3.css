@@ -1,5 +1,5 @@
 body {
-  font-family: 'Palanquin', sans-serif;
+  font-family: Open sans,sans-serif;
   font-size: 16px;
 }
 body, form, input, button, div, span {
@@ -10,6 +10,13 @@ body, form, input, button, div, span {
   margin: 20px auto;
   display: flex;
   position: relative;
+}
+.contract-search-label {
+  text-align: center;
+  display: block;
+  margin: 2em 0 0 0;
+  font-size: 1.2rem;
+  color: #333;
 }
 .query {
   width: 720px;

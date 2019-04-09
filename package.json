@@ -37,7 +37,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "@coprocure/search-widget": "^2.0.5",
+    "@coprocure/search-widget": "^2.0.7",
     "document-register-element": "^1.13.1",
     "nodelist-foreach-polyfill": "^1.2.0",
     "promise-polyfill": "^8.1.0",
