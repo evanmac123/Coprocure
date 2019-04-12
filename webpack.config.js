@@ -17,6 +17,13 @@ module.exports = {
         loader: "svg-inline-loader"
       },
       {
+        test: /\.css$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            { loader: 'css-loader', options: { url: false, sourceMap: true } }
+        ],
+      },
+      {
         test: /\.scss$/,
         use: [
           {
@@ -47,6 +54,12 @@ module.exports = {
       hash: true,
       template: './src/index.html',
       filename: '../index.html'
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/record.html',
+      filename: '../search/record.html'
     }),
     new MiniCssExtractPlugin({
      filename: "style.[contenthash].css"

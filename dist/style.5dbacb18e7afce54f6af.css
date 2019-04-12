@@ -1,0 +1,449 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body {
+  font-family: Open sans,sans-serif;
+  font-size: 16px;
+}
+body, form, input, button, div, span {
+  box-sizing: border-box;
+}
+.search-form {
+  width: 800px;
+  margin: 20px auto;
+  display: flex;
+  position: relative;
+}
+.contract-search-label {
+  text-align: center;
+  display: block;
+  margin: 2em 0 0 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+.query {
+  width: 720px;
+  margin: 0;
+  height: 48px;
+  font-size: 16px;
+  text-indent: 50px;
+  border: solid #2456B4 1px;
+}
+.search-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+#submit-search {
+  height: 48px;
+  border: none;
+  background: #2456B4;
+  color: #fff;
+  font-size: 16px;
+  margin: 0;
+  width: 200px;
+}
+.results-list {
+  width: 1088px;
+  margin: 40px auto;
+}
+.results-list li {
+  min-height: 64px;
+  border-top: solid 1px #ccc;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.header, .header .contract-name {
+  color: #666666;
+}
+.results-list li:first-child {
+  border: none;
+}
+.contract-name {
+  width: 400px;
+  color: #153269;
+  font-size: 18px;
+  padding-right: 14px;
+}
+.summary {
+  font-size: 14px;
+  color: #666666;
+  margin-top: 10px;
+}
+.contract-expiration {
+  width: 170px;
+}
+.contract-agency {
+  width: 170px;
+  padding-right: 14px;
+}
+.contract-vendor {
+  width: 220px;
+  padding-right: 14px;
+}
+.contract-state {
+  width: 124px;
+}
+.results-list .contracts {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row;
+  align-items: flex-start;
+  background-color: #fafafa;
+}
+.results-list .all-files {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  padding: 10px;
+  width: 100%;
+}
+.contact-vendor {
+  height: 48px;
+  border: none;
+  background: #2456B4;
+  color: #fff;
+  font-size: 16px;
+  margin: 20px;
+  width: 250px;
+}
+.additional-documents {
+  height: 48px;
+  background: none;
+  border: solid 1px #2456B4;
+  color: #245684;
+  font-size: 16px;
+  margin: 20px;
+  width: 250px;
+}
+.contracts .fileset {
+  display: flex;
+  padding: 10px 10px 10px 0;
+  word-break: break-all;
+}
+.fileset img {
+  width: 100px;
+}
+.files {
+  min-width: 20%;
+}
+.file-name-link {
+  display: inline-block;
+  margin-left: 10px;
+  color: #000;
+}
+.fileset .file-name-link {
+  background: no-repeat url("../img/icon-download.svg");
+  text-indent: 32px;
+  line-height: 20px;
+}
+.expandable-contract:hover, .expandable-contract.flipped {
+  background-color: #f4f9fe;
+}
+.what-is-this {
+  position: absolute;
+  right: 40px;
+  top: 30px;
+}
+.icon-caret {
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  display: inline-block;
+  fill: #ccc;
+}
+.highlit .icon-caret {
+  fill: #2456B4;
+}
+.highlit.reverse .icon-caret {
+  transform: rotate(180deg);
+}
+.footer-links {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin: 0 auto;
+  height: 26px;
+  background: rgba(255,255,255,0.9);
+  padding: 5px;
+}
+.footer-links  a {
+  margin: 0 20px;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  overflow: hidden;
+  outline: 0;
+}
+.modal {
+  z-index: 1072;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+  opacity: .5;
+}
+.modal-dialog {
+  width: 80%;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 20px;
+  margin: 5rem auto;
+  transform: translate(0,-250%);
+  transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+}
+.modal-dialog.show {
+  transform: translate(0,0);
+}
+.modal-dialog h5 {
+  font-size: 1.3em;
+  margin: 20px 0 20px 0;
+  display: flex;
+  line-height: 28px;
+}
+.modal-dialog form {
+  display: block;
+  margin: 20px 0;
+}
+.modal-dialog textarea {
+  width: 420px;
+  height: 120px;
+  margin: 0 0 10px 0;
+}
+.field-description {
+  font-size: .85em;
+  display: block;
+  margin: 10px 0;
+}
+.modal-dialog form input {
+  width: 300px;
+  margin: 0;
+  height: 48px;
+  font-size: 16px;
+  padding: 10px;
+}
+.modal-dialog form button {
+  height: 48px;
+  border: none;
+  background: #2456B4;
+  color: #fff;
+  font-size: 16px;
+  margin: 0;
+  width: 120px;
+}
+.modal-title i {
+  padding: 0 6px 0 0;
+}
+
+.submit-request {
+  border: solid #ccc 1px;
+  padding: 40px;
+  margin: 20px auto 50px;
+  width: 1088px;
+}
+.submit-request h3 {
+  font-size: 1.5em;
+  display: block;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+.submit-request p {
+  text-align: center;
+  max-width: 640px;
+  margin: 25px auto;
+  line-height: 20px;
+}
+.submit-request strong {
+  font-weight: bold;
+}
+.submit-request label {
+  width: 640px;
+  margin: 0 auto;
+  display: block;
+}
+.submit-request input[type="email"] {
+  width: 300px;
+  height: 48px;
+  font-size: 16px;
+  padding: 10px;
+}
+.submit-request textarea {
+  width: 640px;
+  padding: 10px;
+  margin: 0 auto;
+  height: 94px;
+  display: block;
+  border: solid #ccc 1px;
+}
+.submit-request button {
+  display: block;
+  height: 48px;
+  border: none;
+  background: #2456B4;
+  color: #fff;
+  font-size: 16px;
+  margin: 20px auto 0;
+  width: 200px;
+  border-radius: 0;
+}
+
+/* cobrand unique styles */
+.logo {
+  margin: 180px auto 0;
+  display: block;
+  overflow: hidden;
+}
+.cobrand_logo {
+  width: 144px;
+  margin: 13px 0 13px 24px;
+}
+
+
+
+
+@media (max-width: 720px) { 
+  .search-form, .results-list, .search-results, .submit-request, .submit-request textarea, .submit-request label {
+    width: 100%;
+  }
+  .contract-expiration, .contract-agency, .contract-state {
+    display: none;
+  }
+  .results-list .contracts {
+    flex-flow: column-reverse;
+  }
+  .files {
+    max-width: none;
+    min-width: auto;
+    margin: 10px 0;
+  }
+  .modal textarea {
+    max-width: 90%;
+  }
+}
+.search-results {
+  min-height: 800px;
+}
+
+
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #fff;
+  box-sizing: border-box;
+}
+footer a {
+  text-decoration: none;
+  margin-right: 15px;
+}
+footer a svg {
+  fill: #2960AE;
+  height: 30px;
+  width: auto;
+  max-width:80px;
+}
+.built-by {
+  font-size: 15px;
+  color: #2960AE;
+}
+
+
+
+
+
+@media (max-width: 600px) { 
+  footer {
+    flex-direction: column;
+  }
+  .built-by {
+    margin: 0 0 20px 0;
+  }
+  .waitlist {
+    flex-direction: column;
+  }
+}
+.spinner, #submit-search.spinner {
+  border-radius: 50%;
+  background: transparent;
+  color: transparent;
+  border: 3px solid #337ab7;
+  border-left-color: #ccc;
+  animation: rotating 2s 0.25s linear infinite;
+  animation-delay: 0s;
+  width: 34px;
+  height: 34px;
+  margin: 6px 20px;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
