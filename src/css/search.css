@@ -311,7 +311,13 @@ body, form, input, button, div, span {
   width: 144px;
   margin: 13px 0 13px 24px;
 }
-
+.customize-results {
+  display: flex;
+  max-width: 700px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
 
 
 

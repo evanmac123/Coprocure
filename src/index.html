@@ -26,12 +26,22 @@
           <i class="material-icons search-icon">search</i>
           <input type="submit" value="Search" id="submit-search" class="draw">
         </div>
+        <span class="customize-results" style="display: none;">
+          <span>
+            <input type="checkbox" name="show-non-coop"> Show Non Cooperative Contracts
+          </span>
+          <span>
+            <input type="checkbox" name="show-expired"> Show Expired Contracts
+          </span>
+          <a href="#submit-request-for-help" class="js-goto-request">Submit a research request</a>
+        </span>
       </form>
   
       <div class="search-results">
   
       </div>
   
+      <a name="submit-request-for-help"></a>
       <div class="submit-request" style="display:none;">
         <form method="post" action="">
           <h3>Submit a request</h3>
@@ -45,7 +55,7 @@
             <span class="field-description">What goods, services and/or vendors are you looking for?</span>
             <textarea name="my-request"></textarea>
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit">Submit</button>      
         </form>
       </div>
     </coprocure-search>
