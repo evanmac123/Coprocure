@@ -29,7 +29,7 @@
     "css-loader": "^2.1.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "tar": "^4.4.8",
@@ -38,7 +38,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "@coprocure/search-widget": "^2.1.4",
+    "@coprocure/search-widget": "^2.1.6",
     "document-register-element": "^1.13.1",
     "install": "^0.12.2",
     "nodelist-foreach-polyfill": "^1.2.0",
