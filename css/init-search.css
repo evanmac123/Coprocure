@@ -1,0 +1,39 @@
+.contract-search-label {
+  text-align: center;
+  display: block;
+  margin: 2em 0 1em 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.query {
+  width: 686px;
+  margin: 0;
+  height: 48px;
+  font-size: 16px;
+  text-indent: 50px;
+  border: solid #2456B4 1px;
+  box-sizing: border-box;
+}
+svg.search-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+input#submit-search {
+  height: 48px;
+  border: none;
+  background: #2456B4;
+  color: #fff;
+  font-size: 16px;
+  margin: 0;
+  width: 200px;
+}
+@media (max-width: 600px) { 
+  .query {
+    width: 100%;
+  }
+  input#submit-search {
+    display: block;
+    margin: 0 auto;
+  }
+}
