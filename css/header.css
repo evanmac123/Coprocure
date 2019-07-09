@@ -1,41 +1,40 @@
 header {
-  background-color: #2960AE;
-  height: 72px;
+  height: 60px;
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+.company-identifier {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 2;
   align-items: center;
-  padding: 10px 20px;
-  box-sizing: border-box;
 }
-header .links {
-  font-size: 16px;
+.company-name {
+  color: #37A8EB;
+  font-size: 19px;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
 }
-header .logo-white {
+header navigation {
   height: 60px;
-  width: auto;
+  width: 1140px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
+  padding: 10px 20px;
 }
+
 header .links {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-}
-header .links a {
-  margin-right: 20px;
-}
-button {
-  border: none;
-  background-color: blue;
-  background-color: #008afcff;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
+  color: black;
 }
 header a {
-  color: #fff;
+  font-family: 'Lato', sans-serif;
   text-decoration: none;
+  color: #37A8EB;
+  margin-left: 40px;
 }

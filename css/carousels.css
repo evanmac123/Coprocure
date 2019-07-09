@@ -1,0 +1,9 @@
+macro-carousel {
+  height: 300px;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
