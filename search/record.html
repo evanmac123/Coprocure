@@ -6,7 +6,7 @@
     <meta property="og:url" content="https://www.coprocure.us"/>
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-    <link rel="stylesheet" href="../dist/style.e28101ebb651bec4faed.css?96142ad67b5f49f28b01" type="text/css" />
+    <link rel="stylesheet" href="../dist/style.7dd77c24f30d5a0702d2.css?db4e2ff637755f6b13f6" type="text/css" />
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
@@ -19,7 +19,7 @@
     
     <coprocure-search data-results="100" data-display-state="1" data-record="single"></coprocure-search>
     
-    <script type="module" src="../dist/main.065a2a75552c52ea5dd4.js?96142ad67b5f49f28b01.js"></script>
+    <script type="module" src="../dist/main.8642b3c36972281456b0.js?db4e2ff637755f6b13f6.js"></script>
     <script nomodule type="text/javascript" src="../dist/transpiled-build.js"></script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -34,6 +34,8 @@
     window.onload = function() {
       document.querySelector('.search-results').style['min-height'] = parseInt(window.innerHeight - 450) + 'px';
     };
+    document.querySelector('input[name="show-non-coop"]').checked = true;
+    document.querySelector('input[name="show-expired"]').checked = true;
   </script>
 
   <footer>

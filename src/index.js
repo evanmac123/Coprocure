@@ -1,4 +1,3 @@
-import 'document-register-element'
 
 import '@coprocure/search-widget';
 
