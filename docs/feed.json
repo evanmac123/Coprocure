@@ -1,1 +1,53 @@
-{}
+{
+  "items": [
+      {
+          "title": "Using a cooperative contract? Start with this diligence checklist",
+          "link": "https://medium.com/coprocure/using-a-cooperative-contract-start-with-this-diligence-checklist-942995359619?source=rss----cc4f032a08e5---4",
+          "author": "Brian Alexander",
+          "thumbnail": "https://cdn-images-1.medium.com/max/1024/1*e7O7A5rM79ng6b8Dc3EbEg.jpeg",
+          "description": "",
+      },
+      {
+          "title": "Who creates cooperative contracts?",
+          "link": "https://medium.com/coprocure/who-creates-cooperative-contracts-b6d3e75835a8?source=rss----cc4f032a08e5---4",
+          "author": "Brian Alexander",
+          "thumbnail": "https://cdn-images-1.medium.com/max/1024/1*AqJOnaB1MzZeLSrsikgtQQ.jpeg",
+          "description": ""
+      },
+      {
+          "title": "How does cooperative purchasing work?",
+          "link": "https://medium.com/coprocure/how-does-cooperative-purchasing-work-f72a7022639c?source=rss----cc4f032a08e5---4",
+          "author": "Brian Alexander",
+          "thumbnail": "https://cdn-images-1.medium.com/max/1024/1*ozD0FAX8QR0uwYf9FU_E2w.jpeg",
+          "description": ""
+      },
+      {
+          "title": "How does local public purchasing work?",
+          "link": "https://medium.com/coprocure/how-does-local-public-purchasing-work-1362e1443456?source=rss----cc4f032a08e5---4",
+          "author": "Brian Alexander",
+          "thumbnail": "https://cdn-images-1.medium.com/max/501/1*YO484_NQL19r8jkobXG6WQ.png",
+          "description": ""
+      },
+      {
+          "title": "We’re hiring a product designer (contract)",
+          "link": "https://medium.com/coprocure/were-hiring-a-product-designer-contract-da2d3f110f6a?source=rss----cc4f032a08e5---4",
+          "author": "Mariel Reed",
+          "thumbnail": "https://cdn-images-1.medium.com/max/960/1*DqaS5RJfm6fCgE7c3rqFpQ.jpeg",
+          "description": ""
+      },
+      {
+          "title": "Making the case for collaboration in procurement at the Code for America Summit",
+          "link": "https://medium.com/coprocure/making-the-case-for-collaboration-in-procurement-at-the-code-for-america-summit-fa0edd731ff9?source=rss----cc4f032a08e5---4",
+          "author": "Mariel Reed",
+          "thumbnail": "https://cdn-images-1.medium.com/max/815/1*QupaSdw6jl1QmPR26_AjNg.png",
+          "description": ""
+      },
+      {
+          "title": "CoProcure is hiring a backend engineer",
+          "link": "https://medium.com/coprocure/coprocure-is-hiring-a-backend-engineer-2e8780b30c55?source=rss----cc4f032a08e5---4",
+          "author": "Mariel Reed",
+          "thumbnail": "https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=2e8780b30c55",
+          "description": ""
+      }
+  ]
+}
