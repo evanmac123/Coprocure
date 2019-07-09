@@ -6,146 +6,179 @@
   <meta property="og:url" content="https://www.coprocure.us"/>
   <link rel="stylesheet" href="css/reset.css" type="text/css" />
   <link rel="stylesheet" href="css/header.css" type="text/css" />
-  <link rel="stylesheet" href="css/homepagev6.css" type="text/css" />
-  <link rel="stylesheet" href="css/init-search.css" type="text/css" />
-  <link rel="stylesheet" href="css/footer.css" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Palanquin:400,500" rel="stylesheet" />
+  <link rel="stylesheet" href="css/body.css" type="text/css" />
+  <link rel="stylesheet" href="css/carousels.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Poppins:600&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <header>
-    <a href="/"><img src="img/logo_coprocure_white-min.png" class="logo-white" /></a>
-    <span class="links">
-        <a href="https://medium.com/coprocure/coprocure-is-hiring-a-backend-engineer-2e8780b30c55" target="_blank">Join our team</a>
-        <a href="/add.html">Add your contracts</a>
-        <a href="https://medium.com/coprocure" target="_blank">Updates</a>
-    </span>
-  </header>
-  <div class="backgrounder"></div>
-    <div class="page-body">
-    <main>
-      <section class="intro">
-        <h1>Don't spend your time reinventing the wheel.</h1>
-        <a name="waitlist"></a>
-        <h2>CoProcure finds you the most relevant contracts, so you can make a better public purchase in less time.</h2>
-
-        <form method="GET" action="search.html">
-          <label for="contract-search" class="contract-search-label">Search for cooperative contracts by keyword, vendor, lead agency, and more...</label>
-          <div class="search-form" style="position: relative;">
-            <input type="text" name="coprocure_query" class="query" id="contract-search" autocomplete="off" placeholder="Search for contracts">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="search-icon"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
-            <input type="submit" value="Search" id="submit-search" class="draw">
-          </div>
-        </form>
-      </section>
-      <section class="details">
-        <div class="interior">
-          <h2>Feeling overworked? You're not alone.</h2>
-          <p>Nearly 40% of public purchasers are working overtime to purchase more with fewer resources. <a href="http://www.nigp.org/home/find-procurement-resources/directories/cooperative-purchasing-programs" target="_new">Cooperative purchasing</a> can save your agency time and money. But you can't spend days tracking down contracts. We can help.</p>
-        </div>
-      </section>
-      <section class="demo">
-        <div class="interior">
-          <h2>CoProcure is your <i>free</i> help desk for cooperative purchasing research and diligence.</h2>
-          <p>We find the most relevant cooperative contracts for you, so you can make a more informed purchase in less time.</p>
-        </div>
-      </section>
-      <section class="details">
-        <div class="interior">
-          <h2>Built <i>by</i> local government buyers, <i>for</i> local government buyers to power collaboration</h2>
-          <p>We're a group of former public servants, technologists, and local government buyers working together to build CoProcure. Our mission is to create the tools that help public purchasers better collaborate. We invite you to join us. Help us make CoProcure work better for you:</p>
-
-          <div class="split-sections">
-            <span class="details-profile">
-              <h3 style="text-transform: uppercase;">Search Contracts</h3>
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50" class="customer-type-icon">
-                <g id="surface1">
-                  <path style=" " d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z "></path>
-                </g>
-              </svg>
-              <p>Use <a href="/">CoProcure</a> to get help finding cooperative contracts.</p>
-            </span>
-            <span class="details-profile">
-              <h3 style="text-transform: uppercase;">Share your contract data</h3>
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 224 224" class="customer-type-icon">
-                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                  <path d="M0,224v-224h224v224z" fill="none"></path><g fill="#434343"><g id="surface1"><path d="M112,2.66l-3.22,3.08l-35.84,35.84c-1.785,1.785 -1.785,4.655 0,6.44c1.785,1.785 4.655,1.785 6.44,0l28.14,-28.14v123.48c-0.0175,1.61 0.8225,3.115 2.2225,3.9375c1.4,0.805 3.115,0.805 4.515,0c1.4,-0.8225 2.24,-2.3275 2.2225,-3.9375v-123.48l28.14,28.14c1.785,1.785 4.655,1.785 6.44,0c1.785,-1.785 1.785,-4.655 0,-6.44l-35.84,-35.84zM31.36,71.68v152.32h161.28v-152.32h-44.8c-1.61,-0.0175 -3.115,0.8225 -3.9375,2.2225c-0.805,1.4 -0.805,3.115 0,4.515c0.8225,1.4 2.3275,2.24 3.9375,2.2225h35.84v134.4h-143.36v-134.4h35.84c1.61,0.0175 3.115,-0.8225 3.9375,-2.2225c0.805,-1.4 0.805,-3.115 0,-4.515c-0.8225,-1.4 -2.3275,-2.24 -3.9375,-2.2225z"></path></g></g>
-                </g>
-              </svg>
-              <p><a href="/add.html">Add your contracts</a>. Track when purchasers are using your contracts.</p>
-            </span>
-          </div>
-        </div>
-      </section>
-      <section class="demo">
-        <div class="interior">
-          <h2>How it works:</h2>
-          <ul>
-            <li class="iconic">
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="250" height="100" style="fill:#fff;" viewBox="0 0 50 50" class="customer-type-icon">
-                <g id="surface1">
-                  <path style=" " d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z "></path>
-                </g>
-              </svg>
-              <span class="list-content">
-                <span class="list-text">
-                  <strong>Search for contracts.</strong> Use <a href="/">CoProcure</a> to search for relevant contracts from local agencies, states, and regional and national purchasing cooperatives. Can't find what you're looking for online? <a href="https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/gov" target="_new">Submit a request</a> and we'll respond within 24 hours.
-              </span>
-            </li>
-            <li class="iconic">
-              <img class="bullet-icon icon-submit-request" src="img/icons8-compare-100-white.png" />
-              <span class="list-content">
-                <span class="list-text">
-                  <strong>Compare contracts and resolve diligence questions.</strong> Use <a href="/">CoProcure</a> to compare contracts. Need more information or help with diligence questions? We'll provide free, speedy support in the diligence process. 
-                </span>
-              </span>
-            </li>
-            <li class="iconic">
-              <img class="bullet-icon icon-submit-request" src="img/icons8-buy-100-white.png" />
-              <span class="list-content">
-                <span class="list-text">
-                  <strong>Make a better-informed purchasing decision.</strong> You can communicate with vendors on <a href="/">CoProcure</a>. You decide if you'd like to purchase using a contract we've identified. There's no obligation to use a cooperative contract.
-                </span>
-              </span>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <span class="built-by">
-          <a href="https://medium.com/coprocure/coprocure-is-hiring-a-backend-engineer-2e8780b30c55" target="_blank">Careers</a>
-          <a href="https://www.coprocure.us/files/CoProcure-privacy-policy.pdf" target="_new">Privacy Policy</a> 
-          <a href="https://www.coprocure.us/files/CoProcure-terms-of-use.pdf" target="_new">Terms of Use</a> 
-          Built with &#9829; by CoProcure. Icons by Icon8.</span>
-      <span>
-        <a href="mailto:hello@coprocure.us" target="_new">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-            viewBox="0 0 50 50">
-              <g id="surface1"><path style=" " d="M 0 7 L 0 9.78125 C 3.011719 12.402344 20.289063 27.464844 21.65625 28.65625 C 23.0625 29.882813 24.464844 30 25 30 C 25.535156 30 26.9375 29.882813 28.34375 28.65625 C 29.761719 27.421875 48.046875 11.480469 50 9.78125 L 50 7 Z M 0 12.4375 L 0 37.53125 L 15.125 25.59375 C 10.222656 21.328125 3.230469 15.25 0 12.4375 Z M 50 12.4375 C 46.949219 15.09375 39.847656 21.265625 34.875 25.59375 L 50 37.5 Z M 16.65625 26.9375 L 0 40.0625 L 0 43 L 50 43 L 50 40.03125 L 33.34375 26.9375 C 31.40625 28.625 30.011719 29.847656 29.65625 30.15625 C 27.738281 31.824219 25.757813 32 25 32 C 24.242188 32 22.261719 31.828125 20.34375 30.15625 C 19.992188 29.851563 18.597656 28.628906 16.65625 26.9375 Z "></path></g>
-          </svg>
-        </a>
-        <a href="https://medium.com/coprocure" target="_new">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-          viewBox="0 0 50 50">
-            <g id="surface1"><path style=" " d="M 18 41.578125 C 18 42.46875 17.523438 43 16.847656 43 C 16.609375 43 16.34375 42.933594 16.0625 42.792969 L 5.164063 37.273438 C 4.523438 36.949219 4 36.089844 4 35.367188 L 4 8.3125 C 4 7.597656 4.378906 7.175781 4.921875 7.175781 C 5.113281 7.175781 5.328125 7.226563 5.550781 7.339844 L 5.933594 7.535156 C 5.933594 7.535156 5.9375 7.535156 5.9375 7.535156 L 17.949219 13.617188 C 17.96875 13.628906 17.984375 13.648438 18 13.664063 Z M 30.585938 8.882813 L 31.320313 7.675781 C 31.582031 7.246094 32.0625 7 32.550781 7 C 32.664063 7 32.78125 7.015625 32.894531 7.046875 C 32.980469 7.066406 33.070313 7.097656 33.164063 7.144531 L 45.832031 13.558594 C 45.835938 13.558594 45.835938 13.5625 45.835938 13.5625 L 45.847656 13.566406 C 45.855469 13.570313 45.855469 13.582031 45.863281 13.585938 C 45.925781 13.636719 45.953125 13.722656 45.910156 13.792969 L 33.292969 34.558594 L 32.003906 36.675781 L 23.644531 20.304688 Z M 20 30.605469 L 20 17.5625 L 28.980469 35.15625 L 20.902344 31.066406 Z M 46 41.578125 C 46 42.414063 45.503906 42.890625 44.773438 42.890625 C 44.445313 42.890625 44.070313 42.796875 43.675781 42.597656 L 41.867188 41.679688 L 33.789063 37.589844 L 46 17.496094 Z "></path></g></svg>
-        </a>
-        <a href="https://twitter.com/coprocure" target="_new">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-            viewBox="0 0 50 50">
-              <g id="surface1"><path style=" " d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z "></path></g>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/company/coprocure/" target="_new">
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-            viewBox="0 0 50 50">
-              <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-          </svg>
-        </a>
+    <navigation>
+      <a href="/" class="company-identifier">
+        <svg width="19" height="24" viewBox="0 0 19 24" fill="none" alt="CoProcure logo" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.85564 23.4374L6.66197 22.0879C6.57322 22.0333 6.51916 21.9365 6.51916 21.8323V8.94281C6.51916 8.7834 6.60165 8.63535 6.7372 8.55147L14.6879 3.63145C14.9948 3.44152 15.3803 3.43172 15.6964 3.60582L18.2496 5.01166C18.3965 5.09258 18.4878 5.24704 18.4878 5.4148V15.0079C18.4878 15.1657 18.407 15.3124 18.2737 15.3968L11.7063 19.553C11.3999 19.7469 11 19.5268 11 19.1641V16.6453C11 16.4914 11.0769 16.3477 11.205 16.2623L15.1847 13.6097V7.5L9.77004 10.8502V22.9264C9.77004 23.3958 9.2554 23.6834 8.85564 23.4374Z" fill="#37A8EB"/>
+          <path d="M0.211299 15.3972L4.32747 18.044C4.63374 18.2409 5.03659 18.021 5.03659 17.6569V14.8012C5.03659 14.6497 4.96205 14.5079 4.83728 14.4221L3.5 13.5017V7L8.5 4.00347L10.0308 4.45871C10.1564 4.49607 10.292 4.4781 10.4035 4.40932L12.7966 2.93375C13.1035 2.74447 13.0834 2.29169 12.7608 2.13041L8.99315 0.246573C8.68617 0.0930831 8.32192 0.107747 8.02827 0.285416L0.221974 5.00854C0.0841851 5.09191 0 5.24124 0 5.40228V15.0101C0 15.1667 0.0796046 15.3125 0.211299 15.3972Z" fill="#37A8EB"/>
+        </svg>
+        <span class="company-name">CoProcure</span>
+      </a>
+      <span class="links">
+        <a href="/">About</a>
+        <a href="/add.html">For suppliers</a>
+        <a href="/login">Log in</a>
+        <a href="/signup">Sign up</a>
       </span>
-    </footer>
-  </div>
+    </navigation>
+  </header>
+  <main>
+    <section class="search">
+      <img src="img/iconcards-left.png" alt="" />
+      <div class="middle-section">
+        <div class="search-description">
+          <h1>Find cooperative government contracts to purchase <span class="underline-highlight">anything</span>
+          </h1>
+          <p class="subtext">Collaborate with other governments to buy the solutions you need, from the suppliers you want, <strong>for free</strong>.</p>
+        </div>
+        <div class="search-container">
+          <input class="search-box" name="coprocure_query" placeholder="Keyword, supplier, lead agency..." />
+          <svg class="search-icon" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.053 11.8788C18.053 15.0669 15.4547 17.6607 12.238 17.6607C9.02125 17.6607 6.42301 15.0669 6.42301 11.8788C6.42301 8.6907 9.02125 6.09683 12.238 6.09683C15.4547 6.09683 18.053 8.6907 18.053 11.8788Z" stroke="#37A8EB" stroke-width="2.32599"/>
+            <path d="M16.3083 16.5088L23.8678 23.4537" stroke="#37A8EB" stroke-width="2.32599"/>
+          </svg>            
+          <button class="search-now">Search</button>
+        </div>
+        <div class="partner-list">
+          <p class="subtext subtext--smaller">Join a growing network of public agencies buying smarter with CoProcure</p>
+          <div class="logos">
+              <img src="img/logo_washington_county_oregon.png" alt="" />
+              <img src="img/logo_stlouis_county.png" alt="" />
+              <img src="img/logo_multnomah_county.png" alt="" />
+              <img src="img/logo_kcrpc.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <img src="img/iconcards-right.png" alt="" />
+    </section>
+    <section>
+      <div class="map-section section-interior">
+        <div class="what-we-do">
+          <h2>Public procurement collaboration, <span class="dark-emphasis">made easy</span></h2>
+          <p class="subtext subtext--medium">Use CoProcure to find and compare cooperative contractst to save public staff time and taxpayer dollars. Leverage the experience of thousands of public agencies nationwide to purchase the solutions you need, from the suppliers you want, in less time.</p>
+        </div>
+        <img src="img/map-of-dots.png" alt="map of USA" />
+      </div>
+    </section>
+    <section class="explanation">
+      <div class="section-interior">
+        <h2>How it works</h2>
+        <ul class="work-el">
+          <li>
+            <h3>Search</h3>
+            <p class="subtext subtext--medium">Find the most relevant contracts from national and regional purchasing cooperatives, states, and local agencies. Search by keyword, supplier name, contract number, and more.</p>
+            <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M22.4976 9.04167C24.5166 9.04167 26.1533 7.40937 26.1533 5.39583C26.1533 3.3823 24.5166 1.75 22.4976 1.75C20.4785 1.75 18.8418 3.3823 18.8418 5.39583C18.8418 7.40937 20.4785 9.04167 22.4976 9.04167Z" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M25.083 7.97302L27.6157 10.5" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.3324 8.75H3.04896C2.07983 8.75 1.29419 7.9665 1.29419 7V5.25C1.29419 4.2835 2.07983 3.5 3.04896 3.5H15.3324" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3.48776 13.125C3.73005 13.125 3.92646 13.3209 3.92646 13.5625C3.92646 13.8041 3.73005 14 3.48776 14C3.24548 14 3.04907 13.8041 3.04907 13.5625C3.04907 13.3209 3.24548 13.125 3.48776 13.125" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7.43579 14H21.474" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3.48776 19.25C3.73005 19.25 3.92646 19.4459 3.92646 19.6875C3.92646 19.9291 3.73005 20.125 3.48776 20.125C3.24548 20.125 3.04907 19.9291 3.04907 19.6875C3.04907 19.4459 3.24548 19.25 3.48776 19.25" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7.43579 20.125H21.474" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3.48776 25.375C3.73005 25.375 3.92646 25.5709 3.92646 25.8125C3.92646 26.0541 3.73005 26.25 3.48776 26.25C3.24548 26.25 3.04907 26.0541 3.04907 25.8125C3.04907 25.5709 3.24548 25.375 3.48776 25.375" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7.43579 26.25H21.474" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </li>
+          <li>
+            <h3>Compare</h3>
+            <p class="subtext subtext--medium">Quickly evaluate contracts based on your agency’s requirements and other considerations, like supplier type, location, and price.</p>
+            <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.19263 21.875V18.9315C4.19263 18.6242 4.44246 18.375 4.75064 18.375H22.9394C23.2476 18.375 23.4975 18.6242 23.4975 18.9315V21" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.844 14.875V21.875" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M4.1927 27.125C5.6464 27.125 6.82486 25.9497 6.82486 24.5C6.82486 23.0503 5.6464 21.875 4.1927 21.875C2.739 21.875 1.56055 23.0503 1.56055 24.5C1.56055 25.9497 2.739 27.125 4.1927 27.125Z" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.5987 4.375H13.2204C12.4686 4.37552 11.8227 4.90746 11.68 5.64356C11.5374 6.37966 11.938 7.11331 12.6354 7.39317L15.05 8.35567C15.749 8.63455 16.1511 9.3691 16.0083 10.1063C15.8655 10.8436 15.218 11.3759 14.4651 11.375H12.0891" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.844 4.375V3.5" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.844 12.25V11.375" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M13.844 14.875C17.7206 14.875 20.8631 11.741 20.8631 7.875C20.8631 4.00901 17.7206 0.875 13.844 0.875C9.9675 0.875 6.82495 4.00901 6.82495 7.875C6.82495 11.741 9.9675 14.875 13.844 14.875Z" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.2119 21.875H16.4762V27.125H11.2119V21.875Z" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9856 27.125H27.0047L23.4951 21L19.9856 27.125V27.125Z" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </li>
+          <li>
+            <h3>Decide</h3>
+            <p class="subtext subtext--medium">Use the most relevant contract to complete your purchase. Track the contracts you’re using from other agencies all in one place.</p>
+            <svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.75537 2.58655L3.51014 4.79388V10.0054C3.46335 11.9747 5.75274 13.7387 7.89589 15.5494" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.99737 8.58433L9.06682 10.6983C9.42208 11.062 9.94489 11.209 10.4383 11.084C10.9317 10.9591 11.3208 10.581 11.459 10.0924C11.5972 9.60372 11.4635 9.07867 11.1082 8.715L7.88996 5.44017V3.73333C7.71561 2.71058 7.32565 1.73635 6.74585 0.875" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7.89697 9.49438V23.6251C7.89697 24.5916 8.68261 25.3751 9.65174 25.3751H18.4256" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M28.077 25.4123L26.3223 23.205V17.9947C26.3632 16.2925 24.6599 14.7443 22.8127 13.188V19.3923L20.7655 17.3017C20.2163 16.7395 19.3142 16.7277 18.7504 17.2754C18.1867 17.8231 18.1749 18.7228 18.7241 19.285L21.947 22.561V24.2667C22.1223 25.2877 22.5122 26.2603 23.0912 27.1203" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16.0601 21H11.4065" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.1613 16.625H11.4065" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24.5674 6.125C24.5674 9.0245 22.2105 11.375 19.3031 11.375C16.3957 11.375 14.0388 9.0245 14.0388 6.125C14.0388 3.22551 16.3957 0.875 19.3031 0.875" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24.5673 2.1864L19.771 6.96973C19.6471 7.09398 19.4787 7.16385 19.303 7.16385C19.1273 7.16385 18.9589 7.09398 18.8351 6.96973L17.3271 5.46473" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>              
+          </li>
+          <li>
+            <h3>Share</h3>
+            <p class="subtext subtext--medium">Publish your agency’s contracts on CoProcure to promote transparency and help your peers in public service save time, lower costs, and discover new suppliers.</p>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.755371 2.58655L2.51014 4.79388V10.0054C2.46335 11.9747 4.75274 13.7387 6.89589 15.5494" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5.99737 8.58433L8.06682 10.6983C8.42208 11.062 8.94489 11.209 9.43832 11.084C9.93175 10.9591 10.3208 10.581 10.459 10.0924C10.5972 9.60372 10.4635 9.07867 10.1082 8.715L6.88996 5.44017V3.73333C6.71561 2.71058 6.32565 1.73635 5.74585 0.875" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.89697 9.49438V23.6251C6.89697 24.5916 7.68261 25.3751 8.65174 25.3751H17.4256" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M27.077 25.4123L25.3223 23.205V17.9947C25.3632 16.2925 23.6599 14.7443 21.8127 13.188V19.3923L19.7655 17.3017C19.2163 16.7395 18.3142 16.7277 17.7504 17.2754C17.1867 17.8231 17.1749 18.7228 17.7241 19.285L20.947 22.561V24.2667C21.1223 25.2877 21.5122 26.2603 22.0912 27.1203" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.0601 21H10.4065" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12.1613 16.625H10.4065" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M23.5674 6.125C23.5674 9.0245 21.2105 11.375 18.3031 11.375C15.3957 11.375 13.0388 9.0245 13.0388 6.125C13.0388 3.22551 15.3957 0.875 18.3031 0.875" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M23.5673 2.1864L18.771 6.96973C18.6471 7.09398 18.4787 7.16385 18.303 7.16385C18.1273 7.16385 17.9589 7.09398 17.8351 6.96973L16.3271 5.46473" stroke="#37A8EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="testimonials">
+    </section>
+    <section class="aboutus">
+    </section>
+    <section class="blog-carousel">
+    </section>
+    <section class="contactus">
+    </section>
+    <footer></footer>
+  </main>
+<!--
+  <footer>
+    <span class="built-by">
+        <a href="https://medium.com/coprocure/coprocure-is-hiring-a-backend-engineer-2e8780b30c55" target="_blank">Careers</a>
+        <a href="https://www.coprocure.us/files/CoProcure-privacy-policy.pdf" target="_new">Privacy Policy</a> 
+        <a href="https://www.coprocure.us/files/CoProcure-terms-of-use.pdf" target="_new">Terms of Use</a> 
+        Built with &#9829; by CoProcure. Icons by Icon8.</span>
+    <span>
+      <a href="mailto:hello@coprocure.us" target="_new">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+          viewBox="0 0 50 50">
+            <g id="surface1"><path style=" " d="M 0 7 L 0 9.78125 C 3.011719 12.402344 20.289063 27.464844 21.65625 28.65625 C 23.0625 29.882813 24.464844 30 25 30 C 25.535156 30 26.9375 29.882813 28.34375 28.65625 C 29.761719 27.421875 48.046875 11.480469 50 9.78125 L 50 7 Z M 0 12.4375 L 0 37.53125 L 15.125 25.59375 C 10.222656 21.328125 3.230469 15.25 0 12.4375 Z M 50 12.4375 C 46.949219 15.09375 39.847656 21.265625 34.875 25.59375 L 50 37.5 Z M 16.65625 26.9375 L 0 40.0625 L 0 43 L 50 43 L 50 40.03125 L 33.34375 26.9375 C 31.40625 28.625 30.011719 29.847656 29.65625 30.15625 C 27.738281 31.824219 25.757813 32 25 32 C 24.242188 32 22.261719 31.828125 20.34375 30.15625 C 19.992188 29.851563 18.597656 28.628906 16.65625 26.9375 Z "></path></g>
+        </svg>
+      </a>
+      <a href="https://medium.com/coprocure" target="_new">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        viewBox="0 0 50 50">
+          <g id="surface1"><path style=" " d="M 18 41.578125 C 18 42.46875 17.523438 43 16.847656 43 C 16.609375 43 16.34375 42.933594 16.0625 42.792969 L 5.164063 37.273438 C 4.523438 36.949219 4 36.089844 4 35.367188 L 4 8.3125 C 4 7.597656 4.378906 7.175781 4.921875 7.175781 C 5.113281 7.175781 5.328125 7.226563 5.550781 7.339844 L 5.933594 7.535156 C 5.933594 7.535156 5.9375 7.535156 5.9375 7.535156 L 17.949219 13.617188 C 17.96875 13.628906 17.984375 13.648438 18 13.664063 Z M 30.585938 8.882813 L 31.320313 7.675781 C 31.582031 7.246094 32.0625 7 32.550781 7 C 32.664063 7 32.78125 7.015625 32.894531 7.046875 C 32.980469 7.066406 33.070313 7.097656 33.164063 7.144531 L 45.832031 13.558594 C 45.835938 13.558594 45.835938 13.5625 45.835938 13.5625 L 45.847656 13.566406 C 45.855469 13.570313 45.855469 13.582031 45.863281 13.585938 C 45.925781 13.636719 45.953125 13.722656 45.910156 13.792969 L 33.292969 34.558594 L 32.003906 36.675781 L 23.644531 20.304688 Z M 20 30.605469 L 20 17.5625 L 28.980469 35.15625 L 20.902344 31.066406 Z M 46 41.578125 C 46 42.414063 45.503906 42.890625 44.773438 42.890625 C 44.445313 42.890625 44.070313 42.796875 43.675781 42.597656 L 41.867188 41.679688 L 33.789063 37.589844 L 46 17.496094 Z "></path></g></svg>
+      </a>
+      <a href="https://twitter.com/coprocure" target="_new">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+          viewBox="0 0 50 50">
+            <g id="surface1"><path style=" " d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z "></path></g>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/company/coprocure/" target="_new">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+          viewBox="0 0 50 50">
+            <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
+        </svg>
+      </a>
+    </span>
+  </footer>
+-->
   <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="dist/macro-carousel-min.js"></script>
+  <script async src="js/get-posts.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121612479-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
