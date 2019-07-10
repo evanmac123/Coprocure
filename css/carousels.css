@@ -1,9 +1,113 @@
 macro-carousel {
-  height: 300px;
+  height: 420px;
 }
-
 .slide {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.carousel-card {
+  background: #FAFAFA;
+  box-shadow: 0px 8.28px 20px rgba(0, 0, 0, 0.12);
+}
+
+.testimonials-carousel {
+  background: #37A8EB;
+  padding: 60px 0 20px 0;
+  height: 522px;
+}
+.testimonials-carousel .carousel-card {
+  width: 945px;
+  height: 358px;
+  max-width: 945px;
+  padding: 30px 100px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+}
+.testimonials-carousel .quote-attribution {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testimonials-carousel .quote-attribution span {
+  display: block;
+}
+.testimonials-carousel .quote-attribution img {
+  border-radius: 50%;
+  margin-right: 26px;
+  height: 76px;
+}
+.testimonials-carousel .quote-text {
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 149.1%;
+  color: #4F6481;
+}
+.quote-attribution img {
+  background: linear-gradient(0deg, rgba(20, 103, 151, 0.04), rgba(20, 103, 151, 0.04)), url(0.jpg);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.person-info {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #37A8EB;
+}
+.person-info .testimonial-name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.blog-carousel {
+  background: #146798;
+  padding: 60px 0 20px 0;
+  text-align: center;
+}
+.blog-carousel .carousel-card {
+  position: relative;
+  width: 260px;
+  height: 350px;
+  padding: 10px;
+  margin: 0 15px;
+}
+.blog-carousel h4 {
+  color: #FAFAFA;
+  margin-bottom: 30px;
+}
+.blog-carousel .picture-cropper {
+  width: 240px;
+  height: 160px;
+  overflow:hidden;
+  box-shadow: 0px 5.28137px 5.28137px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+.blog-carousel .picture-cropper img {
+  object-fit: cover;
+  height: 160px;
+}
+.blog-summary {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13.2034px;
+  line-height: 18px;
+  margin-top: 10px;
+  color: #4F6481;
+}
+.blog-carousel .carousel-card .card-text {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
