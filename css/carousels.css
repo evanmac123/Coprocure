@@ -74,25 +74,27 @@ macro-carousel {
   position: relative;
   width: 260px;
   height: 350px;
-  padding: 10px;
+  padding: 20px;
   margin: 0 15px;
+  text-align: left;
 }
 .blog-carousel h4 {
   color: #FAFAFA;
   margin-bottom: 30px;
 }
 .blog-carousel .picture-cropper {
-  width: 240px;
+  width: 230px;
   height: 160px;
   overflow:hidden;
   box-shadow: 0px 5.28137px 5.28137px rgba(0, 0, 0, 0.25);
   position: absolute;
-  top: -10px;
-  left: 10px;
+  top: -15px;
+  left: 15px;
 }
 .blog-carousel .picture-cropper img {
   object-fit: cover;
-  height: 160px;
+  height: 100%;
+  width: 100%;
 }
 .blog-summary {
   font-family: 'Open Sans', sans-serif;
@@ -107,7 +109,31 @@ macro-carousel {
   display: block;
   text-decoration: none;
   cursor: pointer;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
+  margin-top: 150px;
+}
+
+
+@media (max-width: 768px) {
+
+  .testimonials-carousel .carousel-card {
+    max-width: 90vw;
+    padding: 30px;
+    height: auto;
+    position: relative;
+  }
+  .quote-graphic {
+    position: absolute;
+    top: 22px;
+    left: 28px;
+  }
+
+  .testimonials-carousel .quote-text {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 149.1%;
+    text-indent: 40px;
+  }
+  .testimonials-carousel .quote-attribution {
+    margin-top: 8px;
+  }
 }

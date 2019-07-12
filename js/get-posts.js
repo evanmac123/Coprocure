@@ -9,6 +9,13 @@ fetch('https://coprocure.github.io/coprocure.us/feed.json')
 });
 
 function template(json) {
+  let baseCounter = 4;
+  let splitCounter = 3;
+  if(window.innerWidth < 600) {
+    baseCounter = 1;
+    splitCounter = 0;
+    console.log('hi')
+  }
   output = `<h4>Insights, trends, and our latest news</h4>
     <macro-carousel pagination>
     ${json.items.map((item, index) => {
@@ -17,20 +24,22 @@ function template(json) {
         description = altDescription;
       }
       let output = '';
-      if(index % 4 === 0) {
+      if(index % baseCounter === 0) {
         output += `<article class="slide">`;
+      }
+      let blogSummary = description.substr(0,170);
+      if(description.length > 170) {
+        blogSummary += '...';
       }
       output += `
         <div class="carousel-card card--blog">
-          <div class="picture-cropper">
-            <a href="${item.link}"><img src="${item.thumbnail}" alt="" /></a>
-          </div>
+          <a class="picture-cropper" href="${item.link}"><img src="${item.thumbnail}" alt="" /></a>
           <a href="${item.link}" class="card-text">
             <h5>${item.title}</h5>
-            <p class="blog-summary">${description.substr(0,170)}</p>
+            <p class="blog-summary">${blogSummary}</p>
           </a>
         </div>`;
-      if(index % 4 === 3) {
+      if(index % baseCounter === splitCounter) {
         output += `</article>`;
       }
       return output;
