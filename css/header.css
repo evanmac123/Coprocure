@@ -3,10 +3,14 @@ header {
   width: 100%;
   margin: 0 0 20px 0;
 }
+.burger-menu {
+  display: none;
+}
 .company-identifier {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 5;
 }
 .company-name {
   color: #37A8EB;
@@ -37,4 +41,40 @@ header a {
   text-decoration: none;
   color: #37A8EB;
   margin-left: 40px;
+}
+
+
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
+  header navigation {
+    width: 100%;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  header a {
+    margin: 0 15px 10px 0px;
+  }
+  header .company-identifier {
+    margin-top: 7px;
+  }
+  header .links {
+    display: flex;
+    align-items: flex-end;
+    flex-flow: column;
+    width: 100%;
+    background-color: white;
+    z-index: 3;
+    position: absolute;
+    top: -110px;
+    right: 30px;
+    transition: .2s;
+  }
+  header .links.is-active {
+    top: 70px;
+  }
 }
