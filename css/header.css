@@ -3,7 +3,7 @@ header {
   width: 100%;
   margin: 0 0 20px 0;
 }
-.burger-menu {
+.hamburger.burger-menu {
   display: none;
 }
 .company-identifier {
@@ -11,6 +11,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 5;
+  margin: 0;
 }
 .company-name {
   color: #37A8EB;
@@ -43,9 +44,18 @@ header a {
   margin-left: 40px;
 }
 
+header .search-container {
+  display: none;
+  height: 40px;
+  margin-top: 6px;
+  box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1);
+}
+header .search-container .search-icon {
+  top: 7px;
+}
 
 @media (max-width: 768px) {
-  .burger-menu {
+  .hamburger.burger-menu {
     display: block;
     position: absolute;
     top: 10px;

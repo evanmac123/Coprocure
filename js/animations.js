@@ -10,16 +10,20 @@ function animateHeadline(headline) {
 
 function hideWord(word) {
   var nextWord = takeNext(word);
-  switchWord(word, nextWord);
-  setTimeout(function(){ 
-    hideWord(nextWord) 
-  }, animationDelay);
+  if(nextWord) {
+    switchWord(word, nextWord);
+    setTimeout(function(){ 
+      hideWord(nextWord) 
+    }, animationDelay);
+  }
 }
 
 function takeNext(word) {
   let nextNode = word.nextElementSibling;
-  if(!nextNode) {
+  if(!nextNode && document.querySelector('.cd-headline')) {
     nextNode = document.querySelector('.cd-headline').querySelector('b');
+  } else {
+    return null;
   }
   return nextNode;
 }
