@@ -1,0 +1,110 @@
+.search-query-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  margin: 20px 0;
+}
+.search-results {
+  background: #FAFAFA;
+  display: block;
+  margin: 20px 30px;
+}
+.search-results li {
+  margin-bottom: 15px;
+  background: #fff;
+  box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 25px 35px 25px;
+  display: block;
+  position: relative;
+}
+.search-results .result-title {
+  max-width: 660px;
+  display: block;
+}
+.search-results .card-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #F2F6FF;
+  padding: 10px 24px;
+}
+.search-results .result-expiration {
+  display: flex;
+  flex-flow: column;
+}
+.search-results .field-name {
+  display: block;
+  margin: 3px 0;
+}
+.search-results .result-expiration .field-name {
+  font-size: 14px;
+  line-height: 15px;
+  color: #4F6481;
+}
+.search-results .result-expiration .field-value {
+  font-weight: bold;
+  color: #3ea8eb;
+}
+.search-results .parties {
+  display: flex;
+  margin: 10px 0 15px 0;
+}
+.search-results .parties .author {
+  margin-right: 40px;
+}
+
+
+
+.field-group-header {
+  margin: 24px 0 8px 0;
+}
+.field--checkbox {
+  display: flex;
+}
+.field--checkbox input[type="checkbox"] {
+  opacity: 0;
+  opacity: 0;
+  margin: 0;
+  width: 0;
+  height: 0;
+}
+.field--checkbox label {
+  position: relative;
+  display: inline-block;
+  padding: 4px 0 0 26px;
+}
+.field--checkbox label::before,
+.field--checkbox label::after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+}
+.field--checkbox label::before{
+  height: 16px;
+  width: 16px;  
+  border: 1px solid #37A8EB;
+  left: 0px;
+  top: 3px;
+}
+.field--checkbox label::after {
+  height: 5px;
+  width: 9px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+  left: 4px;
+  top: 7px;
+}
+.field--checkbox input[type="checkbox"] + label::after {
+  content: none;
+}
+.field--checkbox input[type="checkbox"]:checked + label::after {
+  content: "";
+}
+.field--checkbox input[type="checkbox"]:checked + label::before {
+  background: #37A8EB;
+}
+.field--checkbox input[type="checkbox"]:focus + label::before {
+  outline: rgb(59, 153, 252) auto 5px;
+}
