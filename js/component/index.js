@@ -1,14 +1,10 @@
 import { resultLayout } from './search-results.js';
 
 export default class CoProcureSearch extends HTMLElement {
-  // Specify observed attributes names to be notified in attributeChangedCallback
   static get observedAttributes() {
     return ["query"];
   }
 
-  // Called when an observed attribute has been added, removed, updated, or replaced.
-  // Also called for initial values when an element is created by the parser, or upgraded.
-  // Note: only attributes listed in the observedAttributes property will receive this callback.
   attributeChangedCallback(attr, oldValue, newValue) {
     if(attr === 'query') {
       if(newValue) {
@@ -21,12 +17,12 @@ export default class CoProcureSearch extends HTMLElement {
   connectedCallback() {
     if(this.getAttribute('query')) {
       this.query = this.getAttribute('query');
-      this.search();
+      // this.search();
     }
   }
 
   search() {
-    let numResults = 20;
+    let numResults = 10;
     let start = 0;
     let url = 'https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?size='+numResults+'&start='+start+'&q='+this.query;
     let component = this;
@@ -40,6 +36,10 @@ export default class CoProcureSearch extends HTMLElement {
   }
   render(json) {
     this.innerHTML = resultLayout(json, this.query);
+    // listen for custom events on the contained pagination element
+    document.querySelector('coprocure-pagination').addEventListener('navigation', function (e) {
+      console.log(e)
+    })
   }
 }
 

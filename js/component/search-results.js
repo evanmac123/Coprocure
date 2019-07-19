@@ -1,47 +1,47 @@
 export function resultLayout(json, query) {
   return `<div class="search-results-container">
     <div class="search-filters">
-      <h2 class="subtext--medium">Filters</h2>
-      <div class="field-group-header">Contract</div>
-      <div class="field--checkbox">
-        <input type="checkbox" name="expired" id="expired">
-        <label for="expired">Include expired contracts</label>
-      </div>
-      <div class="field-group-header">Contract</div>
-      <div class="field--checkbox">
-        <input type="checkbox" name="noncoop" id="noncoop">
-        <label for="noncoop">Include contracts without cooperative language</label>
-      </div>
+      <form method="get" action="/contracts.html">
+        <h2 class="subtext--medium">Filters</h2>
+        <div class="field-group-header">Contract</div>
+        <div class="field--checkbox">
+          <input type="checkbox" name="expired" id="expired">
+          <label for="expired">Include expired contracts</label>
+        </div>
+        <div class="field-group-header">Contract</div>
+        <div class="field--checkbox">
+          <input type="checkbox" name="noncoop" id="noncoop">
+          <label for="noncoop">Include contracts without cooperative language</label>
+        </div>
 
-      <div class="field-group-header">Contract creator</div>
-      <div class="field--select">
-        <label for="lead_agency_location">Lead agency location</label>
-        <select name="lead_agency_location" multiple id="lead_agency_location">
-          <option value="">All states</option>
-          <option value="CA">California</option>
-          <option vlaue="OR">Oregon</option>
-          <option value="KS">Kansas</option>
-          <option value="MO">Missouri</option>
-        </select>
-      </div>
-      <div class="field--select">
-        <label for="lead_agency_location">Lead agencies</label>
-        <select name="lead_agency_location" id="lead_agencies">
-          <option value="">All agencies</option>
-        </select>
-      </div>
-      <div class="field--select">
-        <label for="coop_list">Purchasing cooperatives/consortiums</label>
-        <select name="coop_list" id="coop_list">
-          <option value="">All cooperatives/consortiums</option>
-        </select>
-      </div>
+        <div class="field-group-header">Contract creator</div>
+        <div class="field--select">
+          <label for="lead_agency_location">Lead agency location</label>
+          <select name="lead_agency_location" multiple id="lead_agency_location">
+            <option value="">All states</option>
+          </select>
+        </div>
+        <div class="field--select">
+          <label for="lead_agency_location">Lead agencies</label>
+          <select name="lead_agency_location" id="lead_agencies">
+            <option value="">All agencies</option>
+          </select>
+        </div>
+        <div class="field--select">
+          <label for="coop_list">Purchasing cooperatives/consortiums</label>
+          <select name="coop_list" id="coop_list">
+            <option value="">All cooperatives/consortiums</option>
+          </select>
+        </div>
+
+        <button class="filters-apply">Apply</button>
+      </form>
 
     </div>
     <div class="search-results">
       <h1>${query} cooperative contracts</h1>
       <div class="search-query-controls">
-        <span class="result-count">Showing ${json.hits.start}-${json.hits.start + 10} of ${json.hits.found} results</span>
+        <span class="result-count">Showing ${json.hits.start+1}-${json.hits.start + 10} of ${json.hits.found} results</span>
         <select name="search-sort" class="search-sort">
           <option value="supplier">Supplier A - Z</option>
         </select>
@@ -78,6 +78,7 @@ export function resultLayout(json, query) {
           </li>`
         }).join('\n      ')}
       </ul>
+      <coprocure-pagination current="${(json.hits.start + 10) / 10}" total="${json.hits.found}"></coprocure-pagination>
     </div>
   </div>`
 }
