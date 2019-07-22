@@ -54,6 +54,14 @@
   height: 48px;
   background: #F8F8F8;
   border: 1px solid #E5EAF2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+.check-section li {
+  text-indent: 40px;
+  background: url(../../img/check-circle-1-alternate.svg) no-repeat;
 }
 
 .contract-details .more-info-section {
