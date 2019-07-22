@@ -17,6 +17,7 @@
   font-size: 18px;
   line-height: 128.4%;
   color: #4F6481;
+  margin-bottom: 12px;
 }
 .contract-details h5 {
   font-style: normal;
@@ -64,10 +65,65 @@
   padding: 30px 0;
 }
 
-.contract-details .files {
-  width: 100%;
+.supplier, .author-field {
+  display: flex;
+  flex-flow: column;
+}
+.contract-details .more-info-section section.supplier-details {
+  border-bottom: none;
+}
+.author-content {
+  display: flex;
+  justify-content: space-between; 
+}
+.author-details .field-name, .supplier-details .field-name {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.1px;
+  color: #879EC0;
+}
+.author-details .field-value, .supplier-details .field-value {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.44px;
+  color: #4F6481;
 }
 
+.contract-details .more-info-section section.files {
+  padding: 20px 30px;
+  margin: 0 0 30px 0;
+  border: none;
+  background: #F8F8F8;
+  box-shadow: 0px 8.28px 20px rgba(0, 0, 0, 0.08);
+}
+.files h4 {
+  font-size: 16px;
+  line-height: 128.4%;
+  color: #146798;
+}
+.files .section-header {
+  display: flex;
+  justify-content: space-between;
+}
+.file-list li {
+  background: #fff;
+  height: 35px;
+  line-height: 35px;
+  display: flex;
+  padding: 0 20px;
+  margin-bottom: 1px;
+}
+.file-list .file-link {
+  width: 50%;
+}
+.file-list .file-type {
+  font-size: 14px;
+  color: #96A9C5;
+}
 
 .contract-actions {
   width: 360px;
@@ -83,7 +139,59 @@
   height: 40px;
   margin-bottom: 15px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
+.contract-actions button .button-text {
+  line-height: 40px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.75px;
+}
+button.contact-supplier {
+  color: #FAFAFA;
+}
+button.share-contract {
+  background-color: white;
+  color: #37A8EB;
+  border: 1px solid #37A8EB;
+}
+.button-icon {
+  width: 42px;
+  height: 40px;
+  border-right: solid 1px;
+}
+button .button-text {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+button.contact-supplier .button-icon {
+  background: url(../../img/email.svg) no-repeat 7px 12px;
+  border-right-color: #fff;
+}
+button.share-contract .button-icon {
+  background: url(../../img/share.svg) no-repeat 7px 12px;
+  border-right-color: #37A8EB;;
+}
+.contract-card a {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  font-size: 14px;
+  letter-spacing: 0.75px;
+  color: #37A8EB;
+}
+.questions-link {
+  line-height: 40px;
+  height: 40px;
+  text-indent: 30px;
+  background: url(../../img/questions.svg) no-repeat 7px 12px;
+}
+
 
 .page-description {
   line-height: 36px;

@@ -45,6 +45,9 @@ export function resultLayout(json, query) {
         <span class="result-count">Showing ${json.hits.start+1}-${json.hits.start + 10} of ${json.hits.found} results</span>
         <select name="search-sort" class="search-sort">
           <option value="supplier">Supplier A - Z</option>
+          <option value="supplier">Supplier Z - A</option>
+          <option value="supplier">Buyer A - Z</option>
+          <option value="supplier">Buyer Z - A</option>
         </select>
       </div>
       <ul>
