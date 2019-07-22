@@ -1,0 +1,96 @@
+.contract-results {
+  width: 1140px;
+  height: auto;
+  margin: 80px auto;
+}
+.contract-card {
+  box-shadow: 0px 8.28px 20px rgba(0, 0, 0, 0.12);
+  background: #fff;
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+}
+.contract-details {
+  width: 780px;
+}
+.contract-details h4 {
+  font-size: 18px;
+  line-height: 128.4%;
+  color: #4F6481;
+}
+.contract-details h5 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 136.7%;
+  color: #4F6481;
+}
+.contract-details .title-section {
+  background: #EBF3FF;
+  padding: 30px 30px 20px 30px; 
+}
+.contract-details .title-section .dates {
+  margin: 20px 0 0 0;
+  display: flex;
+  align-items: flex-start;
+}
+.title-section .dates .date-details {
+  margin: 0 30px 0 0;
+  display: flex;
+  flex-flow: column;
+}
+.date-details .field-name {
+  font-size: 12px;
+  line-height: 1.5em;
+  color: #879EC0;
+}
+.date-details .field-value {
+  font-size: 14px;
+  line-height: 136.7%;
+  color: #4F6481;
+}
+.contract-details .check-section {
+  height: 48px;
+  background: #F8F8F8;
+  border: 1px solid #E5EAF2;
+}
+
+.contract-details .more-info-section {
+  margin: 0 30px;
+}
+.contract-details .more-info-section section {
+  display: block;
+  border-bottom: 1px solid #D2DBE9;
+  padding: 30px 0;
+}
+
+.contract-details .files {
+  width: 100%;
+}
+
+
+.contract-actions {
+  width: 360px;
+  background: #F8F8F8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 40px 0;
+  flex-flow: column;
+}
+.contract-actions button {
+  width: 230px;
+  height: 40px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.page-description {
+  line-height: 36px;
+  color: #000;  
+}
+h1.some-big {
+  font-size: 28px;
+  line-height: 128.4%;
+  color: #37A8EB;
+}

@@ -21,6 +21,11 @@ h2 {
 .dark-emphasis, h2.dark-emphasis {
   color: #146798;
 }
+h2.some-big, h1.some-big {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
 h2.some-big {
   font-family: 'Poppins', sans-serif;
   font-style: normal;
@@ -538,6 +543,7 @@ footer .bottom-links a {
     flex-flow: column-reverse;
     height: auto;
     align-items: normal;
+    margin: 0 20px;
   }
   footer .bottom-links {
     display: flex;
