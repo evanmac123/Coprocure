@@ -47,27 +47,64 @@ export function contractLayout(json) {
               }
               return output;
             })()}
-            <section>
+            <section class="author-details">
               <h4>Content Creator</h3>
-              <div class="author">
-                <span class="field-name">Content Creator</span>
-                <span class="field-value">${contract.fields.buyer_lead_agency}</span>
+              <div class="author-content">
+                <div class="author-field">
+                  <span class="field-name">Lead agency</span>
+                  <span class="field-value">${contract.fields.buyer_lead_agency}</span>
+                </div>
+                <div class="author-field">
+                  <span class="field-name">Lead agency state</span>
+                  <span class="field-value">${contract.fields.buyer_lead_agency_state}</span>
+                </div>
+                <div class="author-field">
+                  <span class="field-name">Purchasing cooperative/consortium</span>
+                  <span class="field-value"></span>
+                </div>
               </div>
             </section>
-            <section>
+            <section class="supplier-details">
               <h4>Supplier Details</h3>
-              <div class="buyer">
-                <span class="field-name">Supplier</span>
+              <div class="supplier">
+                <span class="field-name">Name</span>
                 <span class="field-value">${contract.fields.suppliers}</span>
               </div>
+            </section>
+            <section class="files">
+              <div class="section-header">
+                <h4>Documents and Pricing</h4>
+                <a>Missing Documents? Contact Us</a>
+              </div>
+              <ul class="file-list">
+                <li>
+                  <a class="file-link">hi</a>
+                  <span class="file-type">hi</a>
+                </li>
+                <li>
+                  <a class="file-link">hi</a>
+                  <span class="file-type">hi</a>
+                </li>
+                <li>
+                  <a class="file-link">hi</a>
+                  <span class="file-type">hi</a>
+                </li>
+              </ul>
             </section>
           </div>
         </div>
         <div class="contract-actions">
-          <button class="contact-supplier">Contract Supplier</button>
-          <button class="share-contract">Share Contract</button>
+          <button class="contact-supplier">
+            <span class="button-icon"></span>
+            <span class="button-text">Contract Supplier</span>
+          </button>
+          <button class="share-contract">
+          <!-- share.svg -->
+            <span class="button-icon"></span>
+            <span class="button-text">Share Contract</span>
+          </button>
 
-          <a class="questions">Questions Or Suggestions</a>
+          <a class="questions-link">Questions Or Suggestions</a>
         </div>
       </div>
     </div>
