@@ -39,8 +39,9 @@ export function resultLayout(json, query) {
 
     </div>
     <div class="search-results">
-      <h1>${query} cooperative contracts</h1>
+      <h1>${query} contracts</h1>
       <div class="search-query-controls">
+        <a href="#" class="show-filters">Filters</a>
         <span class="result-count">Showing ${json.hits.start+1}-${json.hits.start + 10} of ${json.hits.found} results</span>
         <select name="search-sort" class="search-sort">
           <option value="supplier">Supplier A - Z</option>
@@ -80,5 +81,6 @@ export function resultLayout(json, query) {
       </ul>
       <coprocure-pagination current="${(json.hits.start + 10) / 10}" total="${json.hits.found}"></coprocure-pagination>
     </div>
-  </div>`
+  </div>
+  <div class="overlay-background"></div>`
 }

@@ -45,7 +45,7 @@ header a {
 }
 
 header .search-container {
-  display: none;
+  display: flex;
   height: 40px;
   margin-top: 6px;
   box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1);
@@ -53,13 +53,19 @@ header .search-container {
 header .search-container .search-icon {
   top: 7px;
 }
+header .big-search-icon {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 75px;
+}
 
 @media (max-width: 768px) {
   .hamburger.burger-menu {
     display: block;
     position: absolute;
-    top: 10px;
-    right: 30px;
+    top: 0px;
+    right: 0px;
   }
   header navigation {
     width: 100%;
@@ -71,6 +77,27 @@ header .search-container .search-icon {
   }
   header .company-identifier {
     margin-top: 7px;
+  }
+  header .big-search-icon {
+    display: block;
+  }
+  header .search-container {
+    position: absolute;
+    top: 50px;
+    width: 100vw;
+    margin: 0;
+    left: 0;
+    z-index: 6;
+    box-shadow: none;
+  }
+  header .search-container input {
+    border: 1px solid #37A8EB;
+  }
+  header .search-container {
+    display: none;
+  }
+  header .search-container.active {
+    display: flex;
   }
   header .links {
     display: flex;
@@ -85,6 +112,8 @@ header .search-container .search-icon {
     transition: .2s;
   }
   header .links.is-active {
-    top: 70px;
+    top: 60px;
+    z-index: 7;
+    right: 0;
   }
 }

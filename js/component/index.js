@@ -1,8 +1,9 @@
 import { resultLayout } from './search-results.js';
+import { contractLayout } from './contract.js';
 
 export default class CoProcureSearch extends HTMLElement {
   static get observedAttributes() {
-    return ["query"];
+    return ["query", "data-contract-id"];
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -10,6 +11,12 @@ export default class CoProcureSearch extends HTMLElement {
       if(newValue) {
         this.query = newValue;
         this.search();
+      }
+    }
+    if(attr === 'data-contract-id') {
+      if(newValue) {
+        this.contractId = newValue;
+        this.getContract();
       }
     }
   }
@@ -31,14 +38,43 @@ export default class CoProcureSearch extends HTMLElement {
       return response.json();
     })
     .then(function(json) {
-      component.render(json);
+      component.renderResults(json);
     });
   }
-  render(json) {
+
+  getContract() {
+    let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?&q.parser=structured&q=_id:%27${this.contractId}%27`
+    let component = this;
+    fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      component.renderContract(json);
+    });
+  }
+
+  renderContract(json) {
+    this.innerHTML = contractLayout(json);
+  }
+
+  renderResults(json) {
     this.innerHTML = resultLayout(json, this.query);
     // listen for custom events on the contained pagination element
     document.querySelector('coprocure-pagination').addEventListener('navigation', function (e) {
       console.log(e)
+    })
+    document.querySelector('.show-filters').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.querySelector('.search-filters').classList.toggle('active');
+      document.querySelector('.overlay-background').classList.add('active');
+      document.body.classList.add('noscroll');
+    })
+    document.querySelector('.overlay-background').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.querySelector('.overlay-background').classList.remove('active');
+      document.querySelector('.search-filters').classList.remove('active');
+      document.body.classList.remove('noscroll');
     })
   }
 }
