@@ -3,6 +3,17 @@ export function contractLayout(json) {
     return 'No contract Found'
   } else {
     let contract = json.hits.hit[0];
+    let fileLinks = [];
+    contract.fields.contract_files.forEach( (item) => {
+      let parsedItem = JSON.parse(item);
+      parsedItem.type = 'Contract';
+      fileLinks.push(parsedItem);      
+    })
+    contract.fields.amendments_files.forEach( (item) => {
+      let parsedItem = JSON.parse(item);
+      parsedItem.type = 'Amendment';
+      fileLinks.push(parsedItem);      
+    })
     return `
     <div class="contract-results">
       <h2 class="some-big page-description">Contract Details</h2>
@@ -34,8 +45,11 @@ export function contractLayout(json) {
               })()}
             </div>
           </div>
-          <div class="check-section">
-          </div>
+          <ul class="check-section">
+            <li>Contract active</li>
+            <li>Cooperative language</li>
+            <li>Competitively solicited</li>
+          </ul>
           <div class="more-info-section">
             ${(function() {
               let output = '';
@@ -77,18 +91,12 @@ export function contractLayout(json) {
                 <a>Missing Documents? Contact Us</a>
               </div>
               <ul class="file-list">
-                <li>
-                  <a class="file-link">hi</a>
-                  <span class="file-type">hi</a>
-                </li>
-                <li>
-                  <a class="file-link">hi</a>
-                  <span class="file-type">hi</a>
-                </li>
-                <li>
-                  <a class="file-link">hi</a>
-                  <span class="file-type">hi</a>
-                </li>
+              ${fileLinks.map( (file) => {
+                return `<li>
+                  <a class="file-link">${file.name}</a>
+                  <span class="file-type">${file.type}</a>
+                </li>`;
+              }).join('   ')}
               </ul>
             </section>
           </div>
