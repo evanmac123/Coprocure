@@ -1,9 +1,11 @@
-import { renderHeader } from './template.js';
+import { render } from './template.js';
+import '../../search-run.js';
+import { burger } from '../../burger.js';
 
 export default class CoProcureHeader extends HTMLElement {
-
-  render() {
-    this.innerHTML = ``;
+  connectedCallback() {
+    this.innerHTML = render();
+    burger();
   }
 }
 
