@@ -74,7 +74,7 @@ export function contractLayout(json) {
                 </div>
                 <div class="author-field">
                   <span class="field-name">Purchasing cooperative/consortium</span>
-                  <span class="field-value"></span>
+                  <span class="field-value">${(1==2) ? 'Hi' : 'N/A'}</span>
                 </div>
               </div>
             </section>
@@ -85,21 +85,21 @@ export function contractLayout(json) {
                 <span class="field-value">${contract.fields.suppliers}</span>
               </div>
             </section>
-            <section class="files">
-              <div class="section-header">
-                <h4>Documents and Pricing</h4>
-                <a>Missing Documents? Contact Us</a>
-              </div>
-              <ul class="file-list">
-              ${fileLinks.map( (file) => {
-                return `<li>
-                  <a class="file-link">${file.name}</a>
-                  <span class="file-type">${file.type}</a>
-                </li>`;
-              }).join('   ')}
-              </ul>
-            </section>
           </div>
+          <section class="files">
+            <div class="section-header">
+              <h4>Documents and Pricing</h4>
+              <a>Missing Documents? Contact Us</a>
+            </div>
+            <ul class="file-list">
+            ${fileLinks.map( (file) => {
+              return `<li>
+                <a class="file-link">${file.name}</a>
+                <span class="file-type">${file.type}</a>
+              </li>`;
+            }).join('   ')}
+            </ul>
+          </section>
         </div>
         <div class="contract-actions">
           <button class="contact-supplier">
