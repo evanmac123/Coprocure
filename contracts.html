@@ -11,8 +11,8 @@
 
   <link rel="stylesheet" href="css/search-results.css" type="text/css" />
 
-  <link rel="stylesheet" href="js/component/index.css" type="text/css" />
-  <link rel="stylesheet" href="js/coprocure-pagination/index.css" type="text/css" />
+  <link rel="stylesheet" href="js/components/coprocure-search/index.css" type="text/css" />
+  <link rel="stylesheet" href="js/components/coprocure-pagination/index.css" type="text/css" />
 
   <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Poppins&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,6 @@
         </svg>
         <span class="company-name">CoProcure</span>
       </a>
-
       <div class="search-container">
         <input class="search-box" name="coprocure_query" placeholder="Keyword, supplier, lead agency...">
         <svg class="search-icon" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,18 +35,14 @@
         </svg>            
         <button class="search-now">Search</button>
       </div>
-
       <span class="links">
         <a href="/">About</a>
         <a href="/add.html">For suppliers</a>
       </span>
-
       <svg class="big-search-icon" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="13.75" cy="13.75" r="6.5431" stroke="#37A8EB" stroke-width="3.41379"/>
         <path d="M18.5625 19.25L27.5 27.5" stroke="#37A8EB" stroke-width="3.41379"/>
       </svg>
-        
-
       <div class="burger-menu hamburger hamburger--squeeze">
         <div class="hamburger-box">
           <div class="hamburger-inner"></div>
@@ -61,48 +56,16 @@
     <coprocure-search query="vests"></coprocure-search>
 
   </main>
-  <footer>
-    <div class="section-interior">
-      <div class="tagline">
-        <h2 class="some-big dark-emphasis">We're committed to making government more transparent, efficient, and inclusive</h2>
-        <div class="social-links">
-          <a href="https://medium.com/coprocure" target="_new">
-            <img src="img/social/Medium.svg" alt="Medium logo" />
-          </a>
-          <a href="https://www.linkedin.com/company/coprocure/" target="_new">
-            <img src="img/social/LinkedIN.svg" alt="LinkedIn logo" />
-          </a>
-          <a href="mailto:hello@coprocure.us" target="_new">
-            <img src="img/social/Mail.svg" alt="Mail icon" />
-          </a>
-          <a href="https://twitter.com/coprocure" target="_new">
-            <img src="img/social/Twitter.svg" alt="Twitter logo" />
-          </a>
-        </div>
-      </div>
-      <div class="us-links">
-        <a href="#">About</a>
-        <a href="https://medium.com/coprocure" target="_new">Blog</a>
-        <a href="https://medium.com/coprocure/coprocure-is-hiring-a-backend-engineer-2e8780b30c55" target="_blank">Careers</a>
-        <a href="#">For Suppliers</a>
-      </div>
-    </div>
-    <div class="section-interior down-low">
-      <span class="copyright">&#0169; 2019 by CoProcure. All rights reserved.</span>
-      <div class="bottom-links">
-        <a href="https://www.coprocure.us/add.html">Share Your Contracts</href>
-        <a href="https://www.coprocure.us/files/CoProcure-privacy-policy.pdf" target="_new">Privacy Policy</a>
-        <a href="https://www.coprocure.us/files/CoProcure-terms-of-use.pdf" target="_new">Terms of Use</a>
-      </div>
-    </div>
-  </footer>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async defer src="js/search-run.js"></script>
-  <script type="module" async defer src="js/component/index.js"></script>
+  <coprocure-footer></coprocure-footer>
 
-  <script type="module" async defer src="js/coprocure-pagination/index.js"></script>
+  <script async defer src="js/search-run.js"></script>
+  <script type="module" async defer src="js/components/coprocure-search/index.js"></script>
+  <script type="module" async defer src="js/components/footer/index.js"></script>
+  <script type="module" async defer src="js/components/coprocure-pagination/index.js"></script>
+
   <script async defer src="js/burger.js"></script>
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121612479-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];

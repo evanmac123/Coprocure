@@ -1,5 +1,6 @@
 import { resultLayout } from './search-results.js';
 import { contractLayout } from './contract.js';
+import '../coprocure-pagination/index.js';
 
 export default class CoProcureSearch extends HTMLElement {
   static get observedAttributes() {
