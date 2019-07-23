@@ -2,19 +2,30 @@ import { resultLayout } from './search-results.js';
 import { contractLayout } from './contract.js';
 import '../coprocure-pagination/index.js';
 
+function getParams() {
+  let paramsObj = {};
+  window.location.search.replace('?','').split('&').forEach((pair) => {
+    let pairObj = pair.split('=');
+    paramsObj[pairObj[0]] = pairObj[1];
+  })
+  return paramsObj;
+}
+
 export default class CoProcureSearch extends HTMLElement {
   static get observedAttributes() {
-    return ["query", "data-contract-id"];
+    return ["query", "contractid"];
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
+    console.log(attr)
+    console.log('hi')
     if(attr === 'query') {
       if(newValue) {
         this.query = newValue;
         this.search();
       }
     }
-    if(attr === 'data-contract-id') {
+    if(attr === 'contractid') {
       if(newValue) {
         this.contractId = newValue;
         this.getContract();
@@ -25,7 +36,18 @@ export default class CoProcureSearch extends HTMLElement {
   connectedCallback() {
     if(this.getAttribute('query')) {
       this.query = this.getAttribute('query');
-      // this.search();
+    }
+    if(this.getAttribute('contractid')) {
+      this.contractId = this.getAttribute('contractid');
+    }
+    let queryParams = getParams();
+    if(queryParams.query) {
+      this.query = queryParams.query;
+      this.setAttribute('query', this.query);
+    }
+    if(queryParams.contractId) {
+      this.contractId = queryParams.contractId;
+      this.setAttribute('contractid', this.contractId);
     }
   }
 
