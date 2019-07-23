@@ -223,7 +223,7 @@ h1.some-big {
     width: 100%;
   }
   .contract-actions {
-    display: none;
+    width: 100%;
   }
   .contract-results h2 {
     display: none;
@@ -250,5 +250,15 @@ h1.some-big {
   }
   .contract-details .more-info-section section.files {
     padding: 20px 20px;
+  }
+
+  .contract-card {
+    flex-flow: column;
+  }
+  .contract-card, .contract-details section.files {
+    box-shadow: none;
+  }
+  .contract-details section.files {
+    margin: 0;
   }
 }
