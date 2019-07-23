@@ -60,8 +60,13 @@
   padding: 0 40px;
 }
 .check-section li {
-  text-indent: 40px;
-  background: url(../../img/check-circle-1-alternate.svg) no-repeat;
+  text-indent: 25px;
+  background: url(../../../img/check-circle-1-alternate.svg) no-repeat;
+
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4F6481
 }
 
 .contract-details .more-info-section {
@@ -101,7 +106,7 @@
   color: #4F6481;
 }
 
-.contract-details .more-info-section section.files {
+.contract-details section.files {
   padding: 20px 30px;
   margin: 0 0 30px 0;
   border: none;
@@ -178,11 +183,11 @@ button .button-text {
   width: 100%;
 }
 button.contact-supplier .button-icon {
-  background: url(../../img/email.svg) no-repeat 7px 12px;
+  background: url(../../../img/email.svg) no-repeat 7px 12px;
   border-right-color: #fff;
 }
 button.share-contract .button-icon {
-  background: url(../../img/share.svg) no-repeat 7px 12px;
+  background: url(../../../img/share.svg) no-repeat 7px 12px;
   border-right-color: #37A8EB;;
 }
 .contract-card a {
@@ -197,7 +202,7 @@ button.share-contract .button-icon {
   line-height: 40px;
   height: 40px;
   text-indent: 30px;
-  background: url(../../img/questions.svg) no-repeat 7px 12px;
+  background: url(../../../img/questions.svg) no-repeat 7px 12px;
 }
 
 
@@ -209,4 +214,41 @@ h1.some-big {
   font-size: 28px;
   line-height: 128.4%;
   color: #37A8EB;
+}
+
+
+
+@media (max-width: 768px) {
+  .contract-results, .contract-details {
+    width: 100%;
+  }
+  .contract-actions {
+    display: none;
+  }
+  .contract-results h2 {
+    display: none;
+  }
+  .contract-details .check-section {
+    height: auto;
+    padding: 10px 20px;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  .check-section li {
+    margin: 10px;
+  }
+  .author-content {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .supplier, .author-field {
+    margin: 0 40px 20px 0;
+  }
+  .files .section-header {
+    flex-flow: column;
+    padding: 0 0 20px 0;
+  }
+  .contract-details .more-info-section section.files {
+    padding: 20px 20px;
+  }
 }
