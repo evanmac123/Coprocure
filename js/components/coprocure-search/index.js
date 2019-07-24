@@ -14,13 +14,15 @@ function getParams() {
 
 export default class CoProcureSearch extends HTMLElement {
   static get observedAttributes() {
-    return ["query", "contractid"];
+    return ['query', 'contractid', 'page', 'sort'];
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
     if(attr === 'query') {
       if(newValue) {
         this.query = newValue;
+        this.setAttribute('page','');
+        this.setAttribute('sort','');
         this.search();
       }
     }
@@ -28,6 +30,18 @@ export default class CoProcureSearch extends HTMLElement {
       if(newValue) {
         this.contractId = newValue;
         this.getContract();
+      }
+    }
+    if(attr === 'page') {
+      if(newValue) {
+        this.page = newValue;
+        this.search();
+      }
+    }
+    if(attr === 'sort') {
+      if(newValue) {
+        this.sort = newValue;
+        this.search();
       }
     }
   }
@@ -52,9 +66,16 @@ export default class CoProcureSearch extends HTMLElement {
 
   search() {
     this.innerHTML = spinner();
+    window.scrollTo(0,0);
     let numResults = 10;
     let start = 0;
+    if(this.page && this.page > 1) {
+      start = (numResults * this.page) - numResults;
+    }
     let url = 'https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?size='+numResults+'&start='+start+'&q='+this.query;
+    if(this.sort) {
+      url += '&sort='+this.sort;
+    }
     let component = this;
     fetch(url)
     .then(function(response) {
@@ -83,10 +104,11 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   renderResults(json) {
-    this.innerHTML = resultLayout(json, this.query);
+    this.innerHTML = resultLayout(json, this.query, this.sort);
     // listen for custom events on the contained pagination element
     document.querySelector('coprocure-pagination').addEventListener('navigation', function (e) {
-      console.log(e)
+      console.log(e.detail.page)
+      document.querySelector('coprocure-search').setAttribute('page',e.detail.page);
     })
     document.querySelector('.show-filters').addEventListener('click', function(event) {
       event.preventDefault();
@@ -99,6 +121,10 @@ export default class CoProcureSearch extends HTMLElement {
       document.querySelector('.overlay-background').classList.remove('active');
       document.querySelector('.search-filters').classList.remove('active');
       document.body.classList.remove('noscroll');
+    })
+    document.querySelector('.search-sort').addEventListener('change', function(event) {
+      event.preventDefault();
+      document.querySelector('coprocure-search').setAttribute('sort',event.target.value);
     })
   }
 

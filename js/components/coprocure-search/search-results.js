@@ -1,4 +1,4 @@
-export function resultLayout(json, query) {
+export function resultLayout(json, query, sort) {
   return `<div class="search-results-container">
     <div class="search-filters">
       <form method="get" action="/contracts.html">
@@ -13,7 +13,6 @@ export function resultLayout(json, query) {
           <input type="checkbox" name="noncoop" id="noncoop">
           <label for="noncoop">Include contracts without cooperative language</label>
         </div>
-
         <div class="field-group-header">Contract creator</div>
         <div class="field--select">
           <label for="lead_agency_location">Lead agency location</label>
@@ -44,10 +43,16 @@ export function resultLayout(json, query) {
         <a href="#" class="show-filters">Filters</a>
         <span class="result-count">Showing ${json.hits.start+1}-${json.hits.start + 10} of ${json.hits.found} results</span>
         <select name="search-sort" class="search-sort">
-          <option value="supplier">Supplier A - Z</option>
-          <option value="supplier">Supplier Z - A</option>
-          <option value="supplier">Buyer A - Z</option>
-          <option value="supplier">Buyer Z - A</option>
+          <option value="">Sort by</option>
+          <option value="suppliers%20asc" ${(sort=='suppliers%20asc') ? 'selected' : ''}>Supplier A - Z</option>
+          <option value="suppliers%20desc" ${(sort=='suppliers%20desc') ? 'selected' : ''}>Supplier Z - A</option>
+          <option value="buyer_lead_agency%20asc" ${(sort=='buyer_lead_agency%20asc') ? 'selected' : ''}>Buyer A - Z</option>
+          <option value="buyer_lead_agency%20desc" ${(sort=='buyer_lead_agency%20desc') ? 'selected' : ''}>Buyer Z - A</option>
+          <option value="expiration%20desc" ${(sort=='expiration%20desc') ? 'selected' : ''}>Expiration</option>
+          <option value="title%20asc" ${(sort=='title%20asc') ? 'selected' : ''}>Title A - Z</option>
+          <option value="title%20desc" ${(sort=='title%20desc') ? 'selected' : ''}>Title Z - A</option>
+          <option value="buyer_lead_agency_state%20asc" ${(sort=='buyer_lead_agency_state%20asc') ? 'selected' : ''}>Buyer State A - Z</option>
+          <option value="buyer_lead_agency_state%20desc" ${(sort=='buyer_lead_agency_state%20desc') ? 'selected' : ''}>Buyer State Z - A</option>
         </select>
       </div>
       <ul>
