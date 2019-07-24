@@ -1,18 +1,18 @@
-export function resultLayout(json, query, sort) {
+export function resultLayout(json, query, sort, expired) {
   return `<div class="search-results-container">
     <div class="search-filters">
       <form method="get" action="/contracts.html">
         <h2 class="subtext--medium">Filters</h2>
         <div class="field-group-header">Contract</div>
         <div class="field--checkbox">
-          <input type="checkbox" name="expired" id="expired">
+          <input type="checkbox" name="expired" id="expired" ${(expired) ? 'checked' : ''}>
           <label for="expired">Include expired contracts</label>
         </div>
-        <div class="field-group-header">Contract</div>
+        <!--<div class="field-group-header">Contract</div>
         <div class="field--checkbox">
           <input type="checkbox" name="noncoop" id="noncoop">
           <label for="noncoop">Include contracts without cooperative language</label>
-        </div>
+        </div>-->
         <div class="field-group-header">Contract creator</div>
         <div class="field--select">
           <label for="lead_agency_location">Lead agency location</label>
