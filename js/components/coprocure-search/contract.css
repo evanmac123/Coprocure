@@ -131,7 +131,11 @@
   margin-bottom: 1px;
 }
 .file-list .file-link {
-  width: 50%;
+  width: 47%;
+  margin-right: 3%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .file-list .file-type {
   font-size: 14px;
