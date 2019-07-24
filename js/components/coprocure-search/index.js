@@ -47,6 +47,7 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   connectedCallback() {
+    this.showExpired = false;
     if(this.getAttribute('query')) {
       this.query = this.getAttribute('query');
     }
@@ -72,9 +73,13 @@ export default class CoProcureSearch extends HTMLElement {
     if(this.page && this.page > 1) {
       start = (numResults * this.page) - numResults;
     }
-    let url = 'https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?size='+numResults+'&start='+start+'&q='+this.query;
+    let expParam = `expiration:['${new Date().toISOString()}',}`;
+    let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?q.parser=structured&size=${numResults}&start=${start}&q='${this.query}'`;
     if(this.sort) {
       url += '&sort='+this.sort;
+    }
+    if(!this.showExpired) {
+      url += `&fq=${encodeURIComponent(expParam)}`;
     }
     let component = this;
     fetch(url)
@@ -104,10 +109,10 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   renderResults(json) {
-    this.innerHTML = resultLayout(json, this.query, this.sort);
+    this.innerHTML = resultLayout(json, this.query, this.sort, this.showExpired);
+    let component = this;
     // listen for custom events on the contained pagination element
     document.querySelector('coprocure-pagination').addEventListener('navigation', function (e) {
-      console.log(e.detail.page)
       document.querySelector('coprocure-search').setAttribute('page',e.detail.page);
     })
     document.querySelector('.show-filters').addEventListener('click', function(event) {
@@ -126,8 +131,22 @@ export default class CoProcureSearch extends HTMLElement {
       event.preventDefault();
       document.querySelector('coprocure-search').setAttribute('sort',event.target.value);
     })
+    document.getElementById('expired').addEventListener('change', function(event) {
+      if(this.checked) {
+        component.showExpired = true;
+      } else {
+        component.showExpired = false;
+      }
+      component.search();
+    })
   }
 
 }
 
 customElements.define("coprocure-search", CoProcureSearch);
+
+
+
+
+// https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?size=1&start=0&q='vest'&q.parser=structured&fq=expiration%3A%5B'2019-01-01T00%3A00%3A00Z'%2C%7D&sort=expiration+asc
+
