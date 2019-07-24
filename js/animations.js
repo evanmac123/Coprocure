@@ -17,7 +17,6 @@ function hideWord(word) {
 
 function takeNext(word) {
   let nextNode = word.nextElementSibling;
-  console.log(nextNode)
   if(!nextNode && document.querySelector('.cd-headline')) {
     nextNode = document.querySelector('.cd-headline').querySelector('b');
   }

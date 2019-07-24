@@ -54,7 +54,7 @@ export function resultLayout(json, query) {
         ${json.hits.hit.map( (item) => {
           return `<li>
             <div class="card-details">
-              <a href="" class="result-title">${item.fields.title}</a>
+              <a href="contract.html?contractId=${item.id}" class="result-title">${item.fields.title}</a>
               <div class="parties">
                 <div class="author">
                   <span class="field-name">Content Creator</span>

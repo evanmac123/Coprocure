@@ -1,6 +1,7 @@
 import { resultLayout } from './search-results.js';
 import { contractLayout } from './contract.js';
 import '../coprocure-pagination/index.js';
+import { spinner } from './spinner.js';
 
 function getParams() {
   let paramsObj = {};
@@ -17,8 +18,6 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    console.log(attr)
-    console.log('hi')
     if(attr === 'query') {
       if(newValue) {
         this.query = newValue;
@@ -52,6 +51,7 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   search() {
+    this.innerHTML = spinner();
     let numResults = 10;
     let start = 0;
     let url = 'https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?size='+numResults+'&start='+start+'&q='+this.query;
@@ -66,6 +66,7 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   getContract() {
+    this.innerHTML = spinner();
     let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?&q.parser=structured&q=_id:%27${this.contractId}%27`
     let component = this;
     fetch(url)
@@ -100,6 +101,7 @@ export default class CoProcureSearch extends HTMLElement {
       document.body.classList.remove('noscroll');
     })
   }
+
 }
 
 customElements.define("coprocure-search", CoProcureSearch);

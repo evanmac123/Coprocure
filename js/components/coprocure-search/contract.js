@@ -4,16 +4,22 @@ export function contractLayout(json) {
   } else {
     let contract = json.hits.hit[0];
     let fileLinks = [];
-    contract.fields.contract_files.forEach( (item) => {
-      let parsedItem = JSON.parse(item);
-      parsedItem.type = 'Contract';
-      fileLinks.push(parsedItem);      
-    })
-    contract.fields.amendments_files.forEach( (item) => {
-      let parsedItem = JSON.parse(item);
-      parsedItem.type = 'Amendment';
-      fileLinks.push(parsedItem);      
-    })
+    if(contract.fields.contract_files) {
+      contract.fields.contract_files.forEach( (item) => {
+        let parsedItem = JSON.parse(item);
+        if(parsedItem.url) {
+          parsedItem.type = 'Contract';
+          fileLinks.push(parsedItem);      
+        }
+      })  
+    }
+    if(contract.fields.amendments_files) {
+      contract.fields.amendments_files.forEach( (item) => {
+        let parsedItem = JSON.parse(item);
+        parsedItem.type = 'Amendment';
+        fileLinks.push(parsedItem);      
+      })  
+    }
     return `
     <div class="contract-results">
       <h2 class="some-big page-description">Contract Details</h2>
@@ -94,7 +100,7 @@ export function contractLayout(json) {
             <ul class="file-list">
             ${fileLinks.map( (file) => {
               return `<li>
-                <a class="file-link">${file.name}</a>
+                <a href="${file.url}" nofollow class="file-link">${(file.name) ? file.name : file.url}</a>
                 <span class="file-type">${file.type}</a>
               </li>`;
             }).join('   ')}
@@ -107,7 +113,6 @@ export function contractLayout(json) {
             <span class="button-text">Contract Supplier</span>
           </button>
           <button class="share-contract">
-          <!-- share.svg -->
             <span class="button-icon"></span>
             <span class="button-text">Share Contract</span>
           </button>
