@@ -1,17 +1,19 @@
 
-var animationDelay = 2500;
+let animationDelay = 2500;
 
-function animateHeadline(headline) {
-  setTimeout(function(){ hideWord( headline.querySelector('.is-visible') ) }, animationDelay);
+function animateHeadline() {
+  let headline = document.querySelector('.cd-headline');
+  hideWord( headline.querySelector('.is-visible') )
+  // setTimeout(function(){ hideWord( headline.querySelector('.is-visible') ) }, animationDelay);
 }
 
 function hideWord(word) {
   var nextWord = takeNext(word);
   if(nextWord) {
     switchWord(word, nextWord);
-    setTimeout(function() {
+    /* setTimeout(function() {
       hideWord(nextWord)
-    }, animationDelay);
+    }, animationDelay); */
   }
 }
 
@@ -29,7 +31,24 @@ function switchWord(oldWord, newWord) {
     oldWord.classList.remove('is-visible');
     newWord.classList.remove('is-hidden');
     newWord.classList.add('is-visible');
-  }, 600)
+  }, 650)
 }
 
-animateHeadline(document.querySelector('.cd-headline'));
+
+// animateHeadline(document.querySelector('.cd-headline'));
+let headlineSwitcher = window.setInterval(animateHeadline, 2500)
+
+window.addEventListener('focus', function() {
+  headlineSwitcher = window.setInterval(animateHeadline, 2500)
+});
+
+
+// setup animation to run on a window setinterval
+// set that up outside function so runs onload
+// clearinterval onblur
+// reset interval onfocus
+
+window.addEventListener('blur', function() {
+  window.clearInterval(headlineSwitcher)
+});
+
