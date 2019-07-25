@@ -26,7 +26,7 @@ export function contractLayout(json) {
       <div class="contract-card">
         <div class="contract-details">
           <div class="title-section">
-            <h5>Contract # ${contract.fields.contract_number}</h5>
+            ${(contract.fields.contract_number) ? `<h5>Contract # ${contract.fields.contract_number}</h5>` : ''}            
             <h1 class="some-big">${contract.fields.title}</h1>
             <div class="dates">
               ${(function() {
