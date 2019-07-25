@@ -95,7 +95,7 @@ export function contractLayout(json) {
           <section class="files">
             <div class="section-header">
               <h4>Documents and Pricing</h4>
-              <a>Missing Documents? Contact Us</a>
+              <a href="#" data-contract-id="${contract.id}" class="missing-documents">Missing Documents? Contact Us</a>
             </div>
             <ul class="file-list">
             ${fileLinks.map( (file) => {
@@ -110,9 +110,9 @@ export function contractLayout(json) {
         <div class="contract-actions">
           <button class="contact-supplier">
             <span class="button-icon"></span>
-            <span class="button-text">Contract Supplier</span>
+            <span class="button-text">Contact Supplier</span>
           </button>
-          <button class="share-contract">
+          <button class="share-contract" data-contract-id="${contract.id}">
             <span class="button-icon"></span>
             <span class="button-text">Share Contract</span>
           </button>
