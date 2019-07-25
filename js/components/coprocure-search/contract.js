@@ -52,9 +52,9 @@ export function contractLayout(json) {
             </div>
           </div>
           <ul class="check-section">
-            <li>Contract active</li>
-            <li>Cooperative language</li>
-            <li>Competitively solicited</li>
+            ${(new Date(contract.fields.expiration) > new Date()) ? '<li>Contract active</li>' : ''}
+            ${(contract.fields.cooperative_language) ? '<li>Cooperative language</li>' : ''}
+            ${(contract.fields.competitively_bid) ? '<li>Competitively solicited</li>' : ''}
           </ul>
           <div class="more-info-section">
             ${(function() {
