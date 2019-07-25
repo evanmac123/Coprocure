@@ -5,6 +5,7 @@ import { spinner } from './spinner.js';
 import { states } from './states.js';
 import { buyers } from './buyers.js';
 import { coops } from './coops.js';
+import { showContactVendorModal, showShareModal, showAdditionalDocsModal } from './overlays.js';
 
 function getParams() {
   let paramsObj = {};
@@ -151,6 +152,23 @@ export default class CoProcureSearch extends HTMLElement {
 
   renderContract(json) {
     this.innerHTML = contractLayout(json);
+
+    document.querySelector('.contact-supplier').addEventListener('click',function(event) {
+      event.preventDefault();
+      showContactVendorModal()
+    })
+    document.querySelector('.share-contract').addEventListener('click',function(event) {
+      event.preventDefault();
+      showShareModal(this.dataset.contractId)
+    })
+    document.querySelector('.questions-link').addEventListener('click',function(event) {
+      event.preventDefault();
+      showAdditionalDocsModal({type:'questions'})
+    })
+    document.querySelector('.missing-documents').addEventListener('click',function(event) {
+      event.preventDefault();
+      showAdditionalDocsModal({type:'docs',contractId:this.dataset.contractId})
+    })
   }
 
   renderResults(json) {
