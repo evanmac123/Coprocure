@@ -119,7 +119,17 @@
 .field--select {
   margin: 0 0 10px 0;
 }
-
+select[name="buyer_lead_agency_state"], select[name="buyer_lead_agency"] {
+  height: 200px;
+  padding: 0;
+}
+select[name="buyer_lead_agency_state"] option, select[name="buyer_lead_agency"] option {
+  height: 30px;
+  text-align: left;
+  text-indent: 20px;
+  display: flex;
+  align-items: center;
+}
 .filters-apply {
   width: 220px;
   height: 36px;
