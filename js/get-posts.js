@@ -14,7 +14,6 @@ function template(json) {
   if(window.innerWidth < 600) {
     baseCounter = 1;
     splitCounter = 0;
-    console.log('hi')
   }
   output = `<h4>Insights, trends, and our latest news</h4>
     <macro-carousel pagination>

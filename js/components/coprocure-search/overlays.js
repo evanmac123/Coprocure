@@ -18,7 +18,7 @@ export function setUser(id) {
 function showModal(modalInfo) {
   let modalBackdrop = `<div class="modal-backdrop fade"></div>`;
   let modalHTML = `<div class="js-identityModal modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog ${modalInfo.extraClass}" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">${modalInfo.title}</h5>
@@ -169,14 +169,24 @@ export function showShareModal(contractId) {
 
 export function showContactVendorModal(contractId) {
   let modalInfo = {
-    title: 'Contact Vendor',
-    body: `<form method="post" action="">
+    title: '',
+    extraClass: 'mega',
+    body: `<form method="post" action="" class="multisection-modal">
+      <div class="modal-explanation-section">
+      </div>
+      <div class="modal-business-section">
+        <h5 class="modal-title">Connect with a supplier through CoProcure</h5>
         <label>
-          <span class="field-description">What information do you need from this vendor?</span>
+          <span class="field-description">Inquiry</span>
           <textarea name="purchase-info"></textarea>
         </label>
-        <button type="submit" class="contact-vendor">Submit</button>
-      </form>`,
+        <label style="display: flex;align-items: center;margin: 0 0 20px 0;">
+          <input type="checkbox" name="anonymous">
+          <span class="field-description checkbox-label">Keep my inquiry anonymous for now.</span>
+        </label>
+        <button type="submit" class="contact-vendor">Connect</button>
+      </div>
+    </form>`,
     close: false,
     contractId: contractId
   }

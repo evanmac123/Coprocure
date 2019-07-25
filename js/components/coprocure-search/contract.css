@@ -258,6 +258,10 @@ coprocure-search .modal-dialog {
   transform: translate(0, -250%);
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
 }
+coprocure-search .modal-dialog.mega {
+  max-width: 800px;
+  padding: 0px;
+}
 coprocure-search .modal .modal-title {
   font-size: 20px;
   line-height: 128.4%;
@@ -288,7 +292,7 @@ coprocure-search .modal label .label-text {
   display: block;
   margin-bottom: 6px;
 }
-coprocure-search .modal input {
+coprocure-search .modal input[type="text"] {
   width: 100%;
   border: 1px solid;
 }
@@ -310,7 +314,20 @@ coprocure-search .modal input {
   letter-spacing: 0.75px;
   color: #3CAC7F;
 }
-
+.modal .multisection-modal {
+  display: flex;
+}
+.modal .modal-explanation-section {
+  width: 310px;
+  height: 350px;
+  background-color: #37A8EB;
+  color: #fff;
+}
+.modal .modal-business-section {
+  width: 490px;
+  height: 350px;
+  padding: 20px;
+}
 
 @media (max-width: 768px) {
   .contract-results, .contract-details {
