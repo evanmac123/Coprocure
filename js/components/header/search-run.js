@@ -75,11 +75,11 @@ function handleNavigation(loc) {
     window.location.reload();
   }
 
-  if(loc.pathname === '/contract.html') {
+  if(loc.pathname.indexOf('/contract.html') > -1) {
     document.querySelector('coprocure-search').setAttribute('query','');
     document.querySelector('coprocure-search').setAttribute('contractId',loc.search.replace('?contractId=',''));
   }
-  if(loc.pathname === '/contracts.html') {
+  if(loc.pathname.indexOf('/contracts.html') > -1) {
     document.querySelector('coprocure-search').setAttribute('query',loc.search.replace('?query=',''));
     document.querySelector('coprocure-search').setAttribute('contractId','');
   }
