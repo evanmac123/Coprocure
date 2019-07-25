@@ -2,6 +2,9 @@ import { resultLayout } from './search-results.js';
 import { contractLayout } from './contract.js';
 import '../coprocure-pagination/index.js';
 import { spinner } from './spinner.js';
+import { states } from './states.js';
+import { buyers } from './buyers.js';
+import { coops } from './coops.js';
 
 function getParams() {
   let paramsObj = {};
@@ -14,7 +17,7 @@ function getParams() {
 
 export default class CoProcureSearch extends HTMLElement {
   static get observedAttributes() {
-    return ['query', 'contractid', 'page', 'sort'];
+    return ['query', 'contractid', 'page', 'sort', 'states', 'buyers', 'coops', 'search'];
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
@@ -43,6 +46,24 @@ export default class CoProcureSearch extends HTMLElement {
         this.sort = newValue;
         this.search();
       }
+    }
+    if(attr === 'states') {
+      if(newValue) {
+        this.states = JSON.parse(newValue);
+      }
+    }
+    if(attr === 'buyers') {
+      if(newValue) {
+        this.buyers = JSON.parse(newValue);
+      }
+    }
+    if(attr === 'coops') {
+      if(newValue) {
+        this.coops = JSON.parse(newValue);
+      }
+    }
+    if(attr === 'search') {
+      this.search()
     }
   }
 
@@ -74,7 +95,31 @@ export default class CoProcureSearch extends HTMLElement {
       start = (numResults * this.page) - numResults;
     }
     let expParam = `expiration:['${new Date().toISOString()}',}`;
-    let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?q.parser=structured&size=${numResults}&start=${start}&q='${this.query}'`;
+    let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?q.parser=structured&size=${numResults}&start=${start}`;
+    url += `&q=(and '${this.query}' `;
+    if(this.states && this.states.length > 0) {
+      url += `(or buyer_lead_agency_state:`;
+      this.states.forEach( (state) => {
+        url += `'${state}' `;
+      })
+      url += `)`
+    }
+    if( (this.buyers && this.buyers.length > 0) || (this.coops && this.coops.length > 0)) {
+      url += `(or buyer_lead_agency:`;
+      if(this.buyers && this.buyers.length > 0) {
+        this.buyers.forEach( (buyer) => {
+          url += `'${buyer}' `;
+        })
+      }
+      if(this.coops && this.coops.length > 0) {
+        this.coops.forEach( (coop) => {
+          url += `'${coop}' `;
+        })
+      }
+      url += `)`
+    }
+    url += `)`
+    console.log(url)
     if(this.sort) {
       url += '&sort='+this.sort;
     }
@@ -109,7 +154,7 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   renderResults(json) {
-    this.innerHTML = resultLayout(json, this.query, this.sort, this.showExpired);
+    this.innerHTML = resultLayout(json, this.query, this.sort, this.showExpired, states, buyers, coops, this.states, this.buyers, this.coops);
     let component = this;
     // listen for custom events on the contained pagination element
     document.querySelector('coprocure-pagination').addEventListener('navigation', function (e) {
@@ -138,6 +183,33 @@ export default class CoProcureSearch extends HTMLElement {
         component.showExpired = false;
       }
       component.search();
+    })
+    document.querySelector('button.filters-apply').addEventListener('click', function(event) {
+      event.preventDefault();
+      let selectedStates = document.querySelectorAll('select[name="buyer_lead_agency_state"] option:checked');
+      let statesValues = Array.from(selectedStates).map(el => el.value);
+      if(statesValues.length > 0) {
+        document.querySelector('coprocure-search').setAttribute('states',JSON.stringify(statesValues));
+      }
+
+      let selectedBuyers = document.querySelectorAll('select[name="buyer_lead_agency"] option:checked');
+      let buyerValues = Array.from(selectedBuyers).map(el => el.value);
+      console.log('the buyers selected are')
+      console.log(buyerValues)
+      if(buyerValues.length > 0) {
+        document.querySelector('coprocure-search').setAttribute('buyers',JSON.stringify(buyerValues));
+      }
+
+      if(document.querySelector('select[name="coop_list"] option:checked')) {
+        let selectedCoop = document.querySelector('select[name="coop_list"] option:checked').value;
+        document.querySelector('coprocure-search').setAttribute('coops',JSON.stringify([selectedCoop]));
+      }
+      let newSearch = 0;
+      let lastSearch = document.querySelector('coprocure-search').getAttribute('search');
+      if(lastSearch) {
+        newSearch = lastSearch++;
+      }
+      document.querySelector('coprocure-search').setAttribute('search',newSearch);
     })
   }
 

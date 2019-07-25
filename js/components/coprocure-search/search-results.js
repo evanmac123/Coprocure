@@ -1,4 +1,7 @@
-export function resultLayout(json, query, sort, expired) {
+export function resultLayout(json, query, sort, expired, states, buyers, coops, selectedStates, selectedBuyers, selectedCoops) {
+  let stateList = states();
+  let buyerList = buyers();
+  let coopList = coops();
   return `<div class="search-results-container">
     <div class="search-filters">
       <form method="get" action="/contracts.html">
@@ -15,21 +18,55 @@ export function resultLayout(json, query, sort, expired) {
         </div>-->
         <div class="field-group-header">Contract creator</div>
         <div class="field--select">
-          <label for="lead_agency_location">Lead agency location</label>
-          <select name="lead_agency_location" multiple id="lead_agency_location">
+          <label for="buyer_lead_agency_state">Lead agency location</label>
+          <select name="buyer_lead_agency_state" multiple id="buyer_lead_agency_state">
             <option value="">All states</option>
+            ${stateList.map(function(state) {
+              let checked = false;
+              if(selectedStates) {
+                selectedStates.forEach( (selectedState) => {
+                  if(state.abbrev == selectedState) {
+                    checked = true;
+                  }
+                })
+              }
+              return `<option value="${state.abbrev}" ${(checked) ? 'selected' : ''}>${state.name}</option>`
+            }).join('   ')}
           </select>
         </div>
         <div class="field--select">
-          <label for="lead_agency_location">Lead agencies</label>
-          <select name="lead_agency_location" id="lead_agencies">
+          <label for="buyer_lead_agency">Lead agencies</label>
+          <select name="buyer_lead_agency" multiple id="lead_agencies">
             <option value="">All agencies</option>
+            ${buyerList.map(function(buyer) {
+              let checked = false;
+              if(selectedBuyers) {
+                selectedBuyers.forEach( (selectedBuyer) => {
+                  console.log(selectedBuyer)
+                  if(buyer == selectedBuyer) {
+                    checked = true;
+                  }
+                })
+              }
+              return `<option value="${buyer}" ${(checked) ? 'selected' : ''}>${buyer}</option>`
+            }).join('   ')}
           </select>
         </div>
         <div class="field--select">
           <label for="coop_list">Purchasing cooperatives/consortiums</label>
           <select name="coop_list" id="coop_list">
             <option value="">All cooperatives/consortiums</option>
+            ${coopList.map(function(coop) {
+              let checked = false;
+              if(selectedCoops) {
+                selectedCoops.forEach( (selectedCoop) => {
+                  if(coop == selectedCoop) {
+                    checked = true;
+                  }
+                })
+              }
+              return `<option value="${coop}" ${(checked) ? 'checked' : ''}>${coop}</option>`
+            }).join('   ')}
           </select>
         </div>
 

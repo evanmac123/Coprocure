@@ -24,39 +24,40 @@ export default class CoProcurePagination extends HTMLElement {
         pageSet.push(i);
       }
     }
-    this.innerHTML = `
-      <div class="page-links">
-        <a class="back" data-page-num="${parseInt(this.current) - 1}">
-          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 11L6 5.82759L1 1" stroke="#37A8EB"/>
-          </svg>
-        </a>
-        ${pageSet.map( (num) => {
-          let classAugment = '';
-          if(num == this.current) {
-            classAugment = 'current';
-          }
-          return `<a data-page-num="${num}" class="page-link ${classAugment}">${num}</a>`;
-        }).join('\n     ')}
-        <a class="forward" data-page-num="${parseInt(this.current) + 1}">
-          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 11L6 5.82759L1 1" stroke="#37A8EB"/>
-          </svg>
-        </a>
-      </div>
-    `;
+    if(numPages > 0) {
+      this.innerHTML = `
+        <div class="page-links">
+          <a class="back" data-page-num="${parseInt(this.current) - 1}">
+            <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 11L6 5.82759L1 1" stroke="#37A8EB"/>
+            </svg>
+          </a>
+          ${pageSet.map( (num) => {
+            let classAugment = '';
+            if(num == this.current) {
+              classAugment = 'current';
+            }
+            return `<a data-page-num="${num}" class="page-link ${classAugment}">${num}</a>`;
+          }).join('\n     ')}
+          <a class="forward" data-page-num="${parseInt(this.current) + 1}">
+            <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 11L6 5.82759L1 1" stroke="#37A8EB"/>
+            </svg>
+          </a>
+        </div>
+      `;
 
-    document.querySelectorAll('.page-links a').forEach( (link) => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault()
-        let desiredPage = this.dataset.pageNum;
-        if(desiredPage > 0 && desiredPage <= numPages) {
-          let navEvent = new CustomEvent('navigation', {'detail': {'page':desiredPage}});          
-          document.querySelector('coprocure-pagination').dispatchEvent(navEvent);
-        }    
+      document.querySelectorAll('.page-links a').forEach( (link) => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault()
+          let desiredPage = this.dataset.pageNum;
+          if(desiredPage > 0 && desiredPage <= numPages) {
+            let navEvent = new CustomEvent('navigation', {'detail': {'page':desiredPage}});          
+            document.querySelector('coprocure-pagination').dispatchEvent(navEvent);
+          }    
+        })
       })
-    })
-
+    }
   }
 
   // when you click on this it should emit a custom event to the coprocure-pagination element
