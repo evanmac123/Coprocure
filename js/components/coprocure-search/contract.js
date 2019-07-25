@@ -26,7 +26,7 @@ export function contractLayout(json) {
       <div class="contract-card">
         <div class="contract-details">
           <div class="title-section">
-            <h5>Contract # ${contract.fields.contract_number}</h5>
+            ${(contract.fields.contract_number) ? `<h5>Contract # ${contract.fields.contract_number}</h5>` : ''}            
             <h1 class="some-big">${contract.fields.title}</h1>
             <div class="dates">
               ${(function() {
@@ -52,9 +52,9 @@ export function contractLayout(json) {
             </div>
           </div>
           <ul class="check-section">
-            <li>Contract active</li>
-            <li>Cooperative language</li>
-            <li>Competitively solicited</li>
+            ${(new Date(contract.fields.expiration) > new Date()) ? '<li>Contract active</li>' : ''}
+            ${(contract.fields.cooperative_language) ? '<li>Cooperative language</li>' : ''}
+            ${(contract.fields.competitively_bid) ? '<li>Competitively solicited</li>' : ''}
           </ul>
           <div class="more-info-section">
             ${(function() {
@@ -95,7 +95,7 @@ export function contractLayout(json) {
           <section class="files">
             <div class="section-header">
               <h4>Documents and Pricing</h4>
-              <a>Missing Documents? Contact Us</a>
+              <a href="#" data-contract-id="${contract.id}" class="missing-documents">Missing Documents? Contact Us</a>
             </div>
             <ul class="file-list">
             ${fileLinks.map( (file) => {
@@ -110,9 +110,9 @@ export function contractLayout(json) {
         <div class="contract-actions">
           <button class="contact-supplier">
             <span class="button-icon"></span>
-            <span class="button-text">Contract Supplier</span>
+            <span class="button-text">Contact Supplier</span>
           </button>
-          <button class="share-contract">
+          <button class="share-contract" data-contract-id="${contract.id}">
             <span class="button-icon"></span>
             <span class="button-text">Share Contract</span>
           </button>

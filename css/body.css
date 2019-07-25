@@ -93,6 +93,9 @@ h5 {
   line-height: 109.5%;
   color: #37A8EB;
 }
+a {
+  cursor: pointer;
+}
 header {
   background: #fff;
   position: fixed;
