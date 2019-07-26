@@ -2,8 +2,6 @@
   min-height: 800px;
 }
 
-
-
 footer {
   display: flex;
   justify-content: space-between;
@@ -27,11 +25,117 @@ footer a svg {
   color: #2960AE;
 }
 
+section.contact-us.blue-back {
+  margin-top: 0;
+}
+
+.contact-us h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-us label {
+  color: #FAFAFA;
+  text-align: center;
+}
+
+.contact-us p {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-us .fields {
+  width: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  font-size: 14px;
+  line-height: 136.7%;
+  font-weight: normal;
+}
+
+.contact-us form .submitter-info, .contact-us form .message-info {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.contact-us form .submitter-info {
+  margin-right: 30px;
+}
+
+.contact-us form input, .contact-us form textarea {
+  width: 360px;
+  border: none;
+}
+
+.contact-us form label {
+  margin: 10px 0 4px 0;
+}
+
+.contact-us form textarea {
+  height: 97px;
+}
+
+.contact-us button {
+  margin-top: 1em;
+}
+
+footer, footer a {
+  color: #146798;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+footer .us-links a {
+  color: #37A8EB;
+}
+
+footer .section-interior {
+  display: flex;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer .tagline {
+  width: 300px;
+}
+
+footer .social-links {
+  margin-top: 20px;
+}
+
+footer .social-links a {
+  margin-right: 20px;
+}
+
+footer .us-links {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+footer .down-low {
+  margin: 50px auto 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+footer .bottom-links a {
+  margin-left: 30px;
+}
 
 
-
-
-@media (max-width: 600px) { 
+@media (max-width: 600px) {
   footer {
     flex-direction: column;
   }

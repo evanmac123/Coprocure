@@ -1,5 +1,29 @@
 export function render() {
-  return `  <footer>
+  return `
+  <section class="contact-us blue-back">
+    <div class="section-interior">
+      <h3>Questions or suggestions?</h3>
+      <p class="subtext--medium">We would love to hear from you. Send us a message and we will get back to you as soon as we can.</p>
+      <form method="POST" action="https://5o1jg1o9n4.execute-api.us-west-2.amazonaws.com/staging/contact">
+        <div class="fields row">
+          <div class="submitter-info">
+            <label>Name</label>
+            <input name="fullname" type="text" />
+            <label>Email</label>
+            <input name="email" type="text" />
+          </div>
+          <div class="message-info">
+            <label>Message</label>
+            <textarea name="description"></textarea>
+          </div>
+        </div>
+        <div class="">
+          <button class="highlight">Submit</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <footer>
   <div class="section-interior">
     <div class="tagline">
       <h2 class="some-big dark-emphasis">We're committed to making government more transparent, efficient, and inclusive</h2>

@@ -6,24 +6,25 @@ macro-carousel {
   align-items: center;
   justify-content: center;
 }
+
 .carousel-card {
   background: #FAFAFA;
   box-shadow: 0px 8.28px 20px rgba(0, 0, 0, 0.12);
+  transition: all .4s;
 }
 
 .testimonials-carousel {
   background: #37A8EB;
-  padding: 60px 0 20px 0;
-  height: 522px;
+  padding: 80px 0 60px 0;
 }
 .testimonials-carousel .carousel-card {
   width: 945px;
-  height: 358px;
+  height: 348px;
   max-width: 945px;
-  padding: 30px 100px;
+  padding: 30px 100px 0;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-flow: column;
 }
 .testimonials-carousel .quote-attribution {
@@ -46,7 +47,21 @@ macro-carousel {
   font-size: 19px;
   line-height: 149.1%;
   color: #4F6481;
+  position: relative;
+  margin-bottom: 1em;
 }
+
+.testimonials-carousel .quote-text::before {
+    position: absolute;
+    top: -32px;
+    left: 0;
+    content: "";
+    display: block;
+    width: 32px;
+    height: 26px;
+    background-image: url('../img/quote-graphic.svg');
+}
+
 .quote-attribution img {
   background: linear-gradient(0deg, rgba(20, 103, 151, 0.04), rgba(20, 103, 151, 0.04));
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -67,9 +82,15 @@ macro-carousel {
 
 .blog-carousel {
   background: #146798;
-  padding: 60px 0 20px 0;
+  padding: 80px 0 60px 0;
   text-align: center;
 }
+
+.blog-carousel:hover .carousel-card  {
+  box-shadow: 0px -30px 20px rgba(0, 0, 0, 0.12);
+  transition: all .4s;
+}
+
 .blog-carousel .carousel-card {
   position: relative;
   width: 260px;
@@ -78,6 +99,7 @@ macro-carousel {
   margin: 0 15px;
   text-align: left;
 }
+
 .blog-carousel h4 {
   color: #FAFAFA;
   margin-bottom: 30px;
