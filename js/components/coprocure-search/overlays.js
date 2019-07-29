@@ -45,7 +45,10 @@ function showModal(modalInfo) {
       let description = document.querySelector('textarea[name="purchase-info"]').value;
       let contract = document.querySelector('input.contractId').value;
       let requestType = 'Vendor contact request';
-  
+      if(document.querySelector('input[name="anonymous"]').checked) {
+        requestType = 'Anonymous '+requestType; 
+      }
+      
       fetch(url, {
         method: 'post',
         headers: {
@@ -117,14 +120,14 @@ function showModal(modalInfo) {
   }  
 
   document.querySelector('.modal').addEventListener('click',function(event) {
-    event.preventDefault();
+    if(event.srcElement.name != 'anonymous') {
+      event.preventDefault();
+    }
     // if they clicked outside modal window, on background
     if(!checkParents(event, 'modal-dialog')) {
-      // close the modal
       document.querySelector('.modal-backdrop').remove();
       document.querySelector('.js-identityModal').remove();
     }
-
   })
 }
 
@@ -171,7 +174,7 @@ export function showContactVendorModal(contractId) {
   let modalInfo = {
     title: '',
     extraClass: 'mega',
-    body: `<form method="post" action="" class="multisection-modal">
+    body: `<form method="post" action="/" class="multisection-modal">
       <div class="modal-explanation-section">
         <span class="coprocure-logo--white">
           <svg width="19" height="27" viewBox="0 0 19 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +193,7 @@ export function showContactVendorModal(contractId) {
           <textarea name="purchase-info"></textarea>
         </label>
         <label style="display: flex;align-items: center;margin: 0 0 20px 0;">
-          <input type="checkbox" name="anonymous">
+          <input type="checkbox" name="anonymous" id="anonymous">
           <span class="field-description checkbox-label">Keep my inquiry anonymous for now.</span>
         </label>
         <button type="submit" class="contact-vendor">Connect</button>

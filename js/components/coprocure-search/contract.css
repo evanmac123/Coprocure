@@ -224,9 +224,6 @@ h1.some-big {
   color: #37A8EB;
 }
 
-
-
-
 coprocure-search .modal-backdrop {
   position: fixed;
   top: 0;
@@ -331,7 +328,8 @@ coprocure-search .modal input[type="text"] {
   line-height: 27px;
   color: #FFFFFF;
 }
-.modal input[type="checbox"] {
+
+.modal input[type="checkbox"] {
   width: 16px;
   height: 16px;
   background: transparent;
