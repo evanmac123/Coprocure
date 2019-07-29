@@ -1,3 +1,17 @@
+.icon-bkgd.right {
+  right: 0;
+}
+
+.icon-bkgd.left {
+  left: 0;
+}
+
+.icon-bkgd {
+  top: 0;
+  position: absolute;
+  width: 360px;
+}
+
 .cd-words-wrapper {
   width: 200px;
   display: inline-block;
@@ -236,7 +250,7 @@
     margin-top: 0px;
   }
 
-  .icon-bkgd-right, .icon-bkgd-left {
+  .icon-bkgd {
     display: none;
   }
 
