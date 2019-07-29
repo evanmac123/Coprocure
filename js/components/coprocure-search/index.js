@@ -98,7 +98,16 @@ export default class CoProcureSearch extends HTMLElement {
     }
     let expParam = `expiration:['${new Date().toISOString()}',}`;
     let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?q.parser=structured&size=${numResults}&start=${start}`;
-    url += `&q=(and '${this.query}' `;
+    
+    // have to split the query into separate terms if it is not enclosed in quotes or the structured filters will fail
+    if(this.query.indexOf('"')<0) {
+      url += `&q=(and `;
+      this.query.split(' ').forEach( (term) => {
+        url += ` '${term}'`;
+      })
+    } else {
+      url += `&q=(and '${this.query}' `;
+    }
     if(this.states && this.states.length > 0) {
       url += `(or buyer_lead_agency_state:`;
       this.states.forEach( (state) => {
