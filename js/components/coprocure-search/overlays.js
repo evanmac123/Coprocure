@@ -173,6 +173,15 @@ export function showContactVendorModal(contractId) {
     extraClass: 'mega',
     body: `<form method="post" action="" class="multisection-modal">
       <div class="modal-explanation-section">
+        <span class="coprocure-logo--white">
+          <svg width="19" height="27" viewBox="0 0 19 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.83033 26.875L6.56411 24.6539V9.8681L15.2705 3.91278L18.5893 5.93271V17.17L11.0661 22.4327V18.4335L15.2705 15.3359V8.55052L9.83033 12.2711V26.875Z" fill="white"/>
+            <path d="M0.0141602 17.17L5.07453 20.7668V16.3903L3.53069 15.2159V7.99523L8.5543 4.66735L10.2907 5.23814L13.5779 2.99763L8.5543 0.221191L0.0141602 5.93271V17.17Z" fill="white"/>
+          </svg>
+          <h5 class="coprocure-logo--text">CoProcure</h5>
+        </span>
+        <p><strong>Get answers to your questions anonymously.</strong><br> Share Your information when you're ready, or not at all.</p>
+        <p><strong>Save time.</strong><br> Let CoProcure find the right supplier contact to answer your questions and/or start a new purchase.</p>
       </div>
       <div class="modal-business-section">
         <h5 class="modal-title">Connect with a supplier through CoProcure</h5>

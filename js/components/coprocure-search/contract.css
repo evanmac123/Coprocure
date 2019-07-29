@@ -263,6 +263,7 @@ coprocure-search .modal-dialog.mega {
   max-width: 800px;
   padding: 0px;
 }
+
 coprocure-search .modal .modal-title {
   font-size: 20px;
   line-height: 128.4%;
@@ -318,11 +319,38 @@ coprocure-search .modal input[type="text"] {
 .modal .multisection-modal {
   display: flex;
 }
+
+.coprocure-logo--white {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 126px;
+}
+.coprocure-logo--text {
+  font-size: 18px;
+  line-height: 27px;
+  color: #FFFFFF;
+}
+.modal input[type="checbox"] {
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  box-shadow: none;
+}
 .modal .modal-explanation-section {
   width: 310px;
   height: 350px;
   background-color: #37A8EB;
   color: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  padding: 30px 20px;
+
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.75px;
 }
 .modal .modal-business-section {
   width: 490px;
