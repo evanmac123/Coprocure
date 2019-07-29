@@ -75,7 +75,7 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
 
     </div>
     <div class="search-results">
-      <h1>${query} contracts</h1>
+      <h1>${decodeURIComponent(query)} contracts</h1>
       <div class="search-query-controls">
         <a href="#" class="show-filters">Filters</a>
         <span class="result-count">Showing ${json.hits.start+1}-${json.hits.start + 10} of ${json.hits.found} results</span>

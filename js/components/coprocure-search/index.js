@@ -102,7 +102,7 @@ export default class CoProcureSearch extends HTMLElement {
     // have to split the query into separate terms if it is not enclosed in quotes or the structured filters will fail
     if(this.query.indexOf('"')<0) {
       url += `&q=(and `;
-      this.query.split(' ').forEach( (term) => {
+      decodeURIComponent(this.query).split(' ').forEach( (term) => {
         url += ` '${term}'`;
       })
     } else {
