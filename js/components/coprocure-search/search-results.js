@@ -1,4 +1,4 @@
-export function resultLayout(json, query, sort, expired, states, buyers, coops, selectedStates, selectedBuyers, selectedCoops) {
+export function resultLayout(json, query, sort, expired, noncoop, states, buyers, coops, selectedStates, selectedBuyers, selectedCoops) {
   let stateList = states();
   let buyerList = buyers();
   let coopList = coops();
@@ -11,11 +11,11 @@ export function resultLayout(json, query, sort, expired, states, buyers, coops, 
           <input type="checkbox" name="expired" id="expired" ${(expired) ? 'checked' : ''}>
           <label for="expired">Include expired contracts</label>
         </div>
-        <!--<div class="field-group-header">Contract</div>
+        <div class="field-group-header">Contract</div>
         <div class="field--checkbox">
-          <input type="checkbox" name="noncoop" id="noncoop">
+          <input type="checkbox" name="noncoop" id="noncoop" ${(noncoop) ? 'checked' : ''}>
           <label for="noncoop">Include contracts without cooperative language</label>
-        </div>-->
+        </div>
         <div class="field-group-header">Contract creator</div>
         <div class="field--select">
           <label for="buyer_lead_agency_state">Lead agency location</label>

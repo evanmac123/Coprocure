@@ -70,6 +70,7 @@ export default class CoProcureSearch extends HTMLElement {
 
   connectedCallback() {
     this.showExpired = false;
+    this.showNonCoop = false;
     if(this.getAttribute('query')) {
       this.query = this.getAttribute('query');
     }
@@ -118,6 +119,9 @@ export default class CoProcureSearch extends HTMLElement {
         })
       }
       url += `)`
+    }
+    if(!this.showNonCoop) {
+      url += `(and cooperative_language:'true')`;
     }
     url += `)`
     console.log(url)
@@ -172,7 +176,7 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   renderResults(json) {
-    this.innerHTML = resultLayout(json, this.query, this.sort, this.showExpired, states, buyers, coops, this.states, this.buyers, this.coops);
+    this.innerHTML = resultLayout(json, this.query, this.sort, this.showExpired, this.showNonCoop, states, buyers, coops, this.states, this.buyers, this.coops);
     let component = this;
     // listen for custom events on the contained pagination element
     document.querySelector('coprocure-pagination').addEventListener('navigation', function (e) {
@@ -199,6 +203,14 @@ export default class CoProcureSearch extends HTMLElement {
         component.showExpired = true;
       } else {
         component.showExpired = false;
+      }
+      component.search();
+    })
+    document.getElementById('noncoop').addEventListener('change', function(event) {
+      if(this.checked) {
+        component.showNonCoop = true;
+      } else {
+        component.showNonCoop = false;
       }
       component.search();
     })
