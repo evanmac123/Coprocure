@@ -1,41 +1,119 @@
 header {
-  background-color: #2960AE;
-  height: 72px;
+  height: 60px;
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+.hamburger.burger-menu {
+  display: none;
+}
+.company-identifier {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 2;
   align-items: center;
-  padding: 10px 20px;
-  box-sizing: border-box;
+  z-index: 5;
+  margin: 0;
 }
-header .links {
-  font-size: 16px;
+.company-name {
+  color: #37A8EB;
+  font-size: 19px;
+  font-family: 'Poppins', sans-serif;
+  margin-left: 10px;
 }
-header .logo-white {
+header navigation {
   height: 60px;
-  width: auto;
+  width: 1140px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
+  padding: 10px 20px;
 }
+
 header .links {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-}
-header .links a {
-  margin-right: 20px;
-}
-button {
-  border: none;
-  background-color: blue;
-  background-color: #008afcff;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
+  color: black;
 }
 header a {
-  color: #fff;
+  font-family: 'Lato', sans-serif;
   text-decoration: none;
+  color: #37A8EB;
+  margin-left: 40px;
+}
+
+header .search-container {
+  display: flex;
+  height: 40px;
+  margin-top: 6px;
+  box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1);
+}
+header .search-container .search-icon {
+  top: 7px;
+}
+header .big-search-icon {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 75px;
+}
+
+@media (max-width: 768px) {
+  .hamburger.burger-menu {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+  header navigation {
+    width: 100%;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  header a {
+    margin: 0 15px 10px 0px;
+  }
+  header .company-identifier {
+    margin-top: 7px;
+  }
+  header .big-search-icon {
+    display: block;
+  }
+  header .search-container {
+    position: absolute;
+    top: 50px;
+    width: 100vw;
+    margin: 0;
+    left: 0;
+    z-index: 6;
+    box-shadow: none;
+  }
+  header .search-container input {
+    border: 1px solid #37A8EB;
+  }
+  header .search-container {
+    display: none;
+  }
+  header .search-container.active {
+    display: flex;
+  }
+  header .links {
+    display: flex;
+    align-items: flex-end;
+    flex-flow: column;
+    width: 100%;
+    background-color: white;
+    z-index: 3;
+    position: absolute;
+    top: -110px;
+    right: 30px;
+    transition: .2s;
+  }
+  header .links.is-active {
+    top: 60px;
+    z-index: 7;
+    right: 0;
+  }
 }

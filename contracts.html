@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <title>CoProcure for Government</title>
+  <meta property="og:title" content="CoProcure"/>
+  <meta property="og:url" content="https://www.coprocure.us"/>
+  <link rel="stylesheet" href="css/reset.css" type="text/css" />
+  <link rel="stylesheet" href="css/header.css" type="text/css" />
+  <link rel="stylesheet" href="css/body.css" type="text/css" />
+  <link rel="stylesheet" href="css/hamburger.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/search-results.css" type="text/css" />
+
+  <link rel="stylesheet" href="js/components/coprocure-search/index.css" type="text/css" />
+  <link rel="stylesheet" href="js/components/coprocure-search/spinner.css" type="text/css" />
+  <link rel="stylesheet" href="js/components/coprocure-search/contract.css" type="text/css" />
+  <link rel="stylesheet" href="js/components/coprocure-pagination/index.css" type="text/css" />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Poppins&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <coprocure-header></coprocure-header>
+  <main>
+
+    <coprocure-search></coprocure-search>
+
+  </main>
+  <coprocure-footer></coprocure-footer>
+
+  <script type="module" async defer src="js/components/coprocure-search/index.js"></script>
+  <script type="module" async defer src="js/components/header/index.js"></script>
+  <script type="module" async defer src="js/components/footer/index.js"></script>
+  <script type="module" async defer src="js/components/coprocure-pagination/index.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121612479-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-121612479-1');
+  </script>
+</body>
+</html>
