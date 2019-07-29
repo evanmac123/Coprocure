@@ -27,16 +27,15 @@ function switchWord(oldWord, newWord) {
     oldWord.classList.remove('is-visible');
     newWord.classList.remove('is-hidden');
     newWord.classList.add('is-visible');
-  }, 650)
+  }, 850)
 }
 
-let headlineSwitcher = window.setInterval(animateHeadline, 2500)
+let headlineSwitcher = window.setInterval(animateHeadline, 4000)
 
 window.addEventListener('focus', function() {
-  headlineSwitcher = window.setInterval(animateHeadline, 2500)
+  headlineSwitcher = window.setInterval(animateHeadline, 4000)
 });
 
 window.addEventListener('blur', function() {
   window.clearInterval(headlineSwitcher)
 });
-

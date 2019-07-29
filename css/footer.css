@@ -92,12 +92,19 @@ footer, footer a {
   font-size: 18px;
 }
 
-footer .us-links a {
+footer .row.info{
+  justify-content: flex-start;
+
+}
+
+footer a {
   color: #37A8EB;
 }
 
 footer .section-interior {
-  display: flex;
+  width: 100%;
+  max-width:100%;
+  margin: 60px 30px 0px ;
 }
 
 footer a {
@@ -116,10 +123,10 @@ footer .social-links a {
   margin-right: 20px;
 }
 
-footer .us-links {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
+footer .us-links a{
+  margin-bottom: 1em;
+  width: 100%;
+  float:left
 }
 
 footer .down-low {

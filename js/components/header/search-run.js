@@ -12,21 +12,25 @@ const debounce = (callback, evt) => {
 };
 const handleScroll = evt => {
   if(!headerSearchVisible && window.scrollY > 500) {
-    document.querySelector('header .search-container').style.display = 'flex';
+    document.querySelector('.home header .search-container').style.opacity = '1';
     headerSearchVisible = true;
   }
+  if(window.scrollY < 500) {
+    document.querySelector('.home header .search-container').style.opacity = '0';
+    headerSearchVisible = false;
+}
 }
 document.defaultView.onscroll = evt => debounce(handleScroll, evt);
 
 export function search() {
   if(document.querySelector('.search-now')) {
     document.querySelectorAll('.search-now').forEach( (item) => {
-      item.addEventListener('click',runSearch);  
+      item.addEventListener('click',runSearch);
     })
   }
   // if I am not on homepage now immediately show header search box
   if(window.location.pathname != '/' && window.location.pathname.indexOf('index.html') < 0) {
-    document.querySelector('header .search-container').style.display = 'flex';
+    document.querySelector('header .search-container').style.opacity = '1';
     headerSearchVisible = true;
   }
 }
@@ -40,7 +44,7 @@ function runSearch(event) {
   // send the search query to our embedded web component
   hideHomePage();
   document.querySelector('coprocure-search').setAttribute('query',searchVal);
-  // change the url 
+  // change the url
   let searchUrl = `contracts.html?query=${searchVal}`
   window.history.pushState({}, '', searchUrl);
 }
