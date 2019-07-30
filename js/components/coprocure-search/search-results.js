@@ -102,10 +102,10 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
                   <span class="field-name">Content Creator</span>
                   <span class="field-value">${item.fields.buyer_lead_agency}</span>
                 </div>` : ''}
-                <div class="buyer">
+                ${(item.fields.suppliers) ? `<div class="buyer">
                   <span class="field-name">Supplier</span>
                   <span class="field-value">${item.fields.suppliers}</span>
-                </div>
+                </div>` : ''}
               </div>
               ${(function() {
                 let output = '';
