@@ -2,6 +2,7 @@ import { installRouter } from './router.js';
 
 let isTicking;
 let headerSearchVisible = false;
+let searchNotRan = true;
 const debounce = (callback, evt) => {
   if (isTicking) return;
   requestAnimationFrame(() => {
@@ -32,6 +33,7 @@ export function search() {
   if(document.querySelector('.search-now')) {
     document.querySelectorAll('.search-now').forEach( (item) => {
       item.addEventListener('click',runSearch);
+      searchNotRan = false;
     })
   }
   // if I am not on homepage now immediately show header search box
@@ -69,11 +71,14 @@ function hideHomePage() {
     document.querySelector('footer').remove();
     // show header search
     document.querySelector('header .search-container').style.opacity = '1';
+<<<<<<< HEAD
   }
   if(document.querySelector('.js-content-section')) {
     document.querySelectorAll('.js-content-section').forEach( (sect) => {
       sect.remove();
     })
+=======
+>>>>>>> small styling changes and dropdown ui
   }
 }
 

@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/header.css" type="text/css" />
   <link rel="stylesheet" href="css/body.css" type="text/css" />
   <link rel="stylesheet" href="css/hamburger.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="css/transition.min.css" type="text/css" /> -->
+  <!-- <link rel="stylesheet" href="css/dropdown.min.css" type="text/css" /> -->
 
   <link rel="stylesheet" href="css/search-results.css" type="text/css" />
 
@@ -16,27 +18,48 @@
   <link rel="stylesheet" href="js/components/coprocure-search/contract.css" type="text/css" />
   <link rel="stylesheet" href="js/components/coprocure-pagination/index.css" type="text/css" />
 
-  <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Poppins:400,600,700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     if(!('customElements' in window)) {
       window.location = '/search.html';
     }
-  </script>    
+  </script>
 </head>
 <body>
   <coprocure-header></coprocure-header>
   <main>
 
-    <coprocure-search></coprocure-search>
+
+    <coprocure-search>
+    </coprocure-search>
 
   </main>
   <coprocure-footer></coprocure-footer>
 
-  <script type="module" async defer src="js/components/coprocure-search/index.js"></script>
-  <script type="module" async defer src="js/components/header/index.js"></script>
-  <script type="module" async defer src="js/components/footer/index.js"></script>
-  <script type="module" async defer src="js/components/coprocure-pagination/index.js"></script>
+  <script type="module" src="js/components/coprocure-search/index.js"></script>
+  <script type="module" src="js/components/header/index.js"></script>
+  <script type="module" src="js/components/footer/index.js"></script>
+  <script type="module" src="js/components/coprocure-pagination/index.js"></script>
+
+  <!--
+
+  Code for the searchable dropdown menu
+
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  <script src="js/dropdown.min.js"></script>
+  <script src="js/dropdown.js"></script>
+  <script src="js/transition.min.js"></script>
+  <script>
+  console.log("check");
+  $(document).ready(function() {
+      $('.ui.dropdown').dropdown();
+    });
+  </script> -->
+
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121612479-1"></script>
