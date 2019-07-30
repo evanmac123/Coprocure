@@ -70,7 +70,7 @@ function showModal(modalInfo) {
       event.preventDefault();
       event.stopPropagation();
       let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/vendor-contact';
-      let email = document.querySelector('.modal-dialog form input[name="email"').value;
+      let email = document.querySelector('.modal-dialog form input[name="email"]').value;
       setUser(email);
       let description = document.querySelector('textarea[name="additional-documents"]').value;
       let contract = document.querySelector('input.contractId').value;
