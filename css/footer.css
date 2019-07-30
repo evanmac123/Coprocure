@@ -124,9 +124,13 @@ footer .social-links a {
 }
 
 footer .us-links a{
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   width: 100%;
   float:left
+}
+
+footer .us-links {
+  margin-left: 2em;
 }
 
 footer .down-low {
@@ -146,10 +150,42 @@ footer .bottom-links a {
   footer {
     flex-direction: column;
   }
+
+  footer .us-links {
+    margin-left: 0em;
+  }
+
+
   .built-by {
     margin: 0 0 20px 0;
   }
   .waitlist {
     flex-direction: column;
+  }
+
+  footer .row.info {
+    margin: 0;
+  }
+
+  footer .row.info a, footer .us-links a {
+    margin: 2em 0 0 0;
+  }
+
+  footer .copyright .down-low {
+    margin: 0;
+    align-items: flex-start;
+    height: auto;
+}
+
+  footer .copyright .down-low a {
+    margin: 1em 0;
+  }
+
+  footer .section-interior .copyright {
+    margin-top: 15px;
+  }
+
+  footer .bottom-links {
+    margin-bottom: 2em;
   }
 }

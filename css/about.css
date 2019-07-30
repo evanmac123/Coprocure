@@ -51,9 +51,8 @@
   margin-left: 15%;
 }
 
-.problem, .solution{
+.problem, .solution {
   padding: 20px 0 20px;
-
 }
 
 .pre-icon {
@@ -102,12 +101,12 @@
   margin-right: 20px;
 }
 
-.team a img{
+.team a img {
   margin-top: 1em;
   transition: all .4s
 }
 
-.team a img:hover{
+.team a img:hover {
   transition: all .4s;
   opacity: .8;
 }
@@ -142,11 +141,11 @@
   background-color: #FAFAFA;
 }
 
-.faq{
+.faq {
   padding: 60px 0;
 }
 
-.faq h3{
+.faq h3 {
   margin-bottom: 30px;
 }
 
@@ -157,29 +156,28 @@
   box-shadow: 0px 8.28px 20px rgba(0, 0, 0, 0.12);
 }
 
-.accordian h5{
+.accordian h5 {
   padding: 20px;
   font-weight: 400;
   font-size: 18px;
   font-size: 18px;
   font-family: "Lato", sans-serif;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
- -webkit-touch-callout: none;
- -webkit-user-select: none;
- -khtml-user-select: none;
- -moz-user-select: none;
- -ms-user-select: none;
- user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-
-.accordian ul li{
-   animation: flipdown 0.5s ease both;
-   position: relative;
-   padding: 0;
-   margin: 0;
-   border: 1px #37A8EB solid;
-   margin-top: -1px;
+.accordian ul li {
+  animation: flipdown 0.5s ease both;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 1px #37A8EB solid;
+  margin-top: -1px;
 }
 
 .accordian ul li:nth-of-type(1) {
@@ -193,9 +191,11 @@
 .accordian ul li:nth-of-type(3) {
   animation-delay: 1.0s;
 }
+
 .accordian ul li:nth-of-type(4) {
   animation-delay: 1.25s;
 }
+
 .accordian ul li:last-of-type {
   padding-bottom: 0;
 }
@@ -209,14 +209,14 @@
   overflow: hidden;
   max-height: 800px;
   opacity: 1;
-  transform: translateY( 0 );
+  transform: translateY(0);
   z-index: 2;
   transition: all .4s;
   overflow: hidden;
   padding: 0px 20px 20px 20px;
 }
 
-.accordian ul li input[type=checkbox]:checked ~ p {
+.accordian ul li input[type=checkbox]:checked~p {
   margin-top: 0;
   max-height: 0;
   opacity: 0;
@@ -298,11 +298,8 @@ input[type=checkbox] {
   }
 }
 
-
 /* /////////////////// Careers ////////////////////////*/
-
-
-.why-us{
+.why-us {
   margin-bottom: 80px;
 }
 
@@ -316,20 +313,26 @@ input[type=checkbox] {
   font-weight: 400;
 }
 
-.positions ul{
+.positions ul {
   margin-bottom: 1em;
 }
 
 .positions ul li::before {
-  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #37A8EB; /* Change the color */
-  font-weight: bold; /* If you want it to be bold */
-  display: inline-block; /* Needed to add space between the bullet and the text */
-  width: 1em; /* Also needed for space (tweak if needed) */
-  margin-left: 1em; /* Also needed for space (tweak if needed) */
+  content: "\2022";
+  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #37A8EB;
+  /* Change the color */
+  font-weight: bold;
+  /* If you want it to be bold */
+  display: inline-block;
+  /* Needed to add space between the bullet and the text */
+  width: 1em;
+  /* Also needed for space (tweak if needed) */
+  margin-left: 1em;
+  /* Also needed for space (tweak if needed) */
 }
 
-.inline-title{
+.inline-title {
   color: #37A8EB;
   font-weight: 500;
   font-size: 18px;
@@ -340,7 +343,7 @@ input[type=checkbox] {
   padding: 2em;
 }
 
-.why-work img{
+.why-work img {
   content: "";
   width: 20px;
   height: 20px;
@@ -348,19 +351,54 @@ input[type=checkbox] {
   left: 4px;
 }
 
-.why-work .text{
+.why-work .text {
   margin-left: 3em;
 }
 
-.why-work p{
+.why-work p {
   margin-top: .6em;
 }
 
-.why-work .block{
+.why-work .block {
   margin-bottom: 2em;
   position: relative;
 }
 
-.why-work .block:last-child{
+.why-work .block:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+
+  .accordian h5 {
+    max-width: 90%;
+  }
+
+  .drop-header-text {
+    width: 80%;
+  }
+
+  .drop-header h1 {
+    font-size: 42px;
+  }
+
+  section.our-vision .image-container img {
+    margin: 0;
+  }
+
+  section.our-vision h4 {
+    margin-bottom: 0;
+  }
+
+  .solution .row {
+    flex-direction: column-reverse;
+  }
+
+  .team-title {
+    font-size: 20px;
+  }
+
+  .our-vision h3 {
+    margin-bottom: 0;
+  }
 }

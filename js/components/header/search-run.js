@@ -11,16 +11,21 @@ const debounce = (callback, evt) => {
   isTicking = true;
 };
 const handleScroll = evt => {
-  if(!headerSearchVisible && window.scrollY > 500) {
-    document.querySelector('.home header .search-container').style.opacity = '1';
-    headerSearchVisible = true;
-  }
-  if(window.scrollY < 500) {
-    document.querySelector('.home header .search-container').style.opacity = '0';
-    headerSearchVisible = false;
+    console.log("blue");
+    if(!headerSearchVisible && window.scrollY > 500  && window.innerWidth > 768) {
+      document.querySelector('.home header .search-container').style.opacity = '1';
+      headerSearchVisible = true;
+    }
+    if(window.scrollY < 500 && window.innerWidth > 768) {
+      document.querySelector('.home header .search-container').style.opacity = '0';
+      headerSearchVisible = false;
+    }
 }
-}
+
+
 document.defaultView.onscroll = evt => debounce(handleScroll, evt);
+document.defaultView
+
 
 export function search() {
   if(document.querySelector('.search-now')) {
