@@ -11,15 +11,16 @@ const debounce = (callback, evt) => {
   isTicking = true;
 };
 const handleScroll = evt => {
-    console.log("blue");
-    if(!headerSearchVisible && window.scrollY > 500  && window.innerWidth > 768) {
-      document.querySelector('.home header .search-container').style.opacity = '1';
-      headerSearchVisible = true;
-    }
+  if(!headerSearchVisible && window.scrollY > 500  && window.innerWidth > 768) {
+    document.querySelector('.home header .search-container').style.opacity = '1';
+    headerSearchVisible = true;
+  }
+  if(window.location.pathname == '/' || window.location.pathname.indexOf('/index.html') == 0) {
     if(window.scrollY < 500 && window.innerWidth > 768) {
-      document.querySelector('.home header .search-container').style.opacity = '0';
+      // document.querySelector('.home header .search-container').style.opacity = '0';
       headerSearchVisible = false;
     }
+  }
 }
 
 
@@ -67,7 +68,7 @@ function hideHomePage() {
     document.querySelector('section.contact-us').remove();
     document.querySelector('footer').remove();
     // show header search
-    document.querySelector('header .search-container').style.display = 'flex';
+    document.querySelector('header .search-container').style.opacity = '1';
   }
 }
 

@@ -20,6 +20,34 @@ export function contractLayout(json) {
         fileLinks.push(parsedItem);      
       })  
     }
+    if(contract.fields.bid_solicitation_files) {
+      contract.fields.bid_solicitation_files.forEach( (item) => {
+        let parsedItem = JSON.parse(item);
+        parsedItem.type = 'Bid Solicitation';
+        fileLinks.push(parsedItem);      
+      })  
+    }
+    if(contract.fields.bid_tabulation_files) {
+      contract.fields.bid_tabulation_files.forEach( (item) => {
+        let parsedItem = JSON.parse(item);
+        parsedItem.type = 'Bid Tabulation';
+        fileLinks.push(parsedItem);      
+      })  
+    }
+    if(contract.fields.pricing_files) {
+      contract.fields.pricing_files.forEach( (item) => {
+        let parsedItem = JSON.parse(item);
+        parsedItem.type = 'Pricing';
+        fileLinks.push(parsedItem);      
+      })  
+    }
+    if(contract.fields.other_docs_files) {
+      contract.fields.other_docs_files.forEach( (item) => {
+        let parsedItem = JSON.parse(item);
+        parsedItem.type = 'Other';
+        fileLinks.push(parsedItem);      
+      })  
+    }
     return `
     <div class="contract-results">
       <h2 class="some-big page-description">Contract Details</h2>

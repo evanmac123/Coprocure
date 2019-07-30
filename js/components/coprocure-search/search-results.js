@@ -98,10 +98,10 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
             <div class="card-details">
               <a href="contract.html?contractId=${item.id}" class="result-title">${item.fields.title}</a>
               <div class="parties">
-                <div class="author">
+                ${(item.fields.buyer_lead_agency) ? `<div class="author">
                   <span class="field-name">Content Creator</span>
                   <span class="field-value">${item.fields.buyer_lead_agency}</span>
-                </div>
+                </div>` : ''}
                 <div class="buyer">
                   <span class="field-name">Supplier</span>
                   <span class="field-value">${item.fields.suppliers}</span>
