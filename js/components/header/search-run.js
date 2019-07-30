@@ -11,22 +11,31 @@ const debounce = (callback, evt) => {
   isTicking = true;
 };
 const handleScroll = evt => {
-  if(!headerSearchVisible && window.scrollY > 500) {
-    document.querySelector('header .search-container').style.display = 'flex';
-    headerSearchVisible = true;
-  }
+    console.log("blue");
+    if(!headerSearchVisible && window.scrollY > 500  && window.innerWidth > 768) {
+      document.querySelector('.home header .search-container').style.opacity = '1';
+      headerSearchVisible = true;
+    }
+    if(window.scrollY < 500 && window.innerWidth > 768) {
+      document.querySelector('.home header .search-container').style.opacity = '0';
+      headerSearchVisible = false;
+    }
 }
+
+
 document.defaultView.onscroll = evt => debounce(handleScroll, evt);
+document.defaultView
+
 
 export function search() {
   if(document.querySelector('.search-now')) {
     document.querySelectorAll('.search-now').forEach( (item) => {
-      item.addEventListener('click',runSearch);  
+      item.addEventListener('click',runSearch);
     })
   }
   // if I am not on homepage now immediately show header search box
   if(window.location.pathname != '/' && window.location.pathname.indexOf('index.html') < 0) {
-    document.querySelector('header .search-container').style.display = 'flex';
+    document.querySelector('header .search-container').style.opacity = '1';
     headerSearchVisible = true;
   }
 }
@@ -40,7 +49,7 @@ function runSearch(event) {
   // send the search query to our embedded web component
   hideHomePage();
   document.querySelector('coprocure-search').setAttribute('query',searchVal);
-  // change the url 
+  // change the url
   let searchUrl = `contracts.html?query=${searchVal}`
   window.history.pushState({}, '', searchUrl);
 }
@@ -52,10 +61,10 @@ function hideHomePage() {
     document.querySelector('section.map').remove();
     document.querySelector('section.explanation').remove();
     document.querySelector('section.testimonials-carousel').remove();
-    document.querySelector('section.aboutus').remove();
+    document.querySelector('section.about-us').remove();
     document.querySelector('section.investors').remove();
     document.querySelector('section.blog-carousel').remove();
-    document.querySelector('section.contactus').remove();
+    document.querySelector('section.contact-us').remove();
     document.querySelector('footer').remove();
     // show header search
     document.querySelector('header .search-container').style.display = 'flex';
