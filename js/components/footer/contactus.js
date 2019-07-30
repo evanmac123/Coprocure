@@ -23,6 +23,7 @@ export function contactus() {
       return response.json();
     }).then(function(data) {
       console.log(data);
+      document.querySelector('.contact-us button').textContent = "Thanks!"
     });
 
   })
