@@ -70,6 +70,11 @@ function hideHomePage() {
     // show header search
     document.querySelector('header .search-container').style.opacity = '1';
   }
+  if(document.querySelector('.js-content-section')) {
+    document.querySelectorAll('.js-content-section').forEach( (sect) => {
+      sect.remove();
+    })
+  }
 }
 
 function handleNavigation(loc) {
