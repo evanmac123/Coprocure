@@ -27,7 +27,7 @@ export function render() {
     <div class="section-interior">
       <div class="row info">
         <div class="tagline">
-          <h3 class="some-big dark-emphasis">We're committed to making government more transparent, efficient, and inclusive</h3>
+          <h3 class="some-big dark-emphasis">We're committed to making government more transparent, efficient, and inclusive.</h3>
           <div class="social-links">
             <a href="https://medium.com/coprocure" target="_new">
       <img src="img/social/Medium.svg" alt="Medium logo" />
@@ -46,7 +46,7 @@ export function render() {
         <div class="us-links">
           <a href="/about.html">About</a>
           <a href="https://medium.com/coprocure" target="_new">Blog</a>
-          <a href="https://medium.com/coprocure/coprocure-is-hiring-a-backend-engineer-2e8780b30c55" target="_blank">Careers</a>
+          <a href="/careers.html">Careers</a>
           <!-- <a href="/suppliers">For Suppliers</a> -->
         </div>
       </div>

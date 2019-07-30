@@ -15,7 +15,7 @@ export function render() {
       </form>
       <span class="links">
         <a href="/about.html">About</a>
-        <a href="/add.html">For suppliers</a>
+         <!--  <a href="/add.html">For suppliers</a> -->
       </span>
 
       <svg class="big-search-icon" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">

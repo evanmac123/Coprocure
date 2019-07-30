@@ -126,7 +126,7 @@ header .big-search-icon {
   header .hamburger.burger-menu {
     display: block;
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 20px;
     padding: 0;
     transition: all .4s;
@@ -148,6 +148,8 @@ header .big-search-icon {
     z-index: 6;
     box-shadow: none;
     display: flex;
+
+    transition: all .4s;
   }
 
   header .search-container .search-icon {
