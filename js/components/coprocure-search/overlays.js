@@ -6,7 +6,7 @@ function trackEvent() {}
 export function getUser() {
   let user = localStorage.getItem('coProcureUser');
   if(!user) {
-    return false;
+    return '';
   }
   return user;
 }

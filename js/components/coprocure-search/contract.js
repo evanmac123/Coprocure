@@ -98,27 +98,27 @@ export function contractLayout(json) {
             <section class="author-details">
               <h4>Content Creator</h3>
               <div class="author-content">
-                <div class="author-field">
-                  <span class="field-name">Lead agency</span>
-                  <span class="field-value">${contract.fields.buyer_lead_agency}</span>
-                </div>
-                <div class="author-field">
-                  <span class="field-name">Lead agency state</span>
-                  <span class="field-value">${contract.fields.buyer_lead_agency_state}</span>
-                </div>
-                <div class="author-field">
-                  <span class="field-name">Purchasing cooperative/consortium</span>
-                  <span class="field-value">${(contract.fields.cooperative_affiliation) ? contract.fields.cooperative_affiliation : 'none'}</span>
+              ${(contract.fields.buyer_lead_agency) ? `<div class="author-field">
+                <span class="field-name">Lead agency</span>
+                <span class="field-value">${contract.fields.buyer_lead_agency}</span>
+              </div>` : ''}
+              ${(contract.fields.buyer_lead_agency_state) ? `<div class="author-field">
+                <span class="field-name">Lead agency state</span>
+                <span class="field-value">${contract.fields.buyer_lead_agency_state}</span>
+              </div>` : ''}
+              <div class="author-field">
+                <span class="field-name">Purchasing cooperative/consortium</span>
+                <span class="field-value">${(contract.fields.cooperative_affiliation) ? contract.fields.cooperative_affiliation : 'none'}</span>
                 </div>
               </div>
             </section>
-            <section class="supplier-details">
+            ${(contract.fields.suppliers) ? `<section class="supplier-details">
               <h4>Supplier Details</h3>
               <div class="supplier">
                 <span class="field-name">Name</span>
                 <span class="field-value">${contract.fields.suppliers}</span>
               </div>
-            </section>
+            </section>` : ''}
           </div>
           <section class="files">
             <div class="section-header">
