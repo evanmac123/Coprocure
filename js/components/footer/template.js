@@ -44,10 +44,10 @@ export function render() {
           </div>
         </div>
         <div class="us-links">
-          <a href="#">About</a>
+          <a href="/about.html">About</a>
           <a href="https://medium.com/coprocure" target="_new">Blog</a>
           <a href="https://medium.com/coprocure/coprocure-is-hiring-a-backend-engineer-2e8780b30c55" target="_blank">Careers</a>
-          <a href="#">For Suppliers</a>
+          <!-- <a href="/suppliers">For Suppliers</a> -->
         </div>
       </div>
       <div class="copyright">
@@ -55,7 +55,7 @@ export function render() {
           <span class="copyright">&#0169; 2019 by CoProcure. All rights reserved.</span>
           <div class="bottom-links">
             <a href="https://www.coprocure.us/add.html">Share Your Contracts</href>
-  <a href="https://www.coprocure.us/files/CoProcure-privacy-policy.pdf" target="_new">Privacy Policy</a>
+            <a href="https://www.coprocure.us/files/CoProcure-privacy-policy.pdf" target="_new">Privacy Policy</a>
             <a href="https://www.coprocure.us/files/CoProcure-terms-of-use.pdf" target="_new">Terms of Use</a>
           </div>
         </div>

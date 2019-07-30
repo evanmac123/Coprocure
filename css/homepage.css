@@ -6,10 +6,15 @@
   left: 0;
 }
 
+.icon-bkgd.mobile {
+  display: none;
+}
+
 .icon-bkgd {
   top: 0;
   position: absolute;
-  width: 360px;
+  width: 320px;
+  z-index: -10;
 }
 
 .cd-words-wrapper {
@@ -143,7 +148,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 420px;
+  z-index: 10;
 }
 
 .map-section {
@@ -184,6 +189,7 @@
 .work-el li {
   margin-left: 30px;
   position: relative;
+  width: 270px;
 }
 
 .work-el li:first-child {
@@ -194,10 +200,11 @@
   margin-top: 20px;
 }
 
-.work-el li svg {
+.work-el li img {
   position: absolute;
   top: 0;
   left: 0;
+  width: 30px;
 }
 
 .work-el li h4 {
@@ -246,12 +253,81 @@
     margin: 20px auto;
   }
 
+  section.search {
+    margin-top: 120px;
+  }
+
+  section .row {
+    width: 100%;
+  }
+
+  section .row .column.gutter {
+    width: 100%;
+    margin-bottom: 2em;
+  }
+
+  section .row .column.gutter .left, section .row .column.gutter .right {
+    width: 100%;
+    padding: 0 2em 2em 2em;
+  }
+
+  .blue-back .row .row {
+    margin-bottom: 2em;
+  }
+
+  h3,h4 {
+    margin-bottom: 1em;
+  }
+
+  section div .subtext{
+    margin-bottom: 2em;
+  }
+
+
+  .who-we-are .team {
+    width: 100%;
+  }
+
   .search-description {
     margin-top: 0px;
   }
 
-  .icon-bkgd {
+  .icon-bkgd.desktop {
     display: none;
+  }
+
+  .icon-bkgd.mobile {
+    display: block;
+    right: 0;
+    position: absolute;
+    width: 110px;
+    top: 0;
+    opacity: .5;
+    z-index: -10;
+  }
+
+  .icon-bkgd.mobile.right {
+    right: 0px;
+  }
+
+  .icon-bkgd.mobile.left {
+    left: 0px;
+  }
+
+  .cd-words-wrapper {
+    width: auto;
+  }
+
+  .partner-list .logos img {
+    width: 40px;
+  }
+
+  .cd-headline.rotate-1 span {
+    font-size: 32px;
+  }
+
+  .subtext--smaller {
+    font-size: 16px;
   }
 
   .partner-list {
@@ -262,20 +338,12 @@
     flex-flow: column;
   }
 
-  .map-section .subtext {
-    margin: 20px 0 40px 0;
-  }
-
   .what-we-do {
     width: auto;
   }
 
   .work-el {
     flex-flow: column;
-  }
-
-  .work-el .subtext {
-    margin: 20px 0;
   }
 
   .work-el li {
@@ -288,6 +356,8 @@
 
   .company-blurb {
     width: auto;
+    margin-top: 40px;
+    margin-left: 0px;
   }
 
   .company-blurb h2 {
@@ -297,7 +367,7 @@
   .company-blurb .subtext {
     font-size: 16px;
     line-height: 24px;
-    margin: 30px 0;
+    margin: 0 0;
   }
 
   .company-blurb .dark-emphasis {
