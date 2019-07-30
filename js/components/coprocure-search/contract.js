@@ -136,7 +136,7 @@ export function contractLayout(json) {
           </section>
         </div>
         <div class="contract-actions">
-          <button class="contact-supplier">
+          <button class="contact-supplier" data-contract-id="${contract.id}">
             <span class="button-icon"></span>
             <span class="button-text">Contact Supplier</span>
           </button>

@@ -168,7 +168,7 @@ export default class CoProcureSearch extends HTMLElement {
 
     document.querySelector('.contact-supplier').addEventListener('click',function(event) {
       event.preventDefault();
-      showContactVendorModal()
+      showContactVendorModal(this.dataset.contractId)
     })
     document.querySelector('.share-contract').addEventListener('click',function(event) {
       event.preventDefault();
