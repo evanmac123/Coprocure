@@ -5,8 +5,15 @@ import { spinner } from './spinner.js';
 import { states } from './states.js';
 import { buyers } from './buyers.js';
 import { coops } from './coops.js';
+import './dropdown.min.js';
 import { showContactVendorModal, showShareModal, showAdditionalDocsModal } from './overlays.js';
 import { trackEvent } from './tracking.js';
+
+$('.ui.dropdown')
+  .dropdown()
+;
+
+console.log("car");
 
 function getParams() {
   let paramsObj = {};
@@ -99,7 +106,7 @@ export default class CoProcureSearch extends HTMLElement {
     }
     let expParam = `expiration:['${new Date().toISOString()}',}`;
     let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?q.parser=structured&size=${numResults}&start=${start}`;
-    
+
     // have to split the query into separate terms if it is not enclosed in quotes or the structured filters will fail
     if(this.query.indexOf('"')<0) {
       url += `&q=(and `;
@@ -271,4 +278,3 @@ customElements.define("coprocure-search", CoProcureSearch);
 
 
 // https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?size=1&start=0&q='vest'&q.parser=structured&fq=expiration%3A%5B'2019-01-01T00%3A00%3A00Z'%2C%7D&sort=expiration+asc
-

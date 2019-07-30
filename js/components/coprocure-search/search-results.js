@@ -5,21 +5,36 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
   return `<div class="search-results-container">
     <div class="search-filters">
       <form method="get" action="/contracts.html">
-        <h2 class="subtext--medium">Filters</h2>
-        <div class="field-group-header">Contract</div>
+        <div class="filter-section-title">Filters</div> <a class="remove-all"> Remove All Filters </a>
+        <div class="field-group-header">Contract Term</div>
         <div class="field--checkbox">
           <input type="checkbox" name="expired" id="expired" ${(expired) ? 'checked' : ''}>
           <label for="expired">Include expired contracts</label>
         </div>
-        <div class="field-group-header">Contract</div>
+        <div class="field-group-header">Contract Language</div>
         <div class="field--checkbox">
           <input type="checkbox" name="noncoop" id="noncoop" ${(noncoop) ? 'checked' : ''}>
           <label for="noncoop">Include contracts without cooperative language</label>
         </div>
-        <div class="field-group-header">Contract creator</div>
+        <div class="field-group-header">Contract Type (needs functionality)</div>
+        <div class="field--checkbox">
+          <input type="checkbox" name="noncoop" id="noncoop" ${(noncoop) ? 'checked' : ''}>
+          <label for="noncoop">Competitively solicited</label>
+        </div>
+        <div class="field--checkbox">
+          <input type="checkbox" name="noncoop" id="noncoop" ${(noncoop) ? 'checked' : ''}>
+          <label for="noncoop">Negotiated schedule</label>
+        </div>
+        <div class="field--checkbox">
+          <input type="checkbox" name="noncoop" id="noncoop" ${(noncoop) ? 'checked' : ''}>
+          <label for="noncoop">Sole source</label>
+        </div>
+        <div class="field-group-header">Contract Creator</div>
+
+
         <div class="field--select">
           <label for="buyer_lead_agency_state">Lead agency location</label>
-          <select name="buyer_lead_agency_state" multiple id="buyer_lead_agency_state">
+          <select class="ui fluid search dropdown" multiple="" name="buyer_lead_agency_state" id="buyer_lead_agency_state>
             <option value="">All states</option>
             ${stateList.map(function(state) {
               let checked = false;
@@ -74,23 +89,31 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
 
     </div>
     <div class="search-results">
-      <h1>${decodeURIComponent(query)} contracts</h1>
-      <div class="search-query-controls">
-        <a href="#" class="show-filters">Filters</a>
-        <span class="result-count">Showing ${json.hits.start+1}-${json.hits.start + 10} of ${json.hits.found} results</span>
-        <select name="search-sort" class="search-sort">
-          <option value="">Sort by</option>
-          <option value="suppliers%20asc" ${(sort=='suppliers%20asc') ? 'selected' : ''}>Supplier A - Z</option>
-          <option value="suppliers%20desc" ${(sort=='suppliers%20desc') ? 'selected' : ''}>Supplier Z - A</option>
-          <option value="buyer_lead_agency%20asc" ${(sort=='buyer_lead_agency%20asc') ? 'selected' : ''}>Buyer A - Z</option>
-          <option value="buyer_lead_agency%20desc" ${(sort=='buyer_lead_agency%20desc') ? 'selected' : ''}>Buyer Z - A</option>
-          <option value="expiration%20desc" ${(sort=='expiration%20desc') ? 'selected' : ''}>Expiration</option>
-          <option value="title%20asc" ${(sort=='title%20asc') ? 'selected' : ''}>Title A - Z</option>
-          <option value="title%20desc" ${(sort=='title%20desc') ? 'selected' : ''}>Title Z - A</option>
-          <option value="buyer_lead_agency_state%20asc" ${(sort=='buyer_lead_agency_state%20asc') ? 'selected' : ''}>Buyer State A - Z</option>
-          <option value="buyer_lead_agency_state%20desc" ${(sort=='buyer_lead_agency_state%20desc') ? 'selected' : ''}>Buyer State Z - A</option>
-        </select>
+    <div class="search-header">
+      <div class="">
+        <h1>${decodeURIComponent(query)} contracts</h1>
+        <div class="search-query-controls">
+          <a href="#" class="show-filters">Filters</a>
+          <span class="result-count">Showing ${json.hits.start+1}-${json.hits.start + 10} of ${json.hits.found} results</span>
+        </div>
       </div>
+      <div class="">
+        <select name="search-sort" class="search-sort">
+            <option value="">Sort by</option>
+            <option value="suppliers%20asc" ${(sort=='suppliers%20asc') ? 'selected' : ''}>Supplier A - Z</option>
+            <option value="suppliers%20desc" ${(sort=='suppliers%20desc') ? 'selected' : ''}>Supplier Z - A</option>
+            <option value="buyer_lead_agency%20asc" ${(sort=='buyer_lead_agency%20asc') ? 'selected' : ''}>Buyer A - Z</option>
+            <option value="buyer_lead_agency%20desc" ${(sort=='buyer_lead_agency%20desc') ? 'selected' : ''}>Buyer Z - A</option>
+            <option value="expiration%20desc" ${(sort=='expiration%20desc') ? 'selected' : ''}>Expiration</option>
+            <option value="title%20asc" ${(sort=='title%20asc') ? 'selected' : ''}>Title A - Z</option>
+            <option value="title%20desc" ${(sort=='title%20desc') ? 'selected' : ''}>Title Z - A</option>
+            <option value="buyer_lead_agency_state%20asc" ${(sort=='buyer_lead_agency_state%20asc') ? 'selected' : ''}>Buyer State A - Z</option>
+            <option value="buyer_lead_agency_state%20desc" ${(sort=='buyer_lead_agency_state%20desc') ? 'selected' : ''}>Buyer State Z - A</option>
+          </select>
+        <div>
+        </div>
+        </div>
+        </div>
       <ul>
         ${json.hits.hit.map( (item) => {
           return `<li>
