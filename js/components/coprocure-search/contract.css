@@ -388,7 +388,7 @@ coprocure-search .modal input[type="text"] {
 
 .modal .modal-explanation-section {
   width: 310px;
-  height: 350px;
+  height: 400px;
   background-color: #37A8EB;
   color: #fff;
   display: flex;
@@ -403,7 +403,7 @@ coprocure-search .modal input[type="text"] {
 
 .modal .modal-business-section {
   width: 490px;
-  height: 350px;
+  height: 400px;
   padding: 20px;
 }
 

@@ -28,7 +28,13 @@ function showModal(modalInfo) {
       event.preventDefault();
       event.stopPropagation();
       let url = 'https://cncx06eah4.execute-api.us-east-1.amazonaws.com/production/vendor-contact';
-      let email = getUser();
+      let email = document.querySelector('.modal input[name="email"]').value;
+      if(email) {
+        setUser(email);
+      } else {
+        document.querySelector('.modal input[name="email"]').focus();
+        return;
+      }
       let description = document.querySelector('textarea[name="purchase-info"]').value;
       let contract = document.querySelector('input.contractId').value;
       let requestType = 'Vendor contact request';
@@ -40,7 +46,7 @@ function showModal(modalInfo) {
         method: 'post',
         headers: {
           "Content-Type": "application/json",
-        },    
+        },
         body: JSON.stringify({ email, requestType, description, contract })
       }).then(function(response) {
         return response.text();
@@ -175,6 +181,10 @@ export function showContactVendorModal(contractId) {
       </div>
       <div class="modal-business-section">
         <h5 class="modal-title">Connect with a supplier through CoProcure</h5>
+        <label>
+          <span class="label-text">Email</span>
+          <input type="text" name="email" value="${getUser()}" />
+        </label>
         <label>
           <span class="field-description">Inquiry</span>
           <textarea name="purchase-info"></textarea>
