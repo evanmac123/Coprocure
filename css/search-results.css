@@ -14,10 +14,37 @@
 
   width: 850px;
 }
+
+.search-header {
+  display: flex;
+  margin-top: 24px;
+  position:relative;
+}
+
+.search-header-right {
+  width: 50%;
+  display: inline-block;
+  position:relative;
+}
+
+.search-header-left {
+  width: 50%;
+  display: inline-block;
+}
+
+.search-sort {
+  right: 0;
+  top: 10px;
+  font-weight: 600;
+  position: absolute;
+  color: #586C8A;
+}
+
 .search-results a {
   color: #37A8EB;
   text-decoration: none;
 }
+
 .search-results .result-title {
   font-family: 'Poppins', sans-serif;
   font-style: normal;
@@ -27,21 +54,33 @@
 }
 .search-results .field-name {
   color: #879EC0;
+  font-weight: 400;
 }
 .search-results .field-value {
   font-size: 14px;
   line-height: 140.1%;
   color: #4F6481;
+  font-weight: 400;
+
+}
+
+.search-results ul {
+  display: block;
+  float: left;
+  width: 100%;
 }
 
 .search-filters {
   background: #fff;
   width: 290px;
-  padding: 10px 20px;
+  padding: 30px 20px 10px;
 }
-.search-filters h2 {
-  font-family: 'Poppins', sans-serif;
+
+.filter-section-title {
+  font-family: 'Lato', sans-serif;
   color: #146798;
+  font-size: 16px;
+  font-weight: 600;
 }
 .search-filters .field-group-header {
   font-style: normal;
@@ -53,8 +92,8 @@
 .search-filters label {
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 14px;
+  line-height: 18px;
   color: #5D6782;
 }
 .show-filters {
@@ -100,6 +139,7 @@ select[multiple]:focus option:checked {
 .search-filters select {
   color: #586C8A;
 }
+
 .search-filters .field--select label {
   color: #586C8A;
   margin: 0 0 10px 0;
@@ -110,5 +150,19 @@ select[multiple]:focus option:checked {
 @media (max-width: 768px) {
   .show-filters {
     display: block;
+  }
+
+  .search-header {
+    margin-top: 70px;
+  }
+
+  .search-sort{
+    width: 180px;
+    height: 38px;
+  }
+
+  .search-filters select {
+    color: #586C8A;
+    WIDTH: 100%;
   }
 }

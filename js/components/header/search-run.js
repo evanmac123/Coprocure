@@ -2,6 +2,7 @@ import { installRouter } from './router.js';
 
 let isTicking;
 let headerSearchVisible = false;
+let searchNotRan = true;
 const debounce = (callback, evt) => {
   if (isTicking) return;
   requestAnimationFrame(() => {
@@ -17,7 +18,7 @@ const handleScroll = evt => {
   }
   if(window.location.pathname == '/' || window.location.pathname.indexOf('/index.html') == 0) {
     if(window.scrollY < 500 && window.innerWidth > 768) {
-      // document.querySelector('.home header .search-container').style.opacity = '0';
+      document.querySelector('.home header .search-container').style.opacity = '0';
       headerSearchVisible = false;
     }
   }
@@ -32,6 +33,7 @@ export function search() {
   if(document.querySelector('.search-now')) {
     document.querySelectorAll('.search-now').forEach( (item) => {
       item.addEventListener('click',runSearch);
+      searchNotRan = false;
     })
   }
   // if I am not on homepage now immediately show header search box
