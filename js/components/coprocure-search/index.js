@@ -118,18 +118,18 @@ export default class CoProcureSearch extends HTMLElement {
       })
       url += `)`
     }
-    if( (this.buyers && this.buyers.length > 0) || (this.coops && this.coops.length > 0)) {
+    if( (this.buyers && this.buyers.length > 0)) {
       url += `(or buyer_lead_agency:`;
-      if(this.buyers && this.buyers.length > 0) {
-        this.buyers.forEach( (buyer) => {
-          url += `'${buyer}' `;
-        })
-      }
-      if(this.coops && this.coops.length > 0) {
-        this.coops.forEach( (coop) => {
-          url += `'${coop}' `;
-        })
-      }
+      this.buyers.forEach( (buyer) => {
+        url += `'${buyer}' `;
+      })
+      url += `)`
+    }
+    if(this.coops && this.coops.length > 0) {
+      url += ` (or cooperative_affiliation:`;
+      this.coops.forEach( (coop) => {
+        url += `'${coop}' `;
+      })
       url += `)`
     }
     if(!this.showNonCoop) {
