@@ -6,31 +6,81 @@
   margin: 0 0 20px 0;
   position: relative;
 }
+
 .search-results {
   background: #FAFAFA;
   display: block;
-  margin: 8px 30px;
+  margin: 8px 0px 8px 30px;
 }
+
 .search-results h1 {
   font-weight: bold;
-  font-family:"lato";
+  font-family: "lato";
   font-size: 22px;
   line-height: 22px;
   text-transform: capitalize;
   color: #4F6481;
+  margin-bottom: 0;
 }
-.search-results li {
+
+.search-results .result-link {
   margin-bottom: 15px;
   background: #fff;
   box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1);
   padding: 20px 25px 35px 25px;
   display: block;
   position: relative;
+  transition: all .4s;
 }
+
+.search-results .result-link:hover {
+  transition: all .4s;
+  box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0);
+}
+
+.search-results .result-link:hover .result-title {
+  transition: all .4s;
+  color: #4F6481;
+}
+
+.search-no-results {
+  text-align: center;
+  font-family: "lato";
+}
+
+.search-no-results img {
+  width: 40px;
+}
+
+.search-no-results h6 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #37A8EB;
+  margin: .7em 0 .5em;
+  line-height: 1.4em;
+}
+
+.search-no-results-text {
+  font-weight: 500;
+  color: #586C8A;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+.card-details {
+  width: 88%;
+}
+
+.search-results a {
+  width: 100%;
+  height: 100;
+}
+
 .search-results .result-title {
   max-width: 660px;
   display: block;
 }
+
 .search-results .card-controls {
   position: absolute;
   top: 0;
@@ -38,32 +88,44 @@
   background: #F2F6FF;
   padding: 10px 24px;
 }
+
 .search-results .result-expiration {
   display: flex;
   flex-flow: column;
 }
+
 .search-results .field-name {
   display: block;
   margin: 3px 0;
 }
+
 .search-results .result-expiration .field-name {
   font-size: 14px;
   line-height: 15px;
   color: #4F6481;
 }
+
 .search-results .result-expiration .field-value {
-  font-weight: bold;
+  font-weight: 400;
   color: #3ea8eb;
 }
+
 .search-results .parties {
   display: flex;
   margin: 10px 0 15px 0;
 }
+
 .search-results .parties .author {
   margin-right: 40px;
 }
 
-.remove-all{
+.search-results p {
+  font-size: 14px;
+  color: #879EC0;
+  font-weight: 400;
+}
+
+.remove-all {
   float: right;
   margin-top: -13px;
 }
@@ -76,6 +138,7 @@
   display: flex;
   margin-bottom: 1em;
 }
+
 .field--checkbox input[type="checkbox"] {
   opacity: 0;
   opacity: 0;
@@ -83,24 +146,28 @@
   width: 0;
   height: 0;
 }
+
 .field--checkbox label {
   position: relative;
   display: inline-block;
   padding: 4px 0 0 26px;
 }
+
 .field--checkbox label::before,
 .field--checkbox label::after {
   position: absolute;
   content: "";
   display: inline-block;
 }
-.field--checkbox label::before{
+
+.field--checkbox label::before {
   height: 16px;
   width: 16px;
   border: 1px solid #37A8EB;
   left: 0px;
   top: 3px;
 }
+
 .field--checkbox label::after {
   height: 5px;
   width: 9px;
@@ -110,26 +177,32 @@
   left: 4px;
   top: 7px;
 }
-.field--checkbox input[type="checkbox"] + label::after {
+
+.field--checkbox input[type="checkbox"]+label::after {
   content: none;
 }
-.field--checkbox input[type="checkbox"]:checked + label::after {
+
+.field--checkbox input[type="checkbox"]:checked+label::after {
   content: "";
 }
-.field--checkbox input[type="checkbox"]:checked + label::before {
+
+.field--checkbox input[type="checkbox"]:checked+label::before {
   background: #37A8EB;
 }
-.field--checkbox input[type="checkbox"]:focus + label::before {
+
+.field--checkbox input[type="checkbox"]:focus+label::before {
   outline: rgb(59, 153, 252) auto 5px;
 }
 
 .field--select {
   margin: 0 0 10px 0;
 }
+
 select[name="buyer_lead_agency_state"], select[name="buyer_lead_agency"] {
   height: 200px;
   padding: 0;
 }
+
 select[name="buyer_lead_agency_state"] option, select[name="buyer_lead_agency"] option {
   height: 30px;
   text-align: left;
@@ -137,15 +210,16 @@ select[name="buyer_lead_agency_state"] option, select[name="buyer_lead_agency"] 
   display: flex;
   align-items: center;
 }
+
 .filters-apply {
-  width: 220px;
-  height: 36px;
   margin: 30px 0;
+  width: 100%;
 }
 
 .overlay-background {
   display: none;
 }
+
 .overlay-background.active {
   display: block;
   height: 100vh;
@@ -153,7 +227,7 @@ select[name="buyer_lead_agency_state"] option, select[name="buyer_lead_agency"] 
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 body.noscroll {
@@ -165,9 +239,11 @@ body.noscroll {
   .search-results-container, .search-results {
     width: 100vw;
   }
+
   .search-results-container {
     margin: 60px 0;
   }
+
   .search-filters {
     position: absolute;
     left: -300px;
@@ -175,13 +251,31 @@ body.noscroll {
     top: 60px;
     transition: left .3s;
   }
+
   .search-filters.active {
     left: 0;
     overflow: scroll;
+    height: 100%;
+    padding-top: 90px;
+    padding-bottom: 150px;
   }
+
+  .filters-apply {
+    margin-top: 15px;
+  }
+
+  .show-filters {
+    font-size: 16px;
+  }
+
+  .card-details {
+    width: 64%;
+  }
+
   .search-results {
     margin: 20px 15px;
   }
+
   .search-results h1 {
     margin-bottom: 20px;
   }

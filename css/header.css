@@ -25,12 +25,12 @@ header {
 
 header navigation {
   height: 60px;
-  width: 1140px;
+  max-width: 1120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 10px 20px;
 }
 
 header .links {
@@ -55,7 +55,7 @@ header .search-container {
 }
 
 header .search-container .search-icon {
-  top: 5px;
+  top: 4px;
   width: 30px;
   height: 33px;
   left: 22px;
@@ -94,16 +94,6 @@ header .big-search-icon {
     margin: 0 15px 10px 0px;
   }
 
-  header .company-identifier {
-    margin: 4px 0 0 22px;
-  }
-
-  .home navigation form.search-container {
-    margin-left: 0;
-    height: 50px;
-    opacity: 1;
-  }
-
   section.drop-header {
     padding: 90px 0 10px;
   }
@@ -140,7 +130,7 @@ header .big-search-icon {
 
   header .search-container {
     position: absolute;
-    top: 60px;
+    top: 57px;
     width: 100vw;
     margin: 0;
     height: 60px;
@@ -148,25 +138,21 @@ header .big-search-icon {
     z-index: 6;
     box-shadow: none;
     display: flex;
-
     transition: all .4s;
+    opacity: 0;
   }
 
   header .search-container .search-icon {
-    top: 13px;
+    top: 14px;
     width: 30px;
     height: 33px;
-    left: 19px;
+    left: 15px;
   }
 
   header .search-container input {
     border: 1px solid #37A8EB;
-    text-indent: 45px;
-    font-size: 18px;
-  }
-
-  header .search-container {
-    display: none;
+    text-indent: 40px;
+    font-size: 17px;
   }
 
   header .search-container.active {

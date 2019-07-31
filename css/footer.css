@@ -29,6 +29,10 @@ section.contact-us.blue-back {
   margin-top: 0;
 }
 
+.contact-us {
+  text-align: center;
+}
+
 .contact-us h2 {
   color: #fff;
   margin-bottom: 20px;

@@ -16,21 +16,8 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
           <input type="checkbox" name="noncoop" id="noncoop" ${(noncoop) ? 'checked' : ''}>
           <label for="noncoop">Include contracts without cooperative language</label>
         </div>
-        <div class="field-group-header">Contract Type (needs functionality)</div>
-        <div class="field--checkbox">
-          <input type="checkbox" name="noncoop" id="noncoop" ${(noncoop) ? 'checked' : ''}>
-          <label for="noncoop">Competitively solicited</label>
-        </div>
-        <div class="field--checkbox">
-          <input type="checkbox" name="noncoop" id="noncoop" ${(noncoop) ? 'checked' : ''}>
-          <label for="noncoop">Negotiated schedule</label>
-        </div>
-        <div class="field--checkbox">
-          <input type="checkbox" name="noncoop" id="noncoop" ${(noncoop) ? 'checked' : ''}>
-          <label for="noncoop">Sole source</label>
-        </div>
-        <div class="field-group-header">Contract Creator</div>
 
+        <div class="field-group-header">Contract Creator</div>
 
         <div class="field--select">
           <label for="buyer_lead_agency_state">Lead agency location</label>
@@ -91,16 +78,16 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
     </div>
     <div class="search-results">
     <div class="search-header">
-      <div class="">
+      <div class="search-header-left">
         <h1>${decodeURIComponent(query)} contracts</h1>
         <div class="search-query-controls">
           <a href="#" class="show-filters">Filters</a>
           <span class="result-count">Showing ${json.hits.start+1}-${json.hits.start + 10} of ${json.hits.found} results</span>
         </div>
       </div>
-      <div class="">
+      <div class="search-header-right">
         <select name="search-sort" class="search-sort">
-            <option value="">Sort by</option>
+            <option value="">Sort by Relevance</option>
             <option value="suppliers%20asc" ${(sort=='suppliers%20asc') ? 'selected' : ''}>Supplier A - Z</option>
             <option value="suppliers%20desc" ${(sort=='suppliers%20desc') ? 'selected' : ''}>Supplier Z - A</option>
             <option value="buyer_lead_agency%20asc" ${(sort=='buyer_lead_agency%20asc') ? 'selected' : ''}>Buyer A - Z</option>
@@ -118,11 +105,12 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
       <ul>
         ${json.hits.hit.map( (item) => {
           return `<li>
-            <div class="card-details">
-              <a href="contract.html?contractId=${item.id}" class="result-title">${item.fields.title}</a>
+          <a href="contract.html?contractId=${item.id}" class="result-link">
+           <div class="card-details">
+              <div class="result-title">${item.fields.title}</div>
               <div class="parties">
                 ${(item.fields.buyer_lead_agency) ? `<div class="author">
-                  <span class="field-name">Content Creator</span>
+                  <span class="field-name">Contract Creator</span>
                   <span class="field-value">${item.fields.buyer_lead_agency}</span>
                 </div>` : ''}
                 ${(item.fields.suppliers) ? `<div class="buyer">
@@ -144,8 +132,18 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
                 <span class="field-value">${new Date(item.fields.expiration).toLocaleDateString("en-US")}</span>
               </div>
             </div>
+            </a>
           </li>`
         }).join('\n      ')}
+        <div class="result-link search-no-results">
+        <img src="/img/question.svg">
+        <h6 class="">Not Seeing The Results You Are Looking For?</h6>
+        <div class="search-no-results-text">Try changing your search terms above or filters located to the left. </div>
+        <!--<div class=""> If you are still not seeing seeing results
+          <a href="">submit a research request</a> for extra help finding the contracts you need
+          </div>
+        </div>
+        -->
       </ul>
       <coprocure-pagination current="${(json.hits.start + 10) / 10}" total="${json.hits.found}"></coprocure-pagination>
     </div>

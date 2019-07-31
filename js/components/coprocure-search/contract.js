@@ -9,52 +9,51 @@ export function contractLayout(json) {
         let parsedItem = JSON.parse(item);
         if(parsedItem.url) {
           parsedItem.type = 'Contract';
-          fileLinks.push(parsedItem);      
+          fileLinks.push(parsedItem);
         }
-      })  
+      })
     }
     if(contract.fields.amendments_files) {
       contract.fields.amendments_files.forEach( (item) => {
         let parsedItem = JSON.parse(item);
         parsedItem.type = 'Amendment';
-        fileLinks.push(parsedItem);      
-      })  
+        fileLinks.push(parsedItem);
+      })
     }
     if(contract.fields.bid_solicitation_files) {
       contract.fields.bid_solicitation_files.forEach( (item) => {
         let parsedItem = JSON.parse(item);
         parsedItem.type = 'Bid Solicitation';
-        fileLinks.push(parsedItem);      
-      })  
+        fileLinks.push(parsedItem);
+      })
     }
     if(contract.fields.bid_tabulation_files) {
       contract.fields.bid_tabulation_files.forEach( (item) => {
         let parsedItem = JSON.parse(item);
         parsedItem.type = 'Bid Tabulation';
-        fileLinks.push(parsedItem);      
-      })  
+        fileLinks.push(parsedItem);
+      })
     }
     if(contract.fields.pricing_files) {
       contract.fields.pricing_files.forEach( (item) => {
         let parsedItem = JSON.parse(item);
         parsedItem.type = 'Pricing';
-        fileLinks.push(parsedItem);      
-      })  
+        fileLinks.push(parsedItem);
+      })
     }
     if(contract.fields.other_docs_files) {
       contract.fields.other_docs_files.forEach( (item) => {
         let parsedItem = JSON.parse(item);
         parsedItem.type = 'Other';
-        fileLinks.push(parsedItem);      
-      })  
+        fileLinks.push(parsedItem);
+      })
     }
     return `
     <div class="contract-results">
-      <h2 class="some-big page-description">Contract Details</h2>
       <div class="contract-card">
         <div class="contract-details">
           <div class="title-section">
-            ${(contract.fields.contract_number) ? `<h5>Contract # ${contract.fields.contract_number}</h5>` : ''}            
+            ${(contract.fields.contract_number) ? `<h5>Contract # ${contract.fields.contract_number}</h5>` : ''}
             <h1 class="some-big">${contract.fields.title}</h1>
             <div class="dates">
               ${(function() {
@@ -96,7 +95,7 @@ export function contractLayout(json) {
               return output;
             })()}
             <section class="author-details">
-              <h4>Content Creator</h3>
+              <h4>Contract Creator</h3>
               <div class="author-content">
               ${(contract.fields.buyer_lead_agency) ? `<div class="author-field">
                 <span class="field-name">Lead agency</span>
@@ -137,20 +136,20 @@ export function contractLayout(json) {
         </div>
         <div class="contract-actions">
           <button class="contact-supplier" data-contract-id="${contract.id}">
-            <span class="button-icon"></span>
+            <span class="button-icon"><img src="../img/email.svg"></span>
             <span class="button-text">Contact Supplier</span>
           </button>
           <button class="share-contract" data-contract-id="${contract.id}">
-            <span class="button-icon"></span>
+            <span class="button-icon"><img src="../img/share.svg"></span>
             <span class="button-text">Share Contract</span>
           </button>
 
-          <a class="questions-link">Questions Or Suggestions</a>
+          <a class="questions-link">Questions Or Suggestions?</a>
         </div>
       </div>
     </div>
     <div class="overlay-background"></div>`
   }
-  
+
 
 }
