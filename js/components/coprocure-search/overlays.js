@@ -1,19 +1,6 @@
 import { checkParents } from './check-parents.js';
-
-// temp noop track event for testing
-function trackEvent() {}
-
-export function getUser() {
-  let user = localStorage.getItem('coProcureUser');
-  if(!user) {
-    return '';
-  }
-  return user;
-}
-
-export function setUser(id) {
-  localStorage.setItem('coProcureUser',id);
-}
+import { getUser, setUser } from './user.js';
+import { trackEvent } from './tracking.js';
 
 function showModal(modalInfo) {
   let modalBackdrop = `<div class="modal-backdrop fade"></div>`;

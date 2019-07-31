@@ -42,7 +42,6 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
               let checked = false;
               if(selectedBuyers) {
                 selectedBuyers.forEach( (selectedBuyer) => {
-                  console.log(selectedBuyer)
                   if(buyer == selectedBuyer) {
                     checked = true;
                   }

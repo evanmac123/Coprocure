@@ -6,6 +6,7 @@ import { states } from './states.js';
 import { buyers } from './buyers.js';
 import { coops } from './coops.js';
 import { showContactVendorModal, showShareModal, showAdditionalDocsModal } from './overlays.js';
+import { trackEvent } from './tracking.js';
 
 function getParams() {
   let paramsObj = {};
@@ -133,9 +134,9 @@ export default class CoProcureSearch extends HTMLElement {
       url += `(and cooperative_language:'true')`;
     }
     url += `)`
-    console.log(url)
     if(this.sort) {
       url += '&sort='+this.sort;
+      trackEvent('search', 'sort', this.sort);
     }
     if(!this.showExpired) {
       url += `&fq=${encodeURIComponent(expParam)}`;
@@ -147,6 +148,7 @@ export default class CoProcureSearch extends HTMLElement {
     })
     .then(function(json) {
       component.renderResults(json);
+      trackEvent('search', 'query', component.query);
     });
   }
 
@@ -154,6 +156,7 @@ export default class CoProcureSearch extends HTMLElement {
     this.innerHTML = spinner();
     let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?&q.parser=structured&q=_id:%27${this.contractId}%27`
     let component = this;
+    trackEvent('view', 'contract', this.contractId);
     fetch(url)
     .then(function(response) {
       return response.json();
@@ -168,10 +171,12 @@ export default class CoProcureSearch extends HTMLElement {
 
     document.querySelector('.contact-supplier').addEventListener('click',function(event) {
       event.preventDefault();
+      trackEvent('modal', 'contact-supplier', this.dataset.contractId);
       showContactVendorModal(this.dataset.contractId)
     })
     document.querySelector('.share-contract').addEventListener('click',function(event) {
       event.preventDefault();
+      trackEvent('modal', 'share', this.dataset.contractId);
       showShareModal(this.dataset.contractId)
     })
     document.querySelector('.questions-link').addEventListener('click',function(event) {
@@ -180,6 +185,7 @@ export default class CoProcureSearch extends HTMLElement {
     })
     document.querySelector('.missing-documents').addEventListener('click',function(event) {
       event.preventDefault();
+      trackEvent('modal', 'missing-documents', this.dataset.contractId);
       showAdditionalDocsModal({type:'docs',contractId:this.dataset.contractId})
     })
   }
@@ -189,6 +195,7 @@ export default class CoProcureSearch extends HTMLElement {
     let component = this;
     // listen for custom events on the contained pagination element
     document.querySelector('coprocure-pagination').addEventListener('navigation', function (e) {
+      trackEvent('search', 'pagination', e.detail.page);
       document.querySelector('coprocure-search').setAttribute('page',e.detail.page);
     })
     document.querySelector('.show-filters').addEventListener('click', function(event) {
@@ -210,6 +217,7 @@ export default class CoProcureSearch extends HTMLElement {
     document.getElementById('expired').addEventListener('change', function(event) {
       if(this.checked) {
         component.showExpired = true;
+        trackEvent('search', 'filter', 'showExpired');
       } else {
         component.showExpired = false;
       }
@@ -218,6 +226,7 @@ export default class CoProcureSearch extends HTMLElement {
     document.getElementById('noncoop').addEventListener('change', function(event) {
       if(this.checked) {
         component.showNonCoop = true;
+        trackEvent('search', 'filter', 'showNonCoop');
       } else {
         component.showNonCoop = false;
       }
@@ -229,25 +238,27 @@ export default class CoProcureSearch extends HTMLElement {
       let statesValues = Array.from(selectedStates).map(el => el.value);
       if(statesValues.length > 0) {
         document.querySelector('coprocure-search').setAttribute('states',JSON.stringify(statesValues));
+        trackEvent('search', 'filter', 'coop='+JSON.stringify([statesValues]));
       }
 
       let selectedBuyers = document.querySelectorAll('select[name="buyer_lead_agency"] option:checked');
       let buyerValues = Array.from(selectedBuyers).map(el => el.value);
-      console.log('the buyers selected are')
-      console.log(buyerValues)
       if(buyerValues.length > 0) {
         document.querySelector('coprocure-search').setAttribute('buyers',JSON.stringify(buyerValues));
+        trackEvent('search', 'filter', 'coop='+JSON.stringify([buyerValues]));
       }
 
       if(document.querySelector('select[name="coop_list"] option:checked')) {
         let selectedCoop = document.querySelector('select[name="coop_list"] option:checked').value;
         document.querySelector('coprocure-search').setAttribute('coops',JSON.stringify([selectedCoop]));
+        trackEvent('search', 'filter', 'coop='+JSON.stringify([selectedCoop]));
       }
       let newSearch = 0;
       let lastSearch = document.querySelector('coprocure-search').getAttribute('search');
       if(lastSearch) {
         newSearch = lastSearch++;
       }
+      
       document.querySelector('coprocure-search').setAttribute('search',newSearch);
     })
   }
