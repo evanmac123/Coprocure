@@ -121,14 +121,14 @@ export default class CoProcureSearch extends HTMLElement {
     if( (this.buyers && this.buyers.length > 0)) {
       url += `(or buyer_lead_agency:`;
       this.buyers.forEach( (buyer) => {
-        url += `'${buyer}' `;
+        url += `'${encodeURIComponent(buyer)}' `;
       })
       url += `)`
     }
     if(this.coops && this.coops.length > 0) {
       url += ` (or cooperative_affiliation:`;
       this.coops.forEach( (coop) => {
-        url += `'${coop}' `;
+        url += `'${encodeURIComponent(coop)}' `;
       })
       url += `)`
     }
@@ -233,6 +233,24 @@ export default class CoProcureSearch extends HTMLElement {
         component.showNonCoop = false;
       }
       component.search();
+    })
+
+    document.querySelector('.js-filter-reset').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('noncoop').checked = false;
+      component.showNonCoop = false;
+      document.getElementById('expired').checked = false;
+      component.showExpired = false;
+      document.querySelectorAll('select[name="buyer_lead_agency_state"] option:checked').forEach( (item) => {
+        item.selected = false;
+      })
+      document.querySelectorAll('select[name="buyer_lead_agency"] option:checked').forEach( (item) => {
+        item.selected = false;
+      })
+      document.querySelector('select[name="buyer_lead_agency_state"] option').selected = true;
+      document.querySelector('select[name="buyer_lead_agency"] option').selected = true;
+      document.querySelector('select[name="coop_list"] option').selected = true;
+      document.querySelector('button.filters-apply').click();
     })
     document.querySelector('button.filters-apply').addEventListener('click', function(event) {
       event.preventDefault();

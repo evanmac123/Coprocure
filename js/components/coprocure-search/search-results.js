@@ -5,7 +5,7 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
   return `<div class="search-results-container">
     <div class="search-filters">
       <form method="get" action="/contracts.html">
-        <div class="filter-section-title">Filters</div> <a class="remove-all"> Remove All Filters </a>
+        <div class="filter-section-title">Filters</div> <a class="remove-all js-filter-reset"> Remove All Filters </a>
         <div class="field-group-header">Contract Term</div>
         <div class="field--checkbox">
           <input type="checkbox" name="expired" id="expired" ${(expired) ? 'checked' : ''}>
