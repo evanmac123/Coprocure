@@ -9,6 +9,7 @@ import { showContactVendorModal, showShareModal, showAdditionalDocsModal } from 
 import { trackEvent } from './tracking.js';
 
 
+
 function getParams() {
   let paramsObj = {};
   window.location.search.replace('?','').split('&').forEach((pair) => {
