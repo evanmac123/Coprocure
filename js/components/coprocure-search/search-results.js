@@ -21,7 +21,7 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
 
         <div class="field--select">
           <label for="buyer_lead_agency_state">Lead agency location</label>
-          <select class="ui fluid search dropdown" multiple="" name="buyer_lead_agency_state" id="buyer_lead_agency_state>
+          <select class="ui fluid search dropdown" multiple="" name="buyer_lead_agency_state" id="buyer_lead_agency_state">
             <option value="">All states</option>
             ${stateList.map(function(state) {
               let checked = false;
