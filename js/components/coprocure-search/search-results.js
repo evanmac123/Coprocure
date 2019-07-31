@@ -64,7 +64,7 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
                   }
                 })
               }
-              return `<option value="${coop}" ${(checked) ? 'checked' : ''}>${coop}</option>`
+              return `<option value="${coop}" ${(checked) ? ' selected' : ''}>${coop}</option>`
             }).join('   ')}
           </select>
         </div>
