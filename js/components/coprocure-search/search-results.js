@@ -115,6 +115,13 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
                 ${(item.fields.suppliers) ? `<div class="buyer">
                   <span class="field-name">Supplier</span>
                   <span class="field-value">${item.fields.suppliers}</span>
+                  ${(function() {
+                    let output = '';
+                    if(item.fields.cooperative_language == "false" || item.fields.cooperative_language == "False" ) {
+                        output += `<div class="warning"> <img src="img/exclamation-point.svg" class=""> Non-cooperative contract</div>`
+                    }
+                    return output;
+                    })()}
                 </div>` : ''}
               </div>
               ${(function() {

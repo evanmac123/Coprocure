@@ -173,7 +173,7 @@ header .big-search-icon {
     transition: .2s;
     font-size: 20px;
     justify-content: normal;
-    z-index: -10;
+    z-index: 10;
     top: -140px;
   }
 
