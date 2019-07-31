@@ -106,7 +106,7 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
           return `<li>
           <a href="contract.html?contractId=${item.id}" class="result-link">
            <div class="card-details">
-              <div class="result-title">${item.fields.title}</div>
+              <div class="result-title">${(item.fields.title) ? item.fields.title : ''}</div>
               <div class="parties">
                 ${(item.fields.buyer_lead_agency) ? `<div class="author">
                   <span class="field-name">Contract Creator</span>
