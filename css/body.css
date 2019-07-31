@@ -243,7 +243,8 @@ input, textarea, label {
 }
 
 input, textarea {
-  box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1)
+  box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1);
+  padding: 6px 10px;
 }
 
 input {
@@ -295,12 +296,6 @@ button:hover {
   box-shadow: 0px 11.6px 28px rgba(0, 0, 0, 0.12);
   transition: all .4s;
   /* box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1) */
-}
-
-.home navigation .search-container {
-  opacity: 0;
-  margin-left: 70px;
-  height: 40px;
 }
 
 .search-container button {

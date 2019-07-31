@@ -5,15 +5,9 @@ import { spinner } from './spinner.js';
 import { states } from './states.js';
 import { buyers } from './buyers.js';
 import { coops } from './coops.js';
-import './dropdown.min.js';
 import { showContactVendorModal, showShareModal, showAdditionalDocsModal } from './overlays.js';
 import { trackEvent } from './tracking.js';
 
-$('.ui.dropdown')
-  .dropdown()
-;
-
-console.log("car");
 
 function getParams() {
   let paramsObj = {};

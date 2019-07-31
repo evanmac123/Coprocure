@@ -3,6 +3,7 @@
   height: auto;
   margin: 80px auto;
 }
+
 .contract-card {
   box-shadow: 0px 8.28px 20px rgba(0, 0, 0, 0.12);
   background: #fff;
@@ -10,15 +11,18 @@
   width: 100%;
   margin: 20px 0;
 }
+
 .contract-details {
   width: 780px;
 }
+
 .contract-details h4 {
   font-size: 18px;
   line-height: 128.4%;
   color: #4F6481;
   margin-bottom: 12px;
 }
+
 .contract-details h5 {
   font-style: normal;
   font-weight: normal;
@@ -26,52 +30,63 @@
   line-height: 136.7%;
   color: #4F6481;
 }
+
 .contract-details .title-section {
   background: #EBF3FF;
-  padding: 30px 30px 20px 30px; 
+  padding: 30px 30px 20px 30px;
 }
+
 .contract-details .title-section .dates {
   margin: 20px 0 0 0;
   display: flex;
   align-items: flex-start;
 }
+
 .title-section .dates .date-details {
   margin: 0 30px 0 0;
   display: flex;
   flex-flow: column;
 }
+
 .date-details .field-name {
   font-size: 12px;
   line-height: 1.5em;
   color: #879EC0;
 }
+
 .date-details .field-value {
   font-size: 14px;
   line-height: 136.7%;
   color: #4F6481;
 }
+
 .contract-details .check-section {
   height: 48px;
   background: #F8F8F8;
   border: 1px solid #E5EAF2;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 30px;
 }
+
 .check-section li {
   text-indent: 25px;
   background: url(../../../img/check-circle-1-alternate.svg) no-repeat;
-
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
-  color: #4F6481
+  color: #4F6481;
+  margin-left: 1em;
+}
+
+.check-section li:first-child {
+  margin-left: 0em;
 }
 
 .contract-details .more-info-section {
   margin: 0 30px;
 }
+
 .contract-details .more-info-section section {
   display: block;
   border-bottom: 1px solid #D2DBE9;
@@ -81,14 +96,17 @@
 .supplier, .author-field {
   display: flex;
   flex-flow: column;
+  margin-right: 2em;
 }
+
 .contract-details .more-info-section section.supplier-details {
   border-bottom: none;
 }
+
 .author-content {
   display: flex;
-  justify-content: space-between; 
 }
+
 .author-details .field-name, .supplier-details .field-name {
   font-style: normal;
   font-weight: normal;
@@ -97,6 +115,7 @@
   letter-spacing: 0.1px;
   color: #879EC0;
 }
+
 .author-details .field-value, .supplier-details .field-value {
   font-style: normal;
   font-weight: normal;
@@ -108,20 +127,24 @@
 
 .contract-details section.files {
   padding: 20px 30px;
-  margin: 0 0 30px 0;
+  margin: 30px;
+  width: 91%;
   border: none;
-  background: #F8F8F8;
+  background: #efefef;
   box-shadow: 0px 8.28px 20px rgba(0, 0, 0, 0.08);
 }
+
 .files h4 {
   font-size: 16px;
   line-height: 128.4%;
   color: #146798;
 }
+
 .files .section-header {
   display: flex;
   justify-content: space-between;
 }
+
 .file-list li {
   background: #fff;
   height: 35px;
@@ -130,6 +153,7 @@
   padding: 0 20px;
   margin-bottom: 1px;
 }
+
 .file-list .file-link {
   width: 47%;
   margin-right: 3%;
@@ -137,9 +161,24 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
 .file-list .file-type {
   font-size: 14px;
   color: #96A9C5;
+}
+
+.button-icon {
+  width: 44px;
+  height: 40px;
+  margin: -3px 0 0 -1px;
+  border: solid 1px;
+  display: flex;
+}
+
+.button-icon img {
+  width: 100%;
+  padding: 7px;
+  align-items: center;
 }
 
 .contract-actions {
@@ -148,9 +187,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 40px 0;
   flex-flow: column;
+  padding-top: 35px;
 }
+
 .contract-actions button {
   width: 230px;
   height: 40px;
@@ -159,8 +199,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0px 10px;
+  position: relative;
+  padding: 0;
 }
+
 .contract-actions button .button-text {
   line-height: 40px;
   font-style: normal;
@@ -169,43 +211,34 @@
   text-align: center;
   letter-spacing: 0.75px;
 }
+
 button {
   cursor: pointer;
 }
+
 button.contact-supplier {
   color: #FAFAFA;
+  border: #ffffff 1px solid;
 }
+
 button.share-contract {
   background-color: white;
   color: #37A8EB;
   border: 1px solid #37A8EB;
 }
-.button-icon {
-  width: 42px;
-  height: 40px;
-  border-right: solid 1px;
-}
+
 button .button-text {
   display: block;
   text-align: center;
   width: 100%;
 }
-button.contact-supplier .button-icon {
-  background: url(../../../img/email.svg) no-repeat 7px 12px;
-  border-right-color: #fff;
-}
-button.share-contract .button-icon {
-  background: url(../../../img/share.svg) no-repeat 7px 12px;
-  border-right-color: #37A8EB;;
-}
+
 .contract-card a {
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
-  font-size: 14px;
   letter-spacing: 0.75px;
-  color: #37A8EB;
 }
+
 .questions-link {
   line-height: 40px;
   height: 40px;
@@ -213,15 +246,17 @@ button.share-contract .button-icon {
   background: url(../../../img/questions.svg) no-repeat 7px 12px;
 }
 
-
 .page-description {
   line-height: 36px;
-  color: #000;  
+  color: #000;
 }
+
 h1.some-big {
   font-size: 28px;
   line-height: 128.4%;
   color: #37A8EB;
+  font-weight: 600;
+  font-family: "lato";
 }
 
 coprocure-search .modal-backdrop {
@@ -234,6 +269,7 @@ coprocure-search .modal-backdrop {
   background-color: #000;
   opacity: 0.5;
 }
+
 coprocure-search .modal {
   position: fixed;
   top: 0;
@@ -244,9 +280,11 @@ coprocure-search .modal {
   overflow: hidden;
   outline: 0;
 }
+
 coprocure-search .modal-dialog.show {
   transform: translate(0, 0);
 }
+
 coprocure-search .modal-dialog {
   width: 80%;
   max-width: 500px;
@@ -256,6 +294,7 @@ coprocure-search .modal-dialog {
   transform: translate(0, -250%);
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
 }
+
 coprocure-search .modal-dialog.mega {
   max-width: 800px;
   padding: 0px;
@@ -265,12 +304,14 @@ coprocure-search .modal .modal-title {
   font-size: 20px;
   line-height: 128.4%;
 }
+
 coprocure-search .modal .field-description {
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.44px;
-  color: #2A324D;  
+  color: #2A324D;
 }
+
 coprocure-search .modal label {
   font-size: 14px;
   line-height: 136.7%;
@@ -278,34 +319,41 @@ coprocure-search .modal label {
   display: block;
   margin: 20px 0 0 0;
 }
+
 coprocure-search .modal textarea {
   width: 100%;
   height: 115px;
   margin: 0 0 20px 0;
 }
+
 coprocure-search .modal button {
   min-width: 100px;
   min-height: 35px;
 }
+
 coprocure-search .modal label .label-text {
   display: block;
   margin-bottom: 6px;
 }
+
 coprocure-search .modal input[type="text"] {
   width: 100%;
   border: 1px solid;
 }
+
 .multi-labels {
   display: flex;
   margin: 0 0 6px 0;
-  justify-content: space-between;    
+  justify-content: space-between;
 }
+
 .multi-labels .field-description {
   font-size: 14px;
   line-height: 18px;
   letter-spacing: 0.1px;
-  color: #000000;  
+  color: #000000;
 }
+
 .multi-labels .success-label {
   font-weight: 500;
   font-size: 14px;
@@ -313,6 +361,7 @@ coprocure-search .modal input[type="text"] {
   letter-spacing: 0.75px;
   color: #3CAC7F;
 }
+
 .modal .multisection-modal {
   display: flex;
 }
@@ -323,6 +372,7 @@ coprocure-search .modal input[type="text"] {
   align-items: flex-start;
   width: 126px;
 }
+
 .coprocure-logo--text {
   font-size: 18px;
   line-height: 27px;
@@ -335,6 +385,7 @@ coprocure-search .modal input[type="text"] {
   background: transparent;
   box-shadow: none;
 }
+
 .modal .modal-explanation-section {
   width: 310px;
   height: 350px;
@@ -344,12 +395,12 @@ coprocure-search .modal input[type="text"] {
   flex-flow: column;
   justify-content: space-around;
   padding: 30px 20px;
-
-  font-weight: 800;
+  font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.75px;
 }
+
 .modal .modal-business-section {
   width: 490px;
   height: 350px;
@@ -360,43 +411,99 @@ coprocure-search .modal input[type="text"] {
   .contract-results, .contract-details {
     width: 100%;
   }
+
   .contract-actions {
     width: 100%;
+    padding: 10px;
+    margin-top: 0;
+    position: fixed;
+    bottom: 0;
+    display: block;
+    text-align: center;
   }
+
+  .contract-actions button {
+    width: 47%;
+    margin-left: 2%;
+    margin-right: 0;
+    float: left;
+  }
+
+  .question-link {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .contract-results {
+    margin-bottom: 0;
+  }
+
   .contract-results h2 {
     display: none;
   }
+
+  .modal .modal-explanation-section{
+    display:none;
+  }
+
+  .modal .modal-business-section{
+    height: auto;
+  }
+
+  coprocure-search .modal .modal-title{
+    font-size: 18px;
+  }
+
   .contract-details .check-section {
     height: auto;
     padding: 10px 20px;
     flex-flow: column;
     align-items: flex-start;
   }
+
   .check-section li {
     margin: 10px;
   }
+
   .author-content {
     justify-content: flex-start;
     flex-wrap: wrap;
   }
+
   .supplier, .author-field {
-    margin: 0 40px 20px 0;
+    margin: 0 40px 20px 0em;
   }
+
   .files .section-header {
     flex-flow: column;
     padding: 0 0 20px 0;
   }
+
   .contract-details .more-info-section section.files {
     padding: 20px 20px;
   }
 
   .contract-card {
     flex-flow: column;
+    margin-top: 116px;
   }
+
   .contract-card, .contract-details section.files {
     box-shadow: none;
   }
+
   .contract-details section.files {
     margin: 0;
+    width: 100%;
+  }
+
+  .check-section li:first-child{
+    margin-left: 10px;
+  }
+
+  .contract-details .more-info-section{
+    margin: 0;
+    padding: 0 30px;
   }
 }

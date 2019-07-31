@@ -18,7 +18,7 @@ const handleScroll = evt => {
   }
   if(window.location.pathname == '/' || window.location.pathname.indexOf('/index.html') == 0) {
     if(window.scrollY < 500 && window.innerWidth > 768) {
-      // document.querySelector('.home header .search-container').style.opacity = '0';
+      document.querySelector('.home header .search-container').style.opacity = '0';
       headerSearchVisible = false;
     }
   }
@@ -71,14 +71,11 @@ function hideHomePage() {
     document.querySelector('footer').remove();
     // show header search
     document.querySelector('header .search-container').style.opacity = '1';
-<<<<<<< HEAD
   }
   if(document.querySelector('.js-content-section')) {
     document.querySelectorAll('.js-content-section').forEach( (sect) => {
       sect.remove();
     })
-=======
->>>>>>> small styling changes and dropdown ui
   }
 }
 
