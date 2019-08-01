@@ -120,7 +120,11 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
               ${(function() {
                 let output = '';
                 if(item.fields.summary) {
-                  output += `<p>${item.fields.summary}</p>`;
+                  output += `<p>${item.fields.summary.substr(0,300)}`;
+                  if(item.fields.summary.length > 300) {
+                    output += '...';
+                  }
+                  output += `</p>`;
                 }
                 return output;
               })()}
