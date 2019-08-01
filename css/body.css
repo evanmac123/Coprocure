@@ -327,6 +327,12 @@ button:hover {
   transition: all .4s;
 }
 
+@media (max-width: 1140px) {
+  .section-interior {
+    margin: 80px 20px;
+  }
+}
+
 @media (max-width: 768px) {
   img {
     max-width: 90vw;
@@ -361,6 +367,7 @@ button:hover {
 
   .search-container input {
     font-size: 16px;
+    width: 100%
   }
 
   .section-interior {
@@ -386,8 +393,6 @@ button:hover {
   section .accordian {
     width: 100%;
   }
-
-  .blue-back .section-interior {}
 
   section.contact-us .row.fields {
     width: 100%;

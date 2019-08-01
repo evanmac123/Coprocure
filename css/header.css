@@ -47,6 +47,10 @@ header a {
   margin-left: 40px;
 }
 
+.home header .search-container {
+  opacity: 0;
+}
+
 header .search-container {
   display: flex;
   height: 40px;
@@ -70,6 +74,7 @@ header .big-search-icon {
   height: 40px;
 }
 
+
 @media (max-width: 768px) {
   header {
     height: auto;
@@ -88,6 +93,7 @@ header .big-search-icon {
     align-items: flex-start;
     position: relative;
     z-index: 10;
+    padding-left: 30px;
   }
 
   header a {
@@ -168,12 +174,12 @@ header .big-search-icon {
     background-color: white;
     z-index: 3;
     position: absolute;
-    top: -110px;
+    top: -107px;
     right: 0px;
     transition: .2s;
     font-size: 20px;
     justify-content: normal;
-    z-index: -10;
+    z-index: 10;
     top: -140px;
   }
 
@@ -190,7 +196,7 @@ header .big-search-icon {
   }
 
   header .links.is-active {
-    top: 60px;
+    top: 58px;
     right: 0;
     height: 810px;
   }
