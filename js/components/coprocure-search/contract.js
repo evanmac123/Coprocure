@@ -107,7 +107,7 @@ export function contractLayout(json) {
               </div>` : ''}
               <div class="author-field">
                 <span class="field-name">Purchasing cooperative/consortium</span>
-                <span class="field-value">${(contract.fields.cooperative_affiliation) ? contract.fields.cooperative_affiliation : 'none'}</span>
+                <span class="field-value">${(contract.fields.cooperative_affiliation) ? contract.fields.cooperative_affiliation : 'N/A'}</span>
                 </div>
               </div>
             </section>
