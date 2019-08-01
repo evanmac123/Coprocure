@@ -374,6 +374,12 @@ input[type=checkbox] {
     max-width: 90%;
   }
 
+  .why-work{
+    margin-left: 0;
+    width: 100%;
+    margin-top: 2em;
+  }
+
   .drop-header-text {
     width: 80%;
   }
