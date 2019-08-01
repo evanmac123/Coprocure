@@ -317,16 +317,6 @@ button:hover {
   left: 15px;
 }
 
-.investors a:hover{
-  opacity: .8;
-  cursor: pointer;
-  transition: all .4s;
-}
-
-.investors a{
-  transition: all .4s;
-}
-
 @media (max-width: 1140px) {
   .section-interior {
     margin: 80px 20px;

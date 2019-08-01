@@ -574,16 +574,6 @@ button:hover {
   left: 15px;
 }
 
-.investors a:hover{
-  opacity: .8;
-  cursor: pointer;
-  transition: all .4s;
-}
-
-.investors a{
-  transition: all .4s;
-}
-
 @media (max-width: 1140px) {
   .section-interior {
     margin: 80px 20px;
@@ -832,6 +822,27 @@ button:hover {
   align-items: center;
   z-index: 10;
 }
+
+.investors a:hover{
+  opacity: .8;
+  cursor: pointer;
+  transition: all .4s;
+}
+
+.investors a{
+  transition: all .4s;
+}
+
+.investors a img{
+  transition: all .4s;
+  width: 140px;
+}
+
+.partner-list .logos img {
+  height: 50px;
+}
+
+
 
 .map-section {
   display: flex;
