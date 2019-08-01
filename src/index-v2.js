@@ -1,0 +1,13 @@
+require('./css-v2/reset.css');
+require('./css-v2/reset.css');
+require('./css-v2/header.css');
+require('./css-v2/body.css');
+require('./css-v2/homepage.css');
+require('./css-v2/footer.css');
+require('./css-v2/carousels.css');
+require('./css-v2/hamburger.css');
+require('./css-v2/search-results.css');
+require('../js/components/coprocure-search/index.css');
+require('../js/components/coprocure-search/spinner.css');
+require('../js/components/coprocure-search/contract.css');
+require('../js/components/coprocure-pagination/index.css');

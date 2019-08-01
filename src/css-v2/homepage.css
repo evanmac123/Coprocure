@@ -1,0 +1,424 @@
+.icon-bkgd.right {
+  right: 0;
+}
+
+.icon-bkgd.left {
+  left: 0;
+}
+
+.icon-bkgd.mobile {
+  display: none;
+}
+
+.icon-bkgd {
+  top: 0;
+  position: absolute;
+  width: 320px;
+  z-index: -10;
+}
+
+.cd-words-wrapper {
+  width: 200px;
+  display: inline-block;
+  text-align: left;
+}
+
+.cd-headline.rotate-1 b {
+  opacity: 0;
+  transform-origin: 50% 100%;
+  transform: rotateX(180deg);
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.cd-headline.rotate-1 b.is-visible {
+  position: relative;
+  opacity: 1;
+  transform: rotateX(0deg);
+  animation: cd-rotate-1-in .3s;
+}
+
+.cd-headline.rotate-1 b.is-hidden {
+  transform: rotateX(180deg);
+  animation: cd-rotate-1-out 1.2s;
+}
+
+@keyframes cd-rotate-1-in {
+  0% {
+    transform: rotateX(270deg);
+    opacity: 0;
+  }
+
+  20% {
+    transform: rotateX(290deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes cd-rotate-1-in-original {
+  0% {
+    transform: rotateX(180deg);
+    opacity: 1;
+  }
+
+  65% {
+    transform: rotateX(120deg);
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes cd-rotate-1-out {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+
+  35% {
+    transform: rotateX(-40deg);
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateX(180deg);
+    opacity: 0;
+  }
+}
+
+.search-description {
+  margin-top: 154px;
+}
+
+.underline-highlight b {
+  text-decoration: underline;
+  text-decoration-color: #3bd9e3;
+}
+
+.subtext {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  line-height: 142.4%;
+  text-align: center;
+}
+
+.subtext--medium {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  letter-spacing: 0.44px;
+  color: #2A324D;
+}
+
+.subtext--smaller {
+  font-size: 12px;
+  color: #96A9C5;
+}
+
+.search-description .subtext {
+  margin: 20px auto;
+  width: 520px;
+}
+
+.partner-list {
+  margin-top: 132px;
+}
+
+.partner-list .logos {
+  margin: 10px auto 60px;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 10;
+}
+
+.map-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.map-section .subtext {
+  color: #2A324D;
+  margin-top: 20px;
+}
+
+.what-we-do {
+  width: 400px;
+}
+
+.map-section .map-of-dots {
+  background: url('../img/map.svg');
+  width: 453px;
+  height: 284px;
+}
+
+.explanation {
+  background: #F2F6FF;
+}
+
+.explanation h3 {
+  text-align: center;
+}
+
+.work-el {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 0 80px 0;
+}
+
+.work-el li {
+  margin-left: 30px;
+  position: relative;
+  width: 270px;
+}
+
+.work-el li:first-child {
+  margin-left: 0px;
+}
+
+.work-el .subtext {
+  margin-top: 20px;
+}
+
+.work-el li img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+}
+
+.work-el li h4 {
+  text-indent: 40px;
+  color: #146798;
+  font-weight: 600;
+}
+
+.about-us .section-interior {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.company-blurb {
+  width: 440px;
+  margin: 0 0 0 30px;
+  text-align: left;
+}
+
+.company-blurb .subtext {
+  text-align: left;
+  margin: 20px 0;
+}
+
+.investors .section-interior {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.contact-us {
+  background: #37A8EB;
+  text-align: center;
+  color: #fff;
+}
+
+.contact-us .subtext--medium {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  section.search .middle-section, .search-description .subtext, .search-container, .partner-list .logos {
+    width: 90vw;
+    margin: 20px auto;
+  }
+
+  section.search {
+    margin-top: 120px;
+  }
+
+  section .row {
+    width: 100%;
+  }
+
+  section .row .column.gutter {
+    width: 100%;
+    margin-bottom: 2em;
+  }
+
+  section .row .column.gutter .left, section .row .column.gutter .right {
+    width: 100%;
+    padding: 0 2em 2em 2em;
+  }
+
+  .blue-back .row .row {
+    margin-bottom: 2em;
+  }
+
+  h3,h4 {
+    margin-bottom: 1em;
+  }
+
+  section div .subtext{
+    margin-bottom: 2em;
+  }
+
+
+  .who-we-are .team {
+    width: 100%;
+  }
+
+  .search-description {
+    margin-top: 0px;
+  }
+
+  .icon-bkgd.desktop {
+    display: none;
+  }
+
+  .icon-bkgd.mobile {
+    display: block;
+    right: 0;
+    position: absolute;
+    width: 110px;
+    top: 0;
+    opacity: .5;
+    z-index: -10;
+  }
+
+  .icon-bkgd.mobile.right {
+    right: 0px;
+  }
+
+  .icon-bkgd.mobile.left {
+    left: 0px;
+  }
+
+  .cd-words-wrapper {
+    width: auto;
+  }
+
+  .partner-list .logos img {
+    width: 80px;
+  }
+
+  .cd-headline.rotate-1 span {
+    font-size: 32px;
+  }
+
+  .subtext--smaller {
+    font-size: 16px;
+  }
+
+  .partner-list {
+    margin-top: 180px;
+  }
+
+  .map-section {
+    flex-flow: column;
+  }
+
+  .what-we-do {
+    width: auto;
+  }
+
+  .work-el {
+    flex-flow: column;
+  }
+
+  .work-el li {
+    margin-left: 0;
+  }
+
+  .about-us .section-interior {
+    flex-flow: column;
+  }
+
+  .company-blurb {
+    width: auto;
+    margin-top: 40px;
+    margin-left: 0px;
+  }
+
+  .company-blurb h2 {
+    margin: 40px 0 0 0;
+  }
+
+  .company-blurb .subtext {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 2em;
+  }
+
+  .company-blurb .dark-emphasis {
+    display: block;
+  }
+
+  .map-section .map-of-dots {
+    display: none;
+  }
+
+  .investors .section-interior {
+    flex-flow: column;
+    width: auto;
+  }
+
+  .investors .section-interior img {
+    margin-top: 40px;
+  }
+
+  .contact-us form {
+    width: 100%;
+    flex-flow: column;
+  }
+
+  .contact-us form .submitter-info {
+    margin-right: 0;
+  }
+
+  footer a, footer .bottom-links a {
+    margin: 20px 0;
+  }
+
+  footer .copyright {
+    margin: 20px 0;
+    font-size: 14px;
+  }
+
+  footer .section-interior {
+    display: flex;
+    flex-flow: column;
+  }
+
+  footer .down-low {
+    flex-flow: column-reverse;
+    height: auto;
+    align-items: normal;
+    margin: 0 20px;
+  }
+
+  footer .bottom-links {
+    display: flex;
+    flex-flow: column;
+  }
+}

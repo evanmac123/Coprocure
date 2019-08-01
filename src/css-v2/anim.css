@@ -1,0 +1,21 @@
+.spinner, #submit-search.spinner {
+  border-radius: 50%;
+  background: transparent;
+  color: transparent;
+  border: 3px solid #337ab7;
+  border-left-color: #ccc;
+  animation: rotating 2s 0.25s linear infinite;
+  animation-delay: 0s;
+  width: 34px;
+  height: 34px;
+  margin: 6px 20px;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

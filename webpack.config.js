@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: { 
-    main: './src/index.js'
+    main: './src/index-v2.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -52,14 +52,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       hash: true,
-      template: './src/search.html',
-      filename: '../search.html'
-    }),
-    new HtmlWebpackPlugin({
-      inject: false,
-      hash: true,
-      template: './src/record.html',
-      filename: '../search/record.html'
+      template: './src/home.html',
+      filename: '../index.html'
     }),
     new MiniCssExtractPlugin({
      filename: "style.[contenthash].css"

@@ -1,0 +1,424 @@
+body {
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #2A324D;
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  color: #37A8EB;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .4s;
+}
+
+a:hover {
+  color: #146798;
+  transition: all .4s;
+  cursor: pointer;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  color: ##146798;
+  font-family: 'Lato', sans-serif;
+}
+
+/* not sure about that, maybe bad for accessibility */
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 118.1%;
+  font-weight: 600;
+  color: #37A8EB;
+  margin-bottom: .3em;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 128.4%;
+  color: #37A8EB;
+}
+
+.dark-emphasis, h2.dark-emphasis {
+  color: #146798;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 128.4%;
+  color: #37A8EB;
+  margin-bottom: .5em;
+}
+
+h3.some-big, h1.some-big {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+h3.some-big {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 128.4%;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  line-height: 128%;
+  color: #4F6481;
+  font-weight: 500;
+}
+
+h4.font--lower {
+  font-size: 24px;
+  text-align: center;
+  color: #4F6481;
+}
+
+h5 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 109.5%;
+  color: #37A8EB;
+}
+
+a {
+  cursor: pointer;
+}
+
+header {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.navigation-bar {
+  height: 88px;
+}
+
+main, section {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+section {
+  width: 100%;
+  overflow: hidden;
+}
+
+.section-interior {
+  max-width: 1140px;
+  margin: 80px auto 0px;
+}
+
+.section-interior.extra-space {
+  max-width: 1140px;
+  margin: 120px auto 120px;
+}
+
+section.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+section.search .middle-section {
+  width: 600px;
+}
+
+section.blue-back {
+  margin-top: 80px;
+  background-color: #37A8EB;
+  color: white;
+  padding-bottom: 80px;
+}
+
+section.blue-back h3, .blue-back h4 {
+  color: white;
+}
+
+.light-blue-back {
+  background-color: #F2F6FF;
+  padding-bottom: 80px;
+}
+
+section.grey-back {
+  background: #F8F8F8;
+  padding-bottom: 80px;
+}
+
+section.white-back {
+  background-color: white;
+  padding-bottom: 80px;
+}
+
+.margin-top {
+  margin-top: 80px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 0 0 100%;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.column.eight.gutter {
+  width: 74%;
+  flex: none;
+}
+
+.column.seven.gutter {
+  width: 74%;
+  flex: none;
+}
+
+.column.six.gutter {
+  width: 49%;
+  flex: none;
+}
+
+.column.six.gutter {
+  width: 49%;
+  flex: none;
+}
+
+.column.four.gutter {
+  width: 24%;
+  flex: none;
+}
+
+.column.three.gutter {
+  width: 32%;
+  flex: none;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+input, textarea, label {
+  font-size: 14px;
+  line-height: 136.7%;
+  color: #4F6481;
+}
+
+input, textarea {
+  box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1);
+  padding: 6px 10px;
+}
+
+input {
+  height: 32px;
+  padding: 6px 10px;
+}
+
+section.search h1 {
+  color: #37A8EB;
+  text-align: center;
+  perspective: 300px;
+}
+
+button {
+  background: #37A8EB;
+  border: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  text-transform: capitalize;
+  color: #FAFAFA;
+  font-family: "Lato", sans-serif;
+  padding: 10px 35px;
+  transition: all .4s;
+  width: auto;
+}
+
+button.highlight {
+  background: #3BD9E3;
+}
+
+button:hover {
+  transition: all .4s;
+  background-color: #146798;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 56px;
+  font-size: 14px;
+  margin-top: 30px;
+  box-shadow: 0px 11.6px 28px rgba(0, 0, 0, 0.12);
+  transition: all .4s;
+  /* box-shadow: 2px 2.28px 10px rgba(0, 0, 0, 0.1) */
+}
+
+.search-container button {
+  height: 100%;
+}
+
+.search-container input {
+  width: 500px;
+  height: 100%;
+  text-indent: 50px;
+  font-size: 14px;
+  border: solid 1px #fff;
+  box-shadow: none;
+}
+
+.search-container .search-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.investors a:hover{
+  opacity: .8;
+  cursor: pointer;
+  transition: all .4s;
+}
+
+.investors a{
+  transition: all .4s;
+}
+
+@media (max-width: 1140px) {
+  .section-interior {
+    margin: 80px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  img {
+    max-width: 90vw;
+  }
+
+  .column {
+    display: block;
+    flex: auto;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  section .image-container img {
+    width: 100%;
+    margin: 40px 0 0 0;
+  }
+
+  button {
+    padding: 15px 45px;
+    font-size: 16px;
+  }
+
+  .search-container button {
+    padding: 0px 25px;
+  }
+
+  .search-container input {
+    font-size: 16px;
+    width: 100%
+  }
+
+  .section-interior {
+    margin: 80px 20px;
+  }
+
+  section.white-back {
+    padding-bottom: 0;
+  }
+
+  section.grey-back {
+    padding-bottom: 0px;
+  }
+
+  section.blue-back {
+    padding-bottom: 0px;
+  }
+
+  .problem .section-interior, .solution .section-interior, .light-blue-back .section-interior {
+    margin-bottom: 0;
+  }
+
+  section .accordian {
+    width: 100%;
+  }
+
+  section.contact-us .row.fields {
+    width: 100%;
+  }
+
+  section.contact-us .row.fields div {
+    width: 100%;
+  }
+
+  section.contact-us form .submitter-info {
+    margin: 0;
+  }
+
+  section.contact-us form input, section.contact-us form textarea {
+    width: 100%;
+  }
+
+  section macro-carousel {
+    height: 550px;
+  }
+
+  section.blog-carousel macro-carousel {
+    height: 420px;
+  }
+
+  section.testimonials-carousel .carousel-card {
+    padding: 90px 30px;
+  }
+}
