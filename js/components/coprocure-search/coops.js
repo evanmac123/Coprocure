@@ -1,3 +1,3 @@
 export function coops() {
-  return ["1Government Procurement Alliance (1GPA)", "Choice Partners", "E&I Cooperative Services", "Allied States Cooperative", "HGACBuy", "Kansas City Regional Purchasing Cooperative (KCRPC)", "National Cooperative Purchasing Alliance (NCPA)", "Sourcewell", "The Interlocal Purchasing System (TIPS)"]
+  return ["1Government Procurement Alliance (1GPA)", "Allied States Cooperative", "BuyBoard", "Choice Partners", "E&I Cooperative Services", "HGACBuy", "Kansas City Regional Purchasing Cooperative (KCRPC)", "Minnesota Multistate Contracting Alliance for Pharmacy (MMCAP)", "NASPO ValuePoint", "National Cooperative Purchasing Alliance (NCPA)", "OMNIA Partners", "Sourcewell", "The Interlocal Purchasing System (TIPS)"]
 }
