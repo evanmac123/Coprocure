@@ -51,6 +51,10 @@ export function contractLayout(json) {
     return `
     <div class="contract-results">
       <div class="contract-card">
+        <div class="control-bar">
+          <a href="/contract.html?contractId=${contract.id}" class="new-window" target="_new">Open in new window</a>
+          <a href="${window.lastSearch.replace(window.location.origin,'')}" class="close-overlay">Close</a>
+        </div>
         <div class="contract-details">
           <div class="title-section">
             ${(contract.fields.contract_number) ? `<h5>Contract # ${contract.fields.contract_number}</h5>` : ''}

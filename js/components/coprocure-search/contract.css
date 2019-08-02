@@ -10,6 +10,46 @@
   display: flex;
   width: 100%;
   margin: 20px 0;
+  padding-top: 60px;
+  position: relative;
+}
+.control-bar {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.control-bar a {
+  font-size: 16px;
+  line-height: 136.7%;
+  color: #37A8EB;
+  text-indent: 30px;
+}
+.control-bar .new-window {
+  background: url(../../../img/new-window.svg) 5px no-repeat;
+}
+.control-bar .close-overlay {
+  background: url(../../../img/close-x.svg) 5px no-repeat;
+}
+
+.contract-detail {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 0;
+  transition-property: top;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+.contract-detail.get-big {
+  top: 0%;
+  height: 500px;
+  width: 100vw;
 }
 
 .contract-details {

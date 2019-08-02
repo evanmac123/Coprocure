@@ -155,7 +155,9 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   getContract() {
-    this.innerHTML = spinner();
+    let contractElement = document.querySelector('.contract-detail');
+    contractElement.innerHTML = spinner();
+    contractElement.classList.add('get-big');
     let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?&q.parser=structured&q=_id:%27${this.contractId}%27`
     let component = this;
     trackEvent('view', 'contract', this.contractId);
@@ -169,7 +171,17 @@ export default class CoProcureSearch extends HTMLElement {
   }
 
   renderContract(json) {
-    this.innerHTML = contractLayout(json);
+    // assign the html to a contract element instead
+    // maybe just set an id on another custom element
+    let contractElement = document.querySelector('.contract-detail');
+    contractElement.innerHTML = contractLayout(json);
+
+    document.querySelector('.close-overlay').addEventListener('click',function(event) {
+      event.preventDefault();
+      contractElement.classList.remove('get-big');
+      // contractElement.innerHTML = '';
+      window.history.pushState({}, '', this.href);
+    })
 
     document.querySelector('.contact-supplier').addEventListener('click',function(event) {
       event.preventDefault();
@@ -194,6 +206,7 @@ export default class CoProcureSearch extends HTMLElement {
 
   renderResults(json) {
     this.innerHTML = resultLayout(json, this.query, this.sort, this.showExpired, this.showNonCoop, states, buyers, coops, this.states, this.buyers, this.coops);
+    window.lastSearch = window.location.toString();
     let component = this;
     // listen for custom events on the contained pagination element
     document.querySelector('coprocure-pagination').addEventListener('navigation', function (e) {
