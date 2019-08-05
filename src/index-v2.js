@@ -1,5 +1,4 @@
 require('./css-v2/reset.css');
-require('./css-v2/reset.css');
 require('./css-v2/header.css');
 require('./css-v2/body.css');
 require('./css-v2/homepage.css');

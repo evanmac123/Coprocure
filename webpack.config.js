@@ -55,6 +55,18 @@ module.exports = {
       template: './src/home.html',
       filename: '../index.html'
     }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/contract.html',
+      filename: '../contract.html'
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/contracts.html',
+      filename: '../contracts.html'
+    }),
     new MiniCssExtractPlugin({
      filename: "style.[contenthash].css"
     })

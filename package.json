@@ -6,7 +6,7 @@
   "scripts": {
     "build:modern": "webpack --config webpack.config.js",
     "build:ancient": "webpack --config webpack.config-es5.js",
-    "build": "npm run build:modern && npm run build:ancient",
+    "build": "npm run build:modern",
     "deploy": "aws s3 sync . s3://dev.coprocure.us --exclude 'node_modules/*' --exclude '.git*' --exclude '.DS_Store' --exclude 'package.json' --exclude 'package-lock.json' --exclude 'webpack.config.js'",
     "deploy:production": "aws s3 sync . s3://www.coprocure.us --exclude 'node_modules/*' --exclude '.git*' --exclude '.DS_Store' --exclude 'package.json' --exclude 'package-lock.json' --exclude 'webpack.config.js'"
   },
