@@ -151,6 +151,5 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
       <coprocure-pagination current="${(json.hits.start + 10) / 10}" total="${json.hits.found}"></coprocure-pagination>
     </div>
   </div>
-  <div class="contract-detail"></div>
   <div class="overlay-background"></div>`
 }

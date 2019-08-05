@@ -93,12 +93,13 @@ function handleNavigation(loc) {
   }
 
   if(loc.pathname.indexOf('/contract.html') > -1) {
-    document.querySelector('coprocure-search').setAttribute('query','');
-    document.querySelector('coprocure-search').setAttribute('contractId',loc.search.replace('?contractId=',''));
+    // document.querySelector('coprocure-search').setAttribute('query','');
+    document.querySelector('coprocure-contract').setAttribute('contractId',loc.search.replace('?contractId=',''));
   }
   if(loc.pathname.indexOf('/contracts.html') > -1) {
     document.querySelector('coprocure-search').setAttribute('query',loc.search.replace('?query=',''));
-    document.querySelector('coprocure-search').setAttribute('contractId','');
+    document.querySelector('coprocure-contract').setAttribute('contractId','');
+    document.querySelector('coprocure-contract').innerHTML = '';
   }
 }
 
