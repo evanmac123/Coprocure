@@ -4,21 +4,7 @@
   <title>CoProcure for Government</title>
   <meta property="og:title" content="CoProcure"/>
   <meta property="og:url" content="https://www.coprocure.us"/>
-  <link rel="stylesheet" href="css/reset.css" type="text/css" />
-  <link rel="stylesheet" href="css/header.css" type="text/css" />
-  <link rel="stylesheet" href="css/body.css" type="text/css" />
-  <link rel="stylesheet" href="css/footer.css" type="text/css" />
-  <link rel="stylesheet" href="css/hamburger.css" type="text/css" />
-  <!-- <link rel="stylesheet" href="css/transition.min.css" type="text/css" /> -->
-  <!-- <link rel="stylesheet" href="css/dropdown.min.css" type="text/css" /> -->
-  <link rel="stylesheet" href="css/footer.css" type="text/css" />
-  <link rel="stylesheet" href="css/search-results.css" type="text/css" />
-
-  <link rel="stylesheet" href="js/components/coprocure-search/index.css" type="text/css" />
-  <link rel="stylesheet" href="js/components/coprocure-search/spinner.css" type="text/css" />
-  <link rel="stylesheet" href="js/components/coprocure-search/contract.css" type="text/css" />
-  <link rel="stylesheet" href="js/components/coprocure-pagination/index.css" type="text/css" />
-
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Poppins:400,600,700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
@@ -39,11 +25,7 @@
   </main>
   <coprocure-footer></coprocure-footer>
 
-  <script type="module" src="js/components/coprocure-search/index.js"></script>
-  <script type="module" src="js/components/header/index.js"></script>
-  <script type="module" src="js/components/footer/index.js"></script>
-  <script type="module" src="js/components/coprocure-pagination/index.js"></script>
-  <script type="module" src="js/components/coprocure-contract/index.js"></script>
+  <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>.js"></script>
 
   <!--
 

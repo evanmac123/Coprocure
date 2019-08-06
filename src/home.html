@@ -19,8 +19,8 @@
   <coprocure-header class=""></coprocure-header>
   <main>
     <section class="search">
-      <img src="img/card-left.png" alt="" class="icon-bkgd left desktop" />
-      <img src="img/left-mobile.png" alt="" class="icon-bkgd left mobile"/>
+      <img data-src="img/card-left.png" alt="" class="icon-bkgd left desktop lazy-image" />
+      <img data-src="img/left-mobile.png" alt="" class="icon-bkgd left mobile lazy-image"/>
       <div class="middle-section">
         <div class="search-description">
           <h1 class="cd-headline rotate-1">
@@ -46,16 +46,16 @@
         <div class="partner-list">
           <p class="subtext subtext--smaller">Join a growing network of public agencies buying smarter with CoProcure</p>
           <div class="logos">
-            <img src="img/logo_kansascity.png" alt="" />
-            <img src="img/logo_washington_county_oregon.png" alt="" />
-            <img src="img/logo_stlouis_county.png" alt="" />
-            <img src="img/logo_multnomah_county.png" alt="" />
-            <img src="img/logo_kcrpc.png" alt="" />
+            <img class="lazy-image" data-src="img/logo_kansascity.png" alt="" />
+            <img class="lazy-image" data-src="img/logo_washington_county_oregon.png" alt="" />
+            <img class="lazy-image" data-src="img/logo_stlouis_county.png" alt="" />
+            <img class="lazy-image" data-src="img/logo_multnomah_county.png" alt="" />
+            <img class="lazy-image" data-src="img/logo_kcrpc.png" alt="" />
           </div>
           </div>
         </div>
-        <img src="img/card-right.png" alt="" class="icon-bkgd right desktop"/>
-        <img src="img/right-mobile.png" alt="" class="icon-bkgd right mobile"/>
+        <img data-src="img/card-right.png" alt="" class="icon-bkgd right desktop lazy-image"/>
+        <img data-src="img/right-mobile.png" alt="" class="icon-bkgd right mobile lazy-image"/>
     </section>
         <section class="map white-back">
           <div class="map-section section-interior">
@@ -102,7 +102,7 @@
                 <div class="quote-text">CoProcure provides a great service to public procurement professionals and fills a void by having one "go to" place for cooperative contracts. Not only can I find competitively-awarded contracts from many
                   different sources to offer my agency, but I can also see what other agencies are doing. I am proud to share the cooperative contracts awarded by St. Louis County and look forward to my colleagues joining me on CoProcure.</div>
                 <div class="quote-attribution">
-                  <img src="img/headshot-renee.png" alt="Reneé Medlin Schumacher photo" />
+                  <img class="lazy-image" data-src="img/headshot-renee.png" alt="Reneé Medlin Schumacher photo" />
                   <span class="person-info">
                 <span class="testimonial-name">Rene&#0233; Medlin Schumacher</span>
                   <span>Director of Procurement</span>
@@ -116,7 +116,7 @@
                 <div class="quote-graphic"></div>
                 <div class="quote-text">CoProcure helped us identify and compare relevant contracts. We used the best one to purchase a tool that helps us promote diversity in government contracting.</div>
                 <div class="quote-attribution">
-                  <img src="img/headshot-lee.png" alt="Lee Fleming photo" />
+                  <img class="lazy-image" data-src="img/headshot-lee.png" alt="Lee Fleming photo" />
                   <span class="person-info">
                 <span class="testimonial-name">Lee Fleming</span>
                   <span>Supplier Diversity Officer</span>
@@ -130,7 +130,7 @@
                 <div class="quote-graphic"></div>
                 <div class="quote-text">Recently, when looking for a cooperative contract for large liquid storage tanks, I came up empty handed. CoProcure found a useable contract. Thank you for saving us time and money!</div>
                 <div class="quote-attribution">
-                  <img src="img/headshot-mary.png" alt="Mary Jamieson photo" />
+                  <img class="lazy-image" data-src="img/headshot-mary.png" alt="Mary Jamieson photo" />
                   <span class="person-info">
                 <span class="testimonial-name">Mary Jamieson</span>
                   <span>Buyer</span>
@@ -143,7 +143,7 @@
         </section>
         <section class="about-us white-back">
           <div class="section-interior">
-            <img src="img/servants.jpg" alt="Picture of CoProcure Team" />
+            <img data-src="img/servants.jpg" class="lazy-image" alt="Picture of CoProcure Team" />
             <div class="company-blurb">
               <h3>We're built by public servants, <span class="dark-emphasis">for public servants.</span></h3>
               <p class="subtext subtext--medium">Our company is made up of former public servants and technology professionals working to improve public procurement. We're building our products in close collaboration with public servants because we
@@ -155,11 +155,11 @@
         <section class="investors grey-back">
           <div class="section-interior">
             <h5 class="font--lower">Our Investors</h5>
-            <a href="https://www.leadoutcapital.com/"><img src="img/investors/leadout-logo.png" alt="Leadout Capital logo" />
+            <a href="https://www.leadoutcapital.com/"><img class="lazy-image" data-src="img/investors/leadout-logo.png" alt="Leadout Capital logo" />
             </a>
-            <a href="https://neo.com/index.aspx"><img src="img/investors/neo-logo.png" alt="Neo Capital logo" />
+            <a href="https://neo.com/index.aspx"><img class="lazy-image" data-src="img/investors/neo-logo.png" alt="Neo Capital logo" />
               </a>
-            <a href="https://acceleprise.vc/"><img src="img/investors/acceleprise-logo.png" alt="Acceleprise Capital logo" />
+            <a href="https://acceleprise.vc/"><img class="lazy-image" data-src="img/investors/acceleprise-logo.png" alt="Acceleprise Capital logo" />
               </a>
       </div>
         </section>
@@ -172,17 +172,14 @@
 
 
   </main>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async defer src="dist/macro-carousel-min.js"></script>
   <script async defer src="js/get-posts.js"></script>
   <script async defer src="js/animations.js"></script>
 
-  <script type="module" async defer src="js/components/header/index.js"></script>
-  <script type="module" async defer src="js/components/footer/index.js"></script>
-  <script type="module" async defer src="js/components/coprocure-search/index.js"></script>
-  <script type="module" async defer src="js/components/coprocure-contract/index.js"></script>
+  <script async defer type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>.js"></script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121612479-1"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=UA-121612479-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 

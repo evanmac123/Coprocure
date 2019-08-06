@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  mode: 'production',
   entry: { 
     main: './src/index-v2.js'
   },
@@ -14,24 +13,13 @@ module.exports = {
     rules: [
       {
         test: /\.svg$/,
-        loader: "svg-inline-loader"
-      },
-      {
-        test: /\.css$/,
-        use: [
-            MiniCssExtractPlugin.loader,
-            { loader: 'css-loader', options: { url: false, sourceMap: true } }
-        ],
+        loader: "file-loader",
+        options: {}
       },
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: "style-loader", // creates style nodes from JS strings
-            options: {
-              sourceMap: false
-            }
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader", // translates CSS into CommonJS
             options: {
@@ -66,6 +54,18 @@ module.exports = {
       hash: true,
       template: './src/contracts.html',
       filename: '../contracts.html'
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/about.html',
+      filename: '../about.html'
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/careers.html',
+      filename: '../careers.html'
     }),
     new MiniCssExtractPlugin({
      filename: "style.[contenthash].css"
