@@ -284,6 +284,10 @@ button:hover {
   background-color: #146798;
 }
 
+.warning {
+  color: #F44336;
+}
+
 .search-container {
   position: relative;
   display: flex;
@@ -303,7 +307,7 @@ button:hover {
 }
 
 .search-container input {
-  width: 500px;
+  width: 630px;
   height: 100%;
   text-indent: 50px;
   font-size: 14px;
