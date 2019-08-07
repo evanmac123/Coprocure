@@ -1,23 +1,42 @@
-let images = [...document.querySelectorAll('.lazy-image')]
+import { getPosts } from './get-posts.js';
 
-const interactSettings = {
-  root: document.querySelector('.center'),
-  rootMargin: '0px 0px 200px 0px'
-}
+export function lazyLoading() {
+  const interactSettings = {
+    root: document.querySelector('.center'),
+    rootMargin: '0px 0px 200px 0px'
+  }
 
-function onIntersection(imageEntites) {
-  imageEntites.forEach(image => {
-    if (image.isIntersecting) {
-      observer.unobserve(image.target)
-      image.target.src = image.target.dataset.src
-      image.target.onload = () => image.target.classList.add('loaded')
-    }
+  function onIntersectionImages(imageEntites) {
+    imageEntites.forEach(image => {
+      if (image.isIntersecting) {
+        observer.unobserve(image.target)
+        image.target.src = image.target.dataset.src
+        image.target.onload = () => image.target.classList.add('loaded')
+      }
+    })
+  }
+
+  let observer = new IntersectionObserver(onIntersectionImages, interactSettings)
+  let images = [...document.querySelectorAll('.lazy-image')]
+  images.forEach(image => {
+    observer.observe(image)
   })
+
+
+
+  function onIntersectionBlog(blogEntities) {
+    blogEntities.forEach(entity => {
+      if (entity.isIntersecting) {
+        observer.unobserve(entity.target);
+        getPosts();
+        // blogContainer.target.onload = () => blogContainer.target.classList.add('loaded')
+      }
+    })
+  }
+
+  let blogPostContainer = document.querySelector('.blog-carousel');
+  let blogObserver = new IntersectionObserver(onIntersectionBlog, interactSettings);
+  blogObserver.observe(blogPostContainer);
 }
 
-let observer = new IntersectionObserver(onIntersection, interactSettings)
-
-images.forEach(image => observer.observe(image))
-
-// future: disable when unsupported in IE?
-// can I use this to defer blog post loading too?
+lazyLoading();
