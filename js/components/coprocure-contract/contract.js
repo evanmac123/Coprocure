@@ -101,17 +101,17 @@ export function contractLayout(json) {
             <section class="author-details">
               <h4>Contract Creator</h3>
               <div class="author-content">
-              ${(contract.fields.buyer_lead_agency) ? `<div class="author-field">
-                <span class="field-name">Lead agency</span>
-                <span class="field-value">${contract.fields.buyer_lead_agency}</span>
-              </div>` : ''}
-              ${(contract.fields.buyer_lead_agency_state) ? `<div class="author-field">
-                <span class="field-name">Lead agency state</span>
-                <span class="field-value">${contract.fields.buyer_lead_agency_state}</span>
-              </div>` : ''}
-              <div class="author-field">
-                <span class="field-name">Purchasing cooperative/consortium</span>
-                <span class="field-value">${(contract.fields.cooperative_affiliation) ? contract.fields.cooperative_affiliation : 'N/A'}</span>
+                ${(contract.fields.buyer_lead_agency) ? `<div class="author-field">
+                  <span class="field-name">Lead agency</span>
+                  <span class="field-value">${contract.fields.buyer_lead_agency}</span>
+                </div>` : ''}
+                ${(contract.fields.buyer_lead_agency_state) ? `<div class="author-field">
+                  <span class="field-name">Lead agency state</span>
+                  <span class="field-value">${contract.fields.buyer_lead_agency_state}</span>
+                </div>` : ''}
+                <div class="author-field">
+                  <span class="field-name">Purchasing cooperative/consortium</span>
+                  <span class="field-value">${(contract.fields.cooperative_affiliation) ? contract.fields.cooperative_affiliation : 'N/A'}</span>
                 </div>
               </div>
             </section>

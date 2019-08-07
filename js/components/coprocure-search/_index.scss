@@ -71,58 +71,54 @@
   width: 88%;
 }
 
-.search-results a {
-  width: 100%;
-  height: 100;
-}
+.search-results {
+  a {
+    width: 100%;
+    height: 100;
+  }
+  p {
+    font-size: 14px;
+    color: #879EC0;
+    font-weight: 400;
+  }
+  .result-title {
+    max-width: 660px;
+    display: block;
+  }
+  .card-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #F2F6FF;
+    padding: 10px 24px;
+  }  
+  .result-expiration {
+    display: flex;
+    flex-flow: column;
 
-.search-results .result-title {
-  max-width: 660px;
-  display: block;
-}
+    .field-name {
+      font-size: 14px;
+      line-height: 15px;
+      color: #4F6481;
+    }
+    .field-value {
+      font-weight: 400;
+      color: #3ea8eb;
+    }
+  }
+  .field-name {
+    display: block;
+    margin: 3px 0;
+    word-break: break-all;
+  }
+  .parties {
+    display: flex;
+    margin: 10px 0 15px 0;
 
-.search-results .card-controls {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #F2F6FF;
-  padding: 10px 24px;
-}
-
-.search-results .result-expiration {
-  display: flex;
-  flex-flow: column;
-}
-
-.search-results .field-name {
-  display: block;
-  margin: 3px 0;
-}
-
-.search-results .result-expiration .field-name {
-  font-size: 14px;
-  line-height: 15px;
-  color: #4F6481;
-}
-
-.search-results .result-expiration .field-value {
-  font-weight: 400;
-  color: #3ea8eb;
-}
-
-.search-results .parties {
-  display: flex;
-  margin: 10px 0 15px 0;
-}
-
-.search-results .parties .author {
-  margin-right: 40px;
-}
-
-.search-results p {
-  font-size: 14px;
-  color: #879EC0;
-  font-weight: 400;
+    .author, .buyer {
+      margin-right: 40px;
+    }
+  } 
 }
 
 .remove-all {

@@ -123,6 +123,10 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
                     return output;
                     })()}
                 </div>` : ''}
+                <div class="cooperative-agency">
+                  <span class="field-name">Purchasing cooperative/consortium</span>
+                  <span class="field-value">${(item.fields.cooperative_affiliation) ? item.fields.cooperative_affiliation : 'N/A'}</span>
+                </div>
               </div>
               ${(function() {
                 let output = '';
