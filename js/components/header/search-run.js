@@ -37,7 +37,7 @@ export function search() {
     })
   }
   // if I am not on homepage now immediately show header search box
-  if(window.location.pathname.indexOf('contract.html') > 0) {
+  if(window.location.pathname.indexOf('contract.html') > 0 || window.location.pathname.indexOf('contracts.html') > 0) {
     document.querySelector('header .search-container').style.opacity = '1';
     headerSearchVisible = true;
   }
