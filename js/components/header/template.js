@@ -2,7 +2,7 @@ export function render() {
   return `  <header>
   <navigation>
       <a href="/" class="company-identifier">
-        <img src="/img/logo-svg.svg">
+        <img src="/img/logo-svg.svg" alt="CoProcure logo">
       </a>
 
       <form class="search-container">
