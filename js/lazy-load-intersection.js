@@ -36,7 +36,9 @@ export function lazyLoading() {
 
   let blogPostContainer = document.querySelector('.blog-carousel');
   let blogObserver = new IntersectionObserver(onIntersectionBlog, interactSettings);
-  blogObserver.observe(blogPostContainer);
+  if(blogPostContainer) {
+    blogObserver.observe(blogPostContainer);
+  }
 }
 
 lazyLoading();
