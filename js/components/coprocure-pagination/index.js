@@ -16,11 +16,17 @@ export default class CoProcurePagination extends HTMLElement {
   render() {
     let numPages = parseInt(Math.ceil(this.total / this.paginationIncrement));
     let pageSet = [];
-    for(let i = 1;i <= numPages; i++) {
-      if(i === 5) {
+    let startPage = 1;
+    if(this.current > 5) {
+      startPage = this.current - 2;
+      pageSet.push(1);
+      pageSet.push('...');
+    }
+    for(let i = startPage;i <= numPages; i++) {
+      if(i === startPage + 5) {
         pageSet.push('...');
       }
-      if(i < 5 || i === numPages) {
+      if(i < startPage + 5 || i === numPages) {
         pageSet.push(i);
       }
     }

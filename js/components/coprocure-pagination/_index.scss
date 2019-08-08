@@ -30,3 +30,14 @@ coprocure-pagination {
 .page-links .back {
   transform: rotateY(180deg)
 }
+
+@media (max-width: 410px) {
+  .page-links {
+    .back, .forward {
+      align-items: center;
+    }
+    a {
+      display: none;
+    }
+  }
+}
