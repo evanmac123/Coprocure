@@ -13,7 +13,7 @@ const headfulness = { // eslint-disable-line no-unused-vars
 }
 
 const opts = {
-  ...headfulness,
+  // ...headfulness,
   args: [ '--start-maximized', '--window-size=1920,1040']
 }
 
