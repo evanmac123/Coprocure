@@ -91,13 +91,19 @@ function handleNavigation(loc) {
   }
 
   if(loc.pathname.indexOf('/contract.html') > -1) {
-    // document.querySelector('coprocure-search').setAttribute('query','');
+    // handles popstate to contract detail page
     document.querySelector('coprocure-contract').setAttribute('contractId',loc.search.replace('?contractId=',''));
   }
   if(loc.pathname.indexOf('/contracts.html') > -1) {
+    // handles popstate to search results
+    window.location.reload();
+    // need to reload here because styles on contract detail page aren't compatible with animating up into search results (contract detail page specific application of position: relative to avoid positioning the details atop the footer)
+    /*
+    // this would repopulate the search content but we are just reloading instead to allow new contract link click to animate into place properly
     document.querySelector('coprocure-search').setAttribute('query',loc.search.replace('?query=',''));
     document.querySelector('coprocure-contract').setAttribute('contractId','');
     document.querySelector('coprocure-contract').innerHTML = '';
+    */
   }
 }
 
