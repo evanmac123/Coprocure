@@ -72,6 +72,8 @@ export function resultLayout(json, query, sort, expired, noncoop, states, buyers
         </div>
 
         <button class="filters-apply">Apply</button>
+
+        <p class="research-help">Not seeing what you are looking for? <a href="#contactanchor">Submit a research request</a> for extra help finding the contracts you need</p>
       </form>
 
     </div>

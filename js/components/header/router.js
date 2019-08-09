@@ -53,7 +53,8 @@ export const installRouter = (locationUpdatedCallback) => {
       anchor.getAttribute('rel') === 'external')
       return;
     const href = anchor.href;
-    if (!href || href.indexOf('mailto:') !== -1)
+    console.log(href.indexOf('#'))
+    if (!href || href.indexOf('mailto:') !== -1 || href.indexOf('#') !== -1)
       return;
     const location = window.location;
     const origin = location.origin || location.protocol + '//' + location.host;

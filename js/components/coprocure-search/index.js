@@ -143,6 +143,14 @@ export default class CoProcureSearch extends HTMLElement {
   renderResults(json) {
     this.innerHTML = resultLayout(json, this.query, this.sort, this.showExpired, this.showNonCoop, states, buyers, coops, this.states, this.buyers, this.coops);
     window.lastSearch = window.location.toString();
+
+    if(document.querySelector('a[href="#contactanchor"]')) {
+      document.querySelector('a[href="#contactanchor"]').addEventListener('click', function() {
+        console.log('hello there!')
+        document.querySelector('.message-info textarea[name="description"]').value = 'Please help with the following research request:'
+      })
+    }    
+
     let component = this;
     // listen for custom events on the contained pagination element
     document.querySelector('coprocure-pagination').addEventListener('navigation', function (e) {

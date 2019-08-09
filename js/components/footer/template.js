@@ -1,6 +1,7 @@
 export function render() {
   return `
   <section class="contact-us blue-back">
+    <a name="contactanchor"></a>
     <div class="section-interior">
       <h3>Questions or suggestions?</h3>
       <p class="subtext--medium">We would love to hear from you. Send us a message and we will get back to you as soon as we can.</p>

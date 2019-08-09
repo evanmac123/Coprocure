@@ -77,7 +77,7 @@ function hideHomePage() {
   }
 }
 
-function handleNavigation(loc) {
+function handleNavigation(loc, e) {
   let staticPages = ['/about.html','/careers.html'];
   staticPages.forEach( (path) => {
     if(loc.pathname.indexOf(path) > -1) {
@@ -96,7 +96,12 @@ function handleNavigation(loc) {
   }
   if(loc.pathname.indexOf('/contracts.html') > -1) {
     // handles popstate to search results
-    window.location.reload();
+    console.log('dude I was gonna reload!')
+    // a hash generates a popstate so we prevent reloads
+    // but you can get here naturally after putting the hash in the url, going somewhere else, then back
+    if(!loc.hash || document.querySelector('.contract-detail-page')) {
+      window.location.reload();
+    }
     // need to reload here because styles on contract detail page aren't compatible with animating up into search results (contract detail page specific application of position: relative to avoid positioning the details atop the footer)
     /*
     // this would repopulate the search content but we are just reloading instead to allow new contract link click to animate into place properly

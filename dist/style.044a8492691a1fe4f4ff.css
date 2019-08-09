@@ -1863,6 +1863,10 @@ select[name="buyer_lead_agency_state"] option, select[name="buyer_lead_agency"] 
   margin: 30px 0;
   width: 221px; }
 
+.research-help {
+  font-size: 14px;
+  line-height: 20px; }
+
 .overlay-background {
   display: none; }
 
@@ -2453,4 +2457,10 @@ coprocure-pagination {
 
 .page-links .back {
   transform: rotateY(180deg); }
+
+@media (max-width: 410px) {
+  .page-links .back, .page-links .forward {
+    align-items: center; }
+  .page-links a {
+    display: none; } }
 
