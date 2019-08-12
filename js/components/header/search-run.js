@@ -116,7 +116,11 @@ function handleNavigation(loc, e) {
     // we are on the search results page so we should reset contract detail component if needed
     let singlePageContract = document.querySelector('.contract-detail-page');
     if(singlePageContract) {
-      document.querySelector('.contract-detail-page').classList.remove('contract-detail-page')
+      singlePageContract.classList.remove('contract-detail-page')
+    }
+    let backgroundHider = document.querySelector('.background-hider');
+    if(backgroundHider) {
+      backgroundHider.style.display = 'none';
     }
     let contractId = document.querySelector('coprocure-contract').getAttribute('contractid');
     if(contractId && contractId != 'none') {
