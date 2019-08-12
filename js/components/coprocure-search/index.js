@@ -146,7 +146,6 @@ export default class CoProcureSearch extends HTMLElement {
 
     if(document.querySelector('a[href="#contactanchor"]')) {
       document.querySelector('a[href="#contactanchor"]').addEventListener('click', function() {
-        console.log('hello there!')
         document.querySelector('.message-info textarea[name="description"]').value = 'Please help with the following research request:'
       })
     }    

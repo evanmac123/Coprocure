@@ -1,4 +1,5 @@
 import { installRouter } from './router.js';
+import { getParams } from '../coprocure-contract/get-params.js';
 
 let isTicking;
 let headerSearchVisible = false;
@@ -104,19 +105,25 @@ function handleNavigation(loc, e) {
   }
   if(loc.pathname.indexOf('/contracts.html') > -1) {
     // handles popstate to search results
-    console.log('dude I was gonna reload!')
-    // a hash generates a popstate so we prevent reloads
-    // but you can get here naturally after putting the hash in the url, going somewhere else, then back
-    if(!loc.hash || document.querySelector('.contract-detail-page')) {
-      window.location.reload();
+    if(!loc.hash) {
+      // a hash generates a popstate and we use anchor links to go to contact us form so prevent search reloading here
+      let queryParams = getParams();
+      if(queryParams.query) {
+        document.querySelector('coprocure-search').setAttribute('query',loc.search.replace('?query=',''));
+      }
     }
-    // need to reload here because styles on contract detail page aren't compatible with animating up into search results (contract detail page specific application of position: relative to avoid positioning the details atop the footer)
-    /*
-    // this would repopulate the search content but we are just reloading instead to allow new contract link click to animate into place properly
-    document.querySelector('coprocure-search').setAttribute('query',loc.search.replace('?query=',''));
-    document.querySelector('coprocure-contract').setAttribute('contractId','');
-    document.querySelector('coprocure-contract').innerHTML = '';
-    */
+
+    // we are on the search results page so we should reset contract detail component if needed
+    let singlePageContract = document.querySelector('.contract-detail-page');
+    if(singlePageContract) {
+      document.querySelector('.contract-detail-page').classList.remove('contract-detail-page')
+    }
+    let contractId = document.querySelector('coprocure-contract').getAttribute('contractid');
+    if(contractId && contractId != 'none') {
+      document.querySelector('coprocure-contract').setAttribute('contractid','none')
+    }
+    // maybe I was on the homepage...
+    hideHomePage();
   }
 }
 
