@@ -121,6 +121,7 @@ function handleNavigation(loc, e) {
     let backgroundHider = document.querySelector('.background-hider');
     if(backgroundHider) {
       backgroundHider.style.display = 'none';
+      document.body.classList.remove('noscroll');
     }
     let contractId = document.querySelector('coprocure-contract').getAttribute('contractid');
     if(contractId && contractId != 'none') {
