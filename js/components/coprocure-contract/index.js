@@ -57,7 +57,7 @@ export default class CoProcureContract extends HTMLElement {
     contractElement.classList.add('get-big')
 
     setTimeout(function() {
-      if(document.querySelector('.background-hider') && window.location.pathname == '/contracts.html') {
+      if(document.querySelector('.background-hider') && document.querySelector('coprocure-search').getAttribute('query')) {
         document.querySelector('.background-hider').style.display = 'block';
         document.querySelector('body').classList.add('noscroll');
       }
