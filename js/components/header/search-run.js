@@ -55,9 +55,15 @@ function runSearch(event) {
   // reset contract detail element
   let singlePageContract = document.querySelector('.contract-detail-page');
   if(singlePageContract) {
-    document.querySelector('coprocure-contract').setAttribute('contractid','none')
     document.querySelector('.contract-detail-page').classList.remove('contract-detail-page')
   }
+  document.querySelector('coprocure-contract').setAttribute('contractid','none')
+
+  let backgroundHider = document.querySelector('.background-hider');
+  if(backgroundHider) {
+    backgroundHider.style.display = 'none';
+  }
+  document.body.classList.remove('noscroll');
 
   // change the url
   let searchUrl = `contracts.html?query=${searchVal}`
@@ -121,8 +127,8 @@ function handleNavigation(loc, e) {
     let backgroundHider = document.querySelector('.background-hider');
     if(backgroundHider) {
       backgroundHider.style.display = 'none';
-      document.body.classList.remove('noscroll');
     }
+    document.body.classList.remove('noscroll');
     let contractId = document.querySelector('coprocure-contract').getAttribute('contractid');
     if(contractId && contractId != 'none') {
       document.querySelector('coprocure-contract').setAttribute('contractid','none')

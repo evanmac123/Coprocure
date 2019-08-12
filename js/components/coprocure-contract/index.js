@@ -57,14 +57,18 @@ export default class CoProcureContract extends HTMLElement {
     contractElement.classList.add('get-big')
 
     setTimeout(function() {
-      document.querySelector('.background-hider').style.display = 'block';
-      document.querySelector('body').classList.add('noscroll');
+      if(document.querySelector('.background-hider') && window.location.pathname == '/contracts.html') {
+        document.querySelector('.background-hider').style.display = 'block';
+        document.querySelector('body').classList.add('noscroll');
+      }
     }, 300)
 
     document.querySelector('.close-overlay').addEventListener('click',function(event) {
       event.preventDefault();
       contractElement.classList.remove('get-big');
-      document.querySelector('.background-hider').style.display = 'none';
+      if(document.querySelector('.background-hider')) {
+        document.querySelector('.background-hider').style.display = 'none';
+      }
       document.querySelector('body').classList.remove('noscroll');
       window.history.pushState({}, '', this.href);
       setTimeout(function() {
