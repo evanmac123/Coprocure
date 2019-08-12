@@ -50,6 +50,14 @@ function runSearch(event) {
   // send the search query to our embedded web component
   hideHomePage();
   document.querySelector('coprocure-search').setAttribute('query',searchVal);
+
+  // reset contract detail element
+  let singlePageContract = document.querySelector('.contract-detail-page');
+  if(singlePageContract) {
+    document.querySelector('coprocure-contract').setAttribute('contractid','none')
+    document.querySelector('.contract-detail-page').classList.remove('contract-detail-page')
+  }
+
   // change the url
   let searchUrl = `contracts.html?query=${searchVal}`
   window.history.pushState({}, '', searchUrl);

@@ -13,7 +13,11 @@ export default class CoProcureContract extends HTMLElement {
     if(attr === 'contractid') {
       if(newValue) {
         this.contractId = newValue;
-        this.getContract();
+        if(this.contractId === 'none') {
+          this.innerHTML = '';
+        } else {
+          this.getContract();
+        }
       }
     }
   }

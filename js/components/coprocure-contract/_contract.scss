@@ -53,14 +53,16 @@
   min-height: 500px;
   max-width: 100vw;
 }
-.contract-detail-page .contract-detail.get-big {
-  position: relative;
-}
-.contract-detail-page .contract-card .control-bar {
-  display: none;
-}
-.contract-detail-page .contract-card {
-  padding-top: 0;
+.contract-detail-page {
+  .contract-detail.get-big {
+    position: relative;
+  }
+  .contract-card .control-bar {
+    display: none;
+  }
+  .contract-card {
+    padding-top: 0;
+  }
 }
 
 .contract-details {
