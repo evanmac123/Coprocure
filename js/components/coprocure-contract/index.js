@@ -56,14 +56,21 @@ export default class CoProcureContract extends HTMLElement {
     window.scroll(0,0);
     contractElement.classList.add('get-big')
 
+    setTimeout(function() {
+      document.querySelector('.background-hider').style.display = 'block';
+      document.querySelector('body').classList.add('noscroll');
+    }, 300)
+
     document.querySelector('.close-overlay').addEventListener('click',function(event) {
       event.preventDefault();
       contractElement.classList.remove('get-big');
+      document.querySelector('.background-hider').style.display = 'none';
+      document.querySelector('body').classList.remove('noscroll');
       window.history.pushState({}, '', this.href);
       setTimeout(function() {
         document.querySelector('coprocure-contract').setAttribute('contractid',''); // blanking this will not trigger attributeChangeCallback, which seems weird
         document.querySelector('coprocure-contract').innerHTML = '';
-      }, 300)
+        }, 300)
     })
 
     document.querySelector('.contact-supplier').addEventListener('click',function(event) {

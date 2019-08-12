@@ -47,15 +47,19 @@
   transition-timing-function: ease-in-out;
   width: 100vw;
   height: auto;
+  z-index: 7;
 }
 .contract-detail.get-big {
   top: 0%;
   min-height: 500px;
+  height: 100vh;
+  overflow: scroll;
   max-width: 100vw;
 }
 .contract-detail-page {
   .contract-detail.get-big {
     position: relative;
+    height: auto;
   }
   .contract-card .control-bar {
     display: none;
@@ -318,7 +322,7 @@ coprocure-search .modal-backdrop {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 5;
+  z-index: 8;
   background-color: #000;
   opacity: 0.5;
 }
@@ -329,7 +333,7 @@ coprocure-search .modal {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 6;
+  z-index: 9;
   overflow: hidden;
   outline: 0;
 }
@@ -452,6 +456,9 @@ coprocure-search .modal input[type="text"] {
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.75px;
+  p {
+    color: #fff;
+  }
 }
 
 .modal .modal-business-section {

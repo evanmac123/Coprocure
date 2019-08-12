@@ -236,6 +236,17 @@ body.noscroll {
   overflow: hidden;
 }
 
+.background-hider {
+  width: 100vw;
+  height: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 3;
+  display: none;
+}
+
 @media (max-width: 768px) {
   .search-results-container, .search-results {
     width: 100vw;
