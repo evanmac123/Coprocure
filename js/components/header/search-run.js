@@ -50,6 +50,7 @@ function runSearch(event) {
   let searchVal = event.target.closest('form').querySelector('input[name="coprocure_query"]').value;
   // send the search query to our embedded web component
   hideHomePage();
+  document.querySelector('coprocure-search').setAttribute('page','1');
   document.querySelector('coprocure-search').setAttribute('query',searchVal);
 
   // reset contract detail element
