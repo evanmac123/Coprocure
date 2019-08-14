@@ -92,7 +92,7 @@ function hideHomePage() {
 }
 
 function handleNavigation(loc, e) {
-  let staticPages = ['/about.html','/careers.html'];
+  let staticPages = ['/about.html','/careers.html','/add.html'];
   staticPages.forEach( (path) => {
     if(loc.pathname.indexOf(path) > -1) {
       window.location = loc.href;
