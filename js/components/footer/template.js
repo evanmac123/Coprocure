@@ -55,9 +55,9 @@ export function render() {
         <div class="section-interior down-low">
           <span class="copyright">&#0169; 2019 by CoProcure. All rights reserved.</span>
           <div class="bottom-links">
-            <a href="https://www.coprocure.us/add.html">Share Your Contracts</href>
-            <a href="https://www.coprocure.us/files/CoProcure-privacy-policy.pdf" target="_new">Privacy Policy</a>
-            <a href="https://www.coprocure.us/files/CoProcure-terms-of-use.pdf" target="_new">Terms of Use</a>
+            <!--<a href="/add.html">Share Your Contracts</a>-->
+            <a href="/files/CoProcure-privacy-policy.pdf" target="_new">Privacy Policy</a>
+            <a href="/files/CoProcure-terms-of-use.pdf" target="_new">Terms of Use</a>
           </div>
         </div>
       </div>

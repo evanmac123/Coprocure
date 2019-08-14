@@ -95,6 +95,7 @@ function handleNavigation(loc, e) {
   let staticPages = ['/about.html','/careers.html','/add.html'];
   staticPages.forEach( (path) => {
     if(loc.pathname.indexOf(path) > -1) {
+      console.log('dood, going to static page')
       window.location = loc.href;
     }
   })
