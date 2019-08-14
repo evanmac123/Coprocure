@@ -150,7 +150,7 @@ export function showShareModal(contractId) {
             <span class="field-description">Share by link:</span>
             <span class="success-label">Success! Link copied to clipboard.</span>
           </span>
-          <input type="text" name="link" value="https://www.coprocure.us/search/record.html?id=${contractId}">
+          <input type="text" name="link" value="https://www.coprocure.us/contract.html?contractId=${contractId}">
         </label>
       </form>`,
     close: false,

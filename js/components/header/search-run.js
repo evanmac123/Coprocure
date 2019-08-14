@@ -81,8 +81,6 @@ function hideHomePage() {
     document.querySelector('section.about-us').remove();
     document.querySelector('section.investors').remove();
     document.querySelector('section.blog-carousel').remove();
-    document.querySelector('section.contact-us').remove();
-    document.querySelector('footer').remove();
     // show header search
     document.querySelector('header .search-container').style.opacity = '1';
   }

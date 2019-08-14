@@ -29,19 +29,16 @@ export default class CoProcureSearch extends HTMLElement {
         this.query = newValue;
         this.setAttribute('page','');
         this.setAttribute('sort','');
-        this.search();
       }
     }
     if(attr === 'page') {
       if(newValue) {
         this.page = newValue;
-        this.search();
       }
     }
     if(attr === 'sort') {
       if(newValue) {
         this.sort = newValue;
-        this.search();
       }
     }
     if(attr === 'states') {
@@ -60,8 +57,8 @@ export default class CoProcureSearch extends HTMLElement {
       }
     }
     if(attr === 'search') {
-      this.search()
     }
+    this.search();
   }
 
   connectedCallback() {
@@ -89,13 +86,15 @@ export default class CoProcureSearch extends HTMLElement {
     let url = `https://1lnhd57e8f.execute-api.us-west-1.amazonaws.com/prod?q.parser=structured&size=${numResults}&start=${start}`;
 
     // have to split the query into separate terms if it is not enclosed in quotes or the structured filters will fail
-    if(this.query.indexOf('"')<0) {
-      url += `&q=(and `;
-      decodeURIComponent(this.query).split(' ').forEach( (term) => {
-        url += ` '${term}'`;
-      })
-    } else {
-      url += `&q=(and '${this.query}' `;
+    if(this.query) {
+      if(this.query.indexOf('"')<0) {
+        url += `&q=(and `;
+        decodeURIComponent(this.query).split(' ').forEach( (term) => {
+          url += ` '${term}'`;
+        })
+      } else {
+        url += `&q=(and '${this.query}' `;
+      }
     }
     if(this.states && this.states.length > 0) {
       url += `(or buyer_lead_agency_state:`;
@@ -130,14 +129,17 @@ export default class CoProcureSearch extends HTMLElement {
       url += `&fq=${encodeURIComponent(expParam)}`;
     }
     let component = this;
-    fetch(url)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-      component.renderResults(json);
-      trackEvent('search', 'query', component.query);
-    });
+    if(this.query) {
+      fetch(url)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(json) {
+        console.log(json)
+        component.renderResults(json);
+        trackEvent('search', 'query', component.query);
+      });
+    }
   }
 
   renderResults(json) {
